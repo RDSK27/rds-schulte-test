@@ -365,11 +365,6 @@ if('serviceWorker' in navigator){
       <button data-v="ran">Random</button>
     </div>
 
-    <div class="segment" id="segLimOpt" style="display:none">
-      <button class="sel" data-v="A">A &middot; 5 s por n&#250;mero</button>
-      <button data-v="B">B &middot; 1 min + 2 s</button>
-    </div>
-
     <div class="segment" id="segEnsayos">
       <button data-v="3x3">3x3</button>
       <button data-v="4x4">4x4</button>
@@ -386,7 +381,7 @@ if('serviceWorker' in navigator){
           <button class="start-btn rank-btn" ontouchend="event.stopPropagation();" onclick="showRanking()" aria-label="Ranking"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="#333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 21h8M12 13.5v7.5M7 4h10v5a5 5 0 0 1-10 0V4z"/><path d="M7 4H4v2a3 3 0 0 0 3 3M17 4h3v2a3 3 0 0 1-3 3"/></svg></button>
         </div>
       </div>
-  <div class="app-ver" style="margin-top:6px;padding-top:0;">v1</div>
+  <div class="app-ver" style="margin-top:6px;padding-top:0;">v2</div>
   <div id="user-name-bar" style="margin-top:8px;">
     <div style="display:flex;width:200px;gap:0;margin:0 auto;">
       <input id="user-ini-input" type="text" maxlength="3" placeholder="INI"
@@ -539,10 +534,6 @@ if('serviceWorker' in navigator){
         <button class="rank-tab" data-v="sec">Secuencia</button>
         <button class="rank-tab" data-v="ran">Random</button>
       </div>
-      <div class="rank-tabs" id="segLimR" style="margin-top:8px;display:none">
-        <button class="rank-tab" data-v="A">A &middot; 5 s</button>
-        <button class="rank-tab" data-v="B">B &middot; 1 min + 2 s</button>
-      </div>
       <div class="rank-tabs" id="segEnsR" style="margin-top:8px;">
         <button class="rank-tab" data-v="3x3">3x3</button>
         <button class="rank-tab" data-v="4x4">4x4</button>
@@ -622,8 +613,8 @@ var S={mode:'normal',stim:'sec',total:'5x5',cols:5,n:25,name:'RDS',sport:'',time
    Modos (fila 1): Normal = el numero encontrado desaparece. Extremo = se queda tal cual (solo parpadea). Limite = como Extremo en 10x10 y,
    con cada acierto, TODOS los numeros cambian de sitio.
    Orden (fila 2): Secuencia = 1, 2, 3...; Random = la banda pide un numero cualquiera de los que quedan (solo Normal y Extremo).
-   En Limite la fila 2 elige el TIEMPO (para probar y decidir): A = SCH_LIM_A_MS (5 s) por numero; B = SCH_LIM_B_START (60 s) de salida
-   y SCH_LIM_B_BONUS (2 s) mas por cada numero encontrado. Se pierde al agotarse. Al llegar al 100 la rejilla se reinicia (1..100 en sitios
+   Limite (v2, decidido por Roberto 25-nov-2026): opcion B = SCH_LIM_B_START (60 s) de salida y SCH_LIM_B_BONUS (2 s) mas por cada
+   numero encontrado (stim 'B'; la fila 2 se oculta). La opcion A (SCH_LIM_A_MS, 5 s por numero) queda en el codigo pero no se ofrece. Se pierde al agotarse. Al llegar al 100 la rejilla se reinicia (1..100 en sitios
    nuevos) y se sigue contando. Resultado de Limite = numeros encontrados (desempate: media).
    Metrica (Normal/Extremo): tiempo medio en encontrar el siguiente numero (el 1.o se cuenta desde que aparece la rejilla). Grafica con el
    tiempo de cada numero: los picos son los numeros que costaron.
@@ -640,7 +631,7 @@ function schSizeCols(t){ return t==='3x3'?3:(t==='4x4'?4:(t==='10x10'?10:5)); }
 function startGame(){ if(isX2()){ startX2(); return; }
   S.mode=selVal('segModo')||'normal';
   var lim=(S.mode==='limite');
-  S.stim=lim ? (selVal('segLimOpt')||'A') : (selVal('segEstimulo')||'sec');
+  S.stim=lim ? 'B' : (selVal('segEstimulo')||'sec');   /* v2: Limite solo con la opcion B (Roberto, 25-nov-2026) */
   S.total=lim ? '10x10' : (selVal('segEnsayos')||'5x5');
   S.cols=schSizeCols(S.total); S.n=S.cols*S.cols;
   try{ warmRank(S.mode,S.stim,S.total); }catch(e){}
@@ -1030,9 +1021,9 @@ function renderRankList(list, el, m, latest){
 
 function rankFromSel(){
   var mode=selVal('segModoR')||'normal', lim=(mode==='limite');
-  $('segEstR').style.display=lim?'none':''; $('segLimR').style.display=lim?'':'none';
+  $('segEstR').style.display=lim?'none':'';
   $('segEnsR').classList.toggle('off', lim);
-  renderRank(mode, lim?(selVal('segLimR')||'A'):(selVal('segEstR')||'sec'), lim?'10x10':(selVal('segEnsR')||'5x5'));
+  renderRank(mode, lim?'B':(selVal('segEstR')||'sec'), lim?'10x10':(selVal('segEnsR')||'5x5'));
 }
 function segRank(id){
   var box=$(id);
@@ -1070,7 +1061,7 @@ function showRanking(){
   var btn=document.getElementById('btn-hide-repeated');
   if(btn) btn.textContent='Mostrar repetidos';
   updateRankSaveBtn();
-  setSeg('segModoR',selVal('segModo')||'normal'); setSeg('segEstR',selVal('segEstimulo')||'sec'); setSeg('segLimR',selVal('segLimOpt')||'A'); setSeg('segEnsR',selVal('segEnsayos')||'5x5');
+  setSeg('segModoR',selVal('segModo')||'normal'); setSeg('segEstR',selVal('segEstimulo')||'sec'); setSeg('segEnsR',selVal('segEnsayos')||'5x5');
   rankFromSel(); show('ranking');
 }
 function capName(rows,max){
@@ -1385,11 +1376,11 @@ function xStop(){
 
 function goHome(){ xClear(); X.on=false; X.state=''; if(S.countIv){clearInterval(S.countIv);S.countIv=0;} if(S.coverTo){clearTimeout(S.coverTo);S.coverTo=0;} if(S.blankTo){clearTimeout(S.blankTo);S.blankTo=0;} $('sqCount').textContent=''; S.running=false; S.lock=true; schStopLoop(); show('home'); }
 
-seg('segModo'); seg('segEstimulo'); seg('segLimOpt'); seg('segEnsayos');
-function applyModeUI(){ var lim=selVal('segModo')==='limite', x2=isX2(); $('segEstimulo').style.display=lim?'none':''; $('segLimOpt').style.display=lim?'':'none'; var se=$('segEnsayos'), forced=lim?'10x10':(x2?'5x5':null); if(forced){ if(!se.classList.contains('off')) S.sizeSel=selVal('segEnsayos'); setSeg('segEnsayos',forced); } else if(S.sizeSel){ setSeg('segEnsayos',S.sizeSel); S.sizeSel=null; } se.classList.toggle('off', !!forced); }   /* Limite: fila 2 = tiempo A/B y siempre 10x10; x2: siempre 5x5 (se ve marcado y atenuado; al salir vuelve lo elegido) */
+seg('segModo'); seg('segEstimulo'); seg('segEnsayos');
+function applyModeUI(){ var lim=selVal('segModo')==='limite', x2=isX2(); $('segEstimulo').style.display=lim?'none':''; var se=$('segEnsayos'), forced=lim?'10x10':(x2?'5x5':null); if(forced){ if(!se.classList.contains('off')) S.sizeSel=selVal('segEnsayos'); setSeg('segEnsayos',forced); } else if(S.sizeSel){ setSeg('segEnsayos',S.sizeSel); S.sizeSel=null; } se.classList.toggle('off', !!forced); }   /* Limite: sin fila 2 (tiempo B fijo) y siempre 10x10; x2: siempre 5x5 (se ve marcado y atenuado; al salir vuelve lo elegido) */
 $('segModo').addEventListener('click', applyModeUI);
 applyModeUI();
-segRank('segModoR'); segRank('segEstR'); segRank('segLimR'); segRank('segEnsR');
+segRank('segModoR'); segRank('segEstR'); segRank('segEnsR');
 $('btnRank2').addEventListener('click', showRanking);
 $('btnGuardar').addEventListener('click', function(){
   if(S.saved) return;
