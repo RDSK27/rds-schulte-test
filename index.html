@@ -271,8 +271,9 @@ if('serviceWorker' in navigator){
   #mpGrid{margin:0 auto;transition:opacity .15s;}   /* centrada: el movil puede estar lejos */
   .mp-off #mpGrid{opacity:.3;}
   .mp-off .sch-target{background:#8a8a8a;border-top-color:#aaa;}
-  .mp-on #mpGrid{border-color:#b03020;box-shadow:0 0 0 4px #b03020;}
-  .mp-play.mp-on{box-shadow:inset 0 0 0 10px #b03020;}   /* estacion activa: marco rojo en toda la pantalla, visible de lejos */
+  .mp-on #mpGrid{border-color:var(--mpc,#b03020);box-shadow:0 0 0 4px var(--mpc,#b03020);}
+  .mp-on .sch-target{border-top-color:var(--mpc,#b03020);}
+  .mp-play.mp-on{box-shadow:inset 0 0 0 10px var(--mpc,#b03020);}   /* estacion activa: marco rojo en toda la pantalla, visible de lejos */
   .mp-dir .mp-gw,.mp-dir .sch-target{display:none;}
   #mpDirBig{display:none;}
   .mp-dir #mpDirBig{display:flex;flex:1;flex-direction:column;align-items:center;justify-content:center;gap:6px;font-family:Arial,sans-serif;color:#111;}
@@ -283,6 +284,29 @@ if('serviceWorker' in navigator){
   .mp-tab{border-collapse:collapse;font:700 14px Arial,sans-serif;color:#111;}
   .mp-tab th,.mp-tab td{padding:6px 10px;border-bottom:1px solid #ddd;text-align:center;}
   .mp-tab th{font-size:12px;color:#777;text-transform:uppercase;letter-spacing:.06em;}
+  /* Multi grupos (prototipo 2026-11-27): equipos Rojo/Azul/Verde/Blanco */
+  .mp-join{display:flex;gap:8px;justify-content:center;margin-top:14px;}
+  .mp-join #mpCode{margin-top:0;}
+  #mpIni{width:90px;font:900 26px Arial,sans-serif;text-align:center;letter-spacing:.1em;padding:8px 4px;border:3px solid #111;border-radius:6px;box-sizing:border-box;}
+  .mpg-team{width:100%;max-width:340px;border:2px solid #111;border-radius:8px;overflow:hidden;}
+  .mpg-th{display:flex;justify-content:space-between;align-items:center;padding:6px 12px;font:900 15px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;}
+  .mpg-th b{font-size:28px;letter-spacing:.14em;}
+  .mpg-ms{display:flex;flex-wrap:wrap;gap:6px;padding:8px;background:#fff;min-height:22px;}
+  .mpg-m{font:900 15px Arial,sans-serif;border:2px solid #111;border-radius:4px;padding:5px 9px;background:#f4f4f2;color:#111;}
+  .mpg-none{font:600 13px Arial,sans-serif;color:#888;}
+  #mpLobbyList{display:flex;flex-direction:column;align-items:center;gap:8px;width:100%;}
+  .mpg-chip{display:inline-block;border:2px solid #111;border-radius:4px;padding:1px 6px;font:900 12px Arial,sans-serif;letter-spacing:.05em;white-space:nowrap;}
+  .mpg-race{width:100%;max-width:340px;display:flex;flex-direction:column;gap:16px;}
+  .mpg-row{display:flex;align-items:center;gap:8px;}
+  .mpg-row.out{opacity:.45;}
+  .mpg-row .mpg-chip{min-width:62px;text-align:center;font-size:14px;}
+  .mpg-bar{flex:1;height:26px;border:2px solid #111;border-radius:4px;background:#eee;overflow:hidden;}
+  .mpg-bar i{display:block;height:100%;}
+  .mpg-n{font:900 24px Arial,sans-serif;min-width:1.8em;text-align:right;color:#111;}
+  .mpg-cl{display:flex;flex-direction:column;gap:6px;margin-top:10px;text-align:left;}
+  .mpg-cr{font:700 14px Arial,sans-serif;color:#111;}
+  .mpg-x{color:#b03020;}
+  #mpProg .mpg-chip{font-size:11px;padding:0 4px;}
   .sq-count{position:absolute;left:0;right:0;top:50%;margin-top:-70px;text-align:center;color:var(--rojo);font-weight:900;font-size:130px;line-height:1;-webkit-text-stroke:4px #fff;paint-order:stroke fill;pointer-events:none;z-index:5;}   /* rojo con borde blanco: se ve sobre blanco y sobre negro */
   .segment button[data-soon],.rank-tab[data-soon]{opacity:.38;cursor:default;}
   .segment.off,.rank-tabs.off{opacity:.35;pointer-events:none;}   /* Limite: 10/25/50 no aplica (el tamano 3x3/4x4 si) */
@@ -426,7 +450,7 @@ if('serviceWorker' in navigator){
           <button class="start-btn rank-btn" ontouchend="event.stopPropagation();" onclick="showRanking()" aria-label="Ranking"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="#333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 21h8M12 13.5v7.5M7 4h10v5a5 5 0 0 1-10 0V4z"/><path d="M7 4H4v2a3 3 0 0 0 3 3M17 4h3v2a3 3 0 0 1-3 3"/></svg></button>
         </div>
       </div>
-  <div class="app-ver" style="margin-top:6px;padding-top:0;">v6</div>
+  <div class="app-ver" style="margin-top:6px;padding-top:0;">v7</div>
   <div id="user-name-bar" style="margin-top:8px;">
     <div style="display:flex;width:200px;gap:0;margin:0 auto;">
       <input id="user-ini-input" type="text" maxlength="3" placeholder="INI"
@@ -521,21 +545,33 @@ if('serviceWorker' in navigator){
   <section id="mp" class="screen">
     <div class="mp-v" id="mpV_menu">
       <div class="mp-h">Multi &middot; varios m&oacute;viles</div>
-      <div class="mp-p">Prototipo: un deportista y varios m&oacute;viles (estaciones). Todos necesitan conexi&oacute;n.</div>
+      <div class="mp-p">Prototipo. Todos los m&oacute;viles necesitan conexi&oacute;n.</div>
+      <div class="segment mp-seg" id="mpKind">
+        <button class="sel" data-v="ind">Individual</button>
+        <button data-v="grp">Grupos</button>
+      </div>
+      <div class="segment mp-seg" id="mpNT" style="display:none">
+        <button class="sel" data-v="2">2 equipos</button>
+        <button data-v="3">3</button>
+        <button data-v="4">4</button>
+      </div>
       <div class="segment mp-seg" id="mpCoachRole">
-        <button class="sel" data-v="est">Mi m&oacute;vil es estaci&oacute;n</button>
+        <button class="sel" data-v="est">Mi m&oacute;vil participa</button>
         <button data-v="dir">Solo dirijo</button>
       </div>
       <button class="mp-btn red" type="button" onclick="mpCreate()">Crear sala (entrenador)</button>
       <div class="mp-err" id="mpCreateErr"></div>
-      <input id="mpCode" type="text" inputmode="numeric" maxlength="4" placeholder="0000" autocomplete="off">
-      <button class="mp-btn" type="button" onclick="mpJoin()">Unirme como estaci&oacute;n</button>
+      <div class="mp-join">
+        <input id="mpCode" type="text" inputmode="numeric" maxlength="4" placeholder="0000" autocomplete="off">
+        <input id="mpIni" type="text" maxlength="3" placeholder="INI" autocomplete="off" oninput="this.value=this.value.toUpperCase().replace(/[^A-Z]/g,'')">
+      </div>
+      <button class="mp-btn" type="button" onclick="mpJoin()">Unirme con el c&oacute;digo</button>
       <div class="mp-err" id="mpJoinErr"></div>
       <div class="mp-err" id="mpMenuMsg"></div>
       <button class="mp-btn lite" type="button" onclick="mpExit()">&#8592; Inicio</button>
     </div>
     <div class="mp-v" id="mpV_lobby">
-      <div class="mp-p">C&oacute;digo de la sala</div>
+      <div class="mp-p" id="mpLobbyCodeLbl">C&oacute;digo de la sala</div>
       <div class="mp-code" id="mpLobbyCode"></div>
       <div class="mp-h" id="mpLobbyHead"></div>
       <div id="mpLobbyList"></div>
@@ -546,7 +582,7 @@ if('serviceWorker' in navigator){
     <div class="mp-v" id="mpV_play">
       <div class="mp-play" id="mpPlay">
         <div class="mp-top"><span id="mpWho"></span><span id="mpProg"></span><span id="mpTime">0.0 s</span><button id="mpStop" type="button" onclick="mpStopGame()" aria-label="Parar">&#10005;</button></div>
-        <div class="mp-gw"><div class="sch-target"><span>Busca</span><b id="mpT">--</b></div><div class="grid" id="mpGrid"></div></div>
+        <div class="mp-gw"><div class="sch-target"><span id="mpBandLbl">Busca</span><b id="mpT">--</b></div><div class="grid" id="mpGrid"></div></div>
         <div id="mpDirBig"></div>
         <div id="mpCd"></div>
       </div>
@@ -1495,7 +1531,8 @@ function mpShow(v){ MP.view=v; var vs=$('mp').querySelectorAll('.mp-v'), i; for(
 function mpMsg(id,t){ $(id).textContent=t||''; }
 function mpEnter(){
   if(!mpTr()){ alert('Sin conexión con Firebase: el modo Multi necesita internet.'); return; }
-  MP.sid=mpSid(); show('mp'); mpShow('menu');
+  MP.sid=mpSid(); show('mp'); mpShow('menu'); mpMenuUI();
+  if(!$('mpIni').value) $('mpIni').value=($('user-ini-input').value||'').toUpperCase().replace(/[^A-Z]/g,'').slice(0,3);
   try{ if(navigator.wakeLock) navigator.wakeLock.request('screen').then(function(w){ MP.wl=w; }).catch(function(){}); }catch(e){}
 }
 function mpLeave(){
@@ -1509,10 +1546,11 @@ function mpExit(){   /* boton Salir: la estacion se quita de la sala si aun no h
   mpLeave(); goHome();
   if(!c) return;
   if(coach) tr.del(c).catch(function(){});
-  else tr.tx(c,function(d){ if(!d || d.state!=='lobby' || !d.st || !d.st[sid]) return null; var u={}; u['st.'+sid]='__DEL__'; return u; }).catch(function(){});
+  else tr.tx(c,function(d){ if(!d || d.state!=='lobby') return null; var u={}; if(d.kind==='grp'){ if(!d.pl || !d.pl[sid]) return null; u['pl.'+sid]='__DEL__'; } else { if(!d.st || !d.st[sid]) return null; u['st.'+sid]='__DEL__'; } return u; }).catch(function(){});
 }
 /* ---- crear sala (entrenador) ---- */
 function mpCreate(){
+  if(selVal('mpKind')==='grp') return mpgCreate();
   if(!rdsIniOk()){ goHome(); return; }   /* INI y deporte del deportista: se ponen en inicio */
   var est=selVal('mpCoachRole')!=='dir', ini=($('user-ini-input').value||'').toUpperCase().replace(/[^A-Z]/g,'').slice(0,3), sport=($('user-sport-select')&&$('user-sport-select').value)||'';
   var code=String(1000+Math.floor(Math.random()*9000)), st={};
@@ -1535,7 +1573,7 @@ function mpJoin(){
     if(d.state!=='lobby') throw new Error('empezada');
     var u={}; u['st.'+sid]={n:(d.nSt||0)+1}; u.nSt=(d.nSt||0)+1; return u;
   }).then(function(){ mpMsg('mpJoinErr',''); MP.role='st'; mpAttach(code); })
-    .catch(function(e){ var m=e&&e.message; mpMsg('mpJoinErr', m==='nada'?'No existe ninguna sala con ese código.':(m==='empezada'?'Esa sala ya ha empezado.':'No se pudo entrar ('+((e&&e.code)||m||'error')+').')); });
+    .catch(function(e){ var m=e&&e.message; if(m==='nada') return mpgJoin(code); mpMsg('mpJoinErr', m==='nada'?'No existe ninguna sala con ese código.':(m==='empezada'?'Esa sala ya ha empezado.':'No se pudo entrar ('+((e&&e.code)||m||'error')+').')); });
 }
 function mpAttach(code){ MP.code=code; MP.on=true; MP.lastRound=-1; if(MP.unsub) MP.unsub(); MP.unsub=mpTr().watch(code, mpOnRoom); }
 function mpMyN(d){ return d && d.st && d.st[MP.sid] ? d.st[MP.sid].n : 0; }
@@ -1545,6 +1583,7 @@ function mpOnRoom(d){
   if(!MP.on) return;
   MP.d=d;
   if(!d){ mpLeave(); show('mp'); mpShow('menu'); mpMsg('mpMenuMsg','La sala se ha cerrado.'); return; }
+  if(d.kind==='grp') return mpgOnRoom(d);
   if(MP.role==='st' && !mpIsStation(d)){ mpLeave(); show('mp'); mpShow('menu'); mpMsg('mpMenuMsg','Ya no estás en la sala.'); return; }
   if(d.state==='lobby') return mpLobby(d);
   if(d.state==='count'){ if(MP.lastRound!==d.round){ MP.lastRound=d.round; mpCountdown(d); } return mpRenderPlay(d); }
@@ -1554,7 +1593,7 @@ function mpOnRoom(d){
 function mpLobby(d){
   mpClearTimers(); MP.isAct=false;
   var ss=mpStations(d), coach=(MP.role==='coach'), h='', i;
-  $('mpLobbyCode').textContent=MP.code;
+  $('mpLobbyCode').textContent=MP.code; $('mpLobbyCode').style.display=''; $('mpLobbyCodeLbl').style.display='';
   for(i=0;i<ss.length;i++) h+='<div class="mp-li">Estación '+d.st[ss[i]].n+(ss[i]===MP.sid?' <i>(este móvil)</i>':'')+'</div>';
   if(!ss.length) h='<div class="mp-li"><i>Aún no hay estaciones</i></div>';
   $('mpLobbyList').innerHTML=h;
@@ -1566,6 +1605,7 @@ function mpLobby(d){
 /* ---- empezar (entrenador): rejilla distinta para cada estacion; cuenta atras 3 s y despues 'play' con la hora del servidor ---- */
 function mpStart(){
   if(MP.role!=='coach') return;
+  if(MP.d && MP.d.kind==='grp') return mpgStart();
   try{ audioCtx(); }catch(e){}
   var code=MP.code, rnd;
   mpTr().tx(code,function(d){
@@ -1589,7 +1629,7 @@ window.addEventListener('resize', mpFit);
 function mpSndOn(){ var c=audioCtx(); if(!c) return; var t=c.currentTime; tone('sine',988,0,t,0.09,0.22); tone('sine',1319,0,t+0.11,0.12,0.22); }
 function mpRenderPlay(d){
   var st=mpIsStation(d), coach=(MP.role==='coach'), ss=mpStations(d), play=(d.state==='play');
-  mpShow('play');
+  mpShow('play'); $('mpPlay').style.removeProperty('--mpc'); $('mpBandLbl').textContent='Busca';
   $('mpPlay').classList.toggle('mp-dir', !st);
   $('mpStop').style.display=coach?'':'none';
   $('mpProg').textContent=d.step+' / '+MP_N;
@@ -1613,6 +1653,7 @@ function mpRenderPlay(d){
   if(!act) MP.isAct=false;
 }
 function mpTap(e){
+  if(MP.d && MP.d.kind==='grp') return mpgTap(e);
   if(!MP.on || MP.view!=='play' || !MP.isAct || MP.busy) return;
   var d=MP.d; if(!d || d.state!=='play' || d.active!==MP.sid) return;
   if(e.cancelable) e.preventDefault();
@@ -1659,8 +1700,197 @@ function mpEnd(d){
 }
 (function(){
   $('mpGrid').parentNode.addEventListener('pointerdown', mpTap, {passive:false});
-  seg('mpCoachRole');
+  seg('mpCoachRole'); seg('mpKind'); seg('mpNT');
+  $('mpKind').addEventListener('click', function(){ setTimeout(mpMenuUI,0); });
 })();
+
+/* ---------- MULTI GRUPOS (PROTOTIPO, 2026-11-27): equipos, cada jugador con su movil ----------
+   Decidido por Roberto: la sala la crea el ENTRENADOR (juega en un equipo o solo dirige), 2-4 equipos ROJO/AZUL/VERDE/BLANCO (como las
+   facciones de las cuadrigas romanas), de distinto tamano si hace falta. UN CODIGO POR EQUIPO: sala g+3 cifras y el equipo es la 4.a cifra
+   (sala g482 -> Rojo 4821, Azul 4822...); el capitan lo pasa a los suyos; el entrenador puede cambiar a alguien de equipo tocando su nombre.
+   Ejercicio: 5x5, Extremo (los numeros no desaparecen), Random. Misma colocacion y misma lista de numeros para todos los equipos. Los
+   numeros SOLO se ven en el movil del jugador al que le toca; el siguiente es un companero al azar (nunca el mismo dos veces seguidas,
+   salvo equipo de 1). Carrera en TIEMPO REAL: gana el primero en encontrar los 25. Numero equivocado = equipo ELIMINADO; si solo queda
+   un equipo en juego, gana. Clasificacion: ganador, luego por numeros encontrados.
+   Sala rooms_schulte/g{base}: {kind:'grp',coach,nT,state,pl:{sid:{t,ini}},grid:[25],order:[25],round,tPlay,
+   tm:{t:{step,active,prev,out,empty,fin,hits:{n:{s,at,loc}},fail:{s,v,want,at}}},win,end:{r:'done'|'last'|'stop',at}} */
+var MPG_T=[null,{n:'Rojo',c:'#b03020',f:'#b03020',t:'#fff'},{n:'Azul',c:'#1f5fbf',f:'#1f5fbf',t:'#fff'},{n:'Verde',c:'#1e8a3c',f:'#1e8a3c',t:'#fff'},{n:'Blanco',c:'#f4f4f2',f:'#111',t:'#111'}];
+function mpMenuUI(){ var g=selVal('mpKind')==='grp'; $('mpNT').style.display=g?'':'none'; }
+function mpgChip(t,txt){ var T=MPG_T[t]; return '<span class="mpg-chip" style="background:'+T.c+';color:'+T.t+'">'+(txt||T.n)+'</span>'; }
+function mpgMembers(d,t){ var p=(d&&d.pl)||{}; return Object.keys(p).filter(function(s){ return p[s].t===t; }).sort(function(a,b){ return (p[a].ini||'').localeCompare(p[b].ini||''); }); }
+function mpgTeamsIn(d){ var r=[], t; for(t=1;t<=(d.nT||2);t++) if(mpgMembers(d,t).length) r.push(t); return r; }
+function mpgCreate(){
+  var nT=parseInt(selVal('mpNT'),10)||2, play=selVal('mpCoachRole')!=='dir';
+  if(play && !rdsIniOk()){ goHome(); return; }
+  var ini=($('user-ini-input').value||'').toUpperCase().replace(/[^A-Z]/g,'').slice(0,3);
+  var base=String(100+Math.floor(Math.random()*900)), code='g'+base, pl={}, tm={}, t;
+  if(play) pl[MP.sid]={t:1, ini:ini||'ENT'};
+  for(t=1;t<=nT;t++) tm[t]={step:0};
+  mpMsg('mpCreateErr','Creando sala...');
+  mpTr().create(code,{kind:'grp', v:1, created:'__TS__', coach:MP.sid, nT:nT, state:'lobby', pl:pl, grid:[], order:[], round:0, tPlay:0, tm:tm, win:0, end:{}})
+    .then(function(){ mpMsg('mpCreateErr',''); MP.role='coach'; mpAttach(code); })
+    .catch(function(e){ mpMsg('mpCreateErr', (e&&e.message==='exists')?'Ese código ya existe, prueba otra vez.':'No se pudo crear la sala ('+((e&&e.code)||(e&&e.message)||'error')+').'); });
+}
+function mpgJoin(code){
+  var base=code.slice(0,3), t=parseInt(code.charAt(3),10), sid=MP.sid, ini=($('mpIni').value||'').toUpperCase().replace(/[^A-Z]/g,'').slice(0,3);
+  if(!ini){ mpMsg('mpJoinErr','Escribe tus iniciales (INI) para jugar en un equipo.'); try{ $('mpIni').focus(); }catch(e){} return; }
+  mpTr().tx('g'+base,function(d){
+    if(!d || d.kind!=='grp' || !(t>=1 && t<=d.nT)) throw new Error('nada');
+    if(d.pl && d.pl[sid]) return null;                       /* ya estaba (recarga) */
+    if(d.state!=='lobby') throw new Error('empezada');
+    var u={}; u['pl.'+sid]={t:t, ini:ini}; return u;
+  }).then(function(){ mpMsg('mpJoinErr',''); MP.role='pl'; mpAttach('g'+base); })
+    .catch(function(e){ var m=e&&e.message; mpMsg('mpJoinErr', m==='nada'?'No existe ninguna sala con ese código.':(m==='empezada'?'Esa sala ya ha empezado.':'No se pudo entrar ('+((e&&e.code)||m||'error')+').')); });
+}
+function mpgOnRoom(d){
+  if(MP.role==='pl' && !(d.pl && d.pl[MP.sid])){ mpLeave(); show('mp'); mpShow('menu'); mpMsg('mpMenuMsg','Ya no estás en la sala.'); return; }
+  if(d.state==='lobby') return mpgLobby(d);
+  if(d.state==='count'){ if(MP.lastRound!==d.round){ MP.lastRound=d.round; mpCountdown(d); } return mpgRender(d); }
+  if(d.state==='play') return mpgRender(d);
+  if(d.state==='end') return mpgEnd(d);
+}
+function mpgLobby(d){
+  mpClearTimers(); MP.isAct=false;
+  var coach=(MP.role==='coach'), me=d.pl&&d.pl[MP.sid], base=MP.code.slice(1), h='', t, ms, i, ne=mpgTeamsIn(d);
+  $('mpLobbyCode').style.display='none'; $('mpLobbyCodeLbl').style.display='none';
+  if(coach){
+    for(t=1;t<=d.nT;t++){
+      ms=mpgMembers(d,t);
+      h+='<div class="mpg-team"><div class="mpg-th" style="background:'+MPG_T[t].c+';color:'+MPG_T[t].t+'"><span>'+MPG_T[t].n+'</span><b>'+base+t+'</b></div><div class="mpg-ms">';
+      for(i=0;i<ms.length;i++) h+='<button type="button" class="mpg-m" data-sid="'+ms[i]+'">'+(d.pl[ms[i]].ini||'?')+(ms[i]===MP.sid?' *':'')+'</button>';
+      if(!ms.length) h+='<i class="mpg-none">Sin jugadores</i>';
+      h+='</div></div>';
+    }
+    $('mpLobbyHead').textContent='Grupos · 5x5 Extremo Random';
+    $('mpLobbyInfo').textContent=ne.length<2?'Hacen falta al menos 2 equipos con jugadores':'Toca un nombre para cambiarlo de equipo';
+  } else {
+    ms=mpgMembers(d,me.t);
+    h='<div class="mpg-team"><div class="mpg-th" style="background:'+MPG_T[me.t].c+';color:'+MPG_T[me.t].t+'"><span>Equipo '+MPG_T[me.t].n+'</span><b>'+base+me.t+'</b></div><div class="mpg-ms">';
+    for(i=0;i<ms.length;i++) h+='<span class="mpg-m">'+(d.pl[ms[i]].ini||'?')+(ms[i]===MP.sid?' *':'')+'</span>';
+    h+='</div></div>';
+    $('mpLobbyHead').textContent='Eres '+(me.ini||'?');
+    $('mpLobbyInfo').textContent='Esperando a que el entrenador empiece';
+  }
+  $('mpLobbyList').innerHTML=h;
+  $('mpStart').style.display=coach?'':'none'; $('mpStart').disabled=ne.length<2;
+  mpShow('lobby');
+}
+/* el entrenador toca un nombre en la sala de espera: pasa al equipo siguiente */
+$('mpLobbyList').addEventListener('click', function(e){
+  var b=e.target.closest ? e.target.closest('button.mpg-m') : null; if(!b || MP.role!=='coach' || !MP.d || MP.d.kind!=='grp') return;
+  var sid=b.getAttribute('data-sid');
+  mpTr().tx(MP.code,function(d){ if(!d || d.state!=='lobby' || !d.pl || !d.pl[sid]) return null; var u={}; u['pl.'+sid+'.t']=(d.pl[sid].t % d.nT)+1; return u; }).catch(function(){});
+});
+function mpgStart(){
+  var code=MP.code, rnd;
+  mpTr().tx(code,function(d){
+    if(!d || (d.state!=='lobby' && d.state!=='end')) return null;
+    if(mpgTeamsIn(d).length<2) return null;
+    var tm={}, t, m;
+    for(t=1;t<=d.nT;t++){ m=mpgMembers(d,t); tm[t]=m.length?{step:0, active:m[Math.floor(Math.random()*m.length)], prev:'', out:false, fin:0, hits:{}, fail:{}}:{step:0, empty:true, out:true}; }
+    rnd=(d.round||0)+1;
+    return {state:'count', grid:schDeal(MP_N), order:schDeal(MP_N), tm:tm, round:rnd, tPlay:0, win:0, end:{}};
+  }).then(function(ok){
+    if(!ok) return;
+    setTimeout(function(){ mpTr().tx(code,function(d){ if(!d || d.state!=='count' || d.round!==rnd) return null; return {state:'play', tPlay:'__TS__'}; }).catch(function(){}); }, 3000);
+  }).catch(function(e){ alert('No se pudo empezar: '+((e&&e.code)||(e&&e.message)||'error')); });
+}
+function mpgRaceHTML(d){
+  var h='<div class="mpg-race">', ts=mpgTeamsIn(d), i, t, T;
+  for(i=0;i<ts.length;i++){ t=ts[i]; T=d.tm[t]||{};
+    h+='<div class="mpg-row'+(T.out?' out':'')+'">'+mpgChip(t)+'<div class="mpg-bar"><i style="width:'+Math.round(100*(T.step||0)/MP_N)+'%;background:'+MPG_T[t].f+'"></i></div><span class="mpg-n">'+(T.out?'&#10005;':(T.step||0))+'</span></div>'; }
+  return h+'</div>';
+}
+function mpgRender(d){
+  var me=d.pl&&d.pl[MP.sid], coach=(MP.role==='coach'), play=(d.state==='play');
+  mpShow('play');
+  $('mpStop').style.display=coach?'':'none';
+  if(play && !MP.tPlayLocal){ MP.tPlayLocal=performance.now(); }
+  if(!play) MP.tPlayLocal=0;
+  if(play && !MP.tickIv) MP.tickIv=setInterval(function(){ if(MP.tPlayLocal) $('mpTime').textContent=((performance.now()-MP.tPlayLocal)/1000).toFixed(1)+' s'; }, 100);
+  if(!play) $('mpTime').textContent='0.0 s';
+  var ts=mpgTeamsIn(d), mini='', i;
+  for(i=0;i<ts.length;i++) mini+=mpgChip(ts[i], MPG_T[ts[i]].n.charAt(0)+' '+(d.tm[ts[i]].out?'&#10005;':d.tm[ts[i]].step))+' ';
+  $('mpProg').innerHTML=mini;
+  if(!me){   /* entrenador que solo dirige: la carrera */
+    $('mpPlay').classList.add('mp-dir'); $('mpPlay').classList.remove('mp-on','mp-off'); $('mpPlay').style.removeProperty('--mpc');
+    $('mpWho').textContent='Carrera'; $('mpDirBig').innerHTML=mpgRaceHTML(d);
+    return;
+  }
+  $('mpPlay').classList.remove('mp-dir');
+  var t=me.t, T=d.tm[t]||{}, g=$('mpGrid');
+  $('mpPlay').style.setProperty('--mpc', MPG_T[t].f);
+  $('mpWho').innerHTML=mpgChip(t, MPG_T[t].n+' · '+(me.ini||'?'));
+  if(!g.children.length){ g.innerHTML=schCellsHTML(MP_N); mpFit(); setTimeout(mpFit,50); }
+  var act=play && !T.out && T.active===MP.sid, c=g.children, k;
+  for(k=0;k<c.length;k++){ c[k].textContent=act?String(d.grid[k]):''; c[k].classList.remove('gone'); }   /* Extremo: nada desaparece; los numeros solo se ven en tu turno */
+  $('mpPlay').classList.toggle('mp-on', act); $('mpPlay').classList.toggle('mp-off', !act);
+  $('mpBandLbl').textContent=T.out?'Eliminados':'Busca';
+  $('mpT').textContent=act?String(d.order[T.step]):(T.out?'':'--');
+  var key=d.round+':'+T.step;
+  if(act && MP.actKey!==key){ MP.actKey=key; MP.isAct=true; MP.tAct=performance.now(); MP.busy=false; mpSndOn(); }
+  if(!act) MP.isAct=false;
+}
+function mpgTap(e){
+  if(!MP.on || MP.view!=='play' || !MP.isAct || MP.busy) return;
+  var d=MP.d, sid=MP.sid, me=d&&d.pl&&d.pl[sid]; if(!me || d.state!=='play') return;
+  var t=me.t, T=d.tm[t]; if(!T || T.out || T.active!==sid) return;
+  if(e.cancelable) e.preventDefault();
+  var g=$('mpGrid'), want=d.order[T.step], step0=T.step;
+  var i=schHit(g, MP_COLS, e.clientX, e.clientY, false, function(k){ return d.grid[k]===want; });
+  if(i<0) return;
+  var v=d.grid[i], loc=Math.round(performance.now()-MP.tAct), code=MP.code, p='tm.'+t+'.';
+  MP.busy=true;
+  if(v===want){
+    sndSymbol(); schFlash(g.children[i]);
+    mpTr().tx(code,function(r){
+      var R=r&&r.tm&&r.tm[t]; if(!R || r.state!=='play' || R.out || R.active!==sid || R.step!==step0) return null;
+      var u={}; u[p+'step']=step0+1; u[p+'prev']=sid; u[p+'hits.'+(step0+1)]={s:sid, at:'__TS__', loc:loc};
+      if(step0+1>=MP_N){ u[p+'fin']='__TS__'; u.state='end'; u.win=t; u.end={r:'done', at:'__TS__'}; }
+      else { var m=mpgMembers(r,t), o=m.filter(function(x){ return x!==sid; }); if(!o.length) o=m; u[p+'active']=o[Math.floor(Math.random()*o.length)]; }
+      return u;
+    }).catch(function(){ MP.busy=false; });
+  } else {
+    sndFail();
+    mpTr().tx(code,function(r){
+      var R=r&&r.tm&&r.tm[t]; if(!R || r.state!=='play' || R.out) return null;
+      var u={}; u[p+'out']=true; u[p+'fail']={s:sid, v:v, want:want, at:'__TS__'};
+      var alive=mpgTeamsIn(r).filter(function(x){ return x!==t && !r.tm[x].out; });
+      if(alive.length<=1){ u.state='end'; u.win=alive.length?alive[0]:0; u.end={r:'last', at:'__TS__'}; }
+      return u;
+    }).catch(function(){ MP.busy=false; });
+  }
+}
+function mpgEnd(d){
+  mpClearTimers(); MP.isAct=false; MP.tPlayLocal=0;
+  var e=d.end||{}, me=d.pl&&d.pl[MP.sid], coach=(MP.role==='coach'), W=d.win?MPG_T[d.win]:null, tit, sub='';
+  if(e.r==='stop') tit='Partida parada';
+  else if(me && d.win===me.t) tit='¡Habéis ganado!';
+  else tit=W?('Gana el equipo '+W.n):'Sin ganador';
+  var tot=(e.at && d.tPlay)?(e.at-d.tPlay):0;
+  if(e.r==='done') sub=MPG_T[d.win].n+': los 25 números en '+(tot/1000).toFixed(2)+' s';
+  else if(e.r==='last') sub=(W?MPG_T[d.win].n+' sigue en juego; ':'')+'los demás equipos han fallado ('+(tot/1000).toFixed(2)+' s)';
+  /* clasificacion: ganador, despues los que siguen en juego y los eliminados, por numeros encontrados */
+  var ts=mpgTeamsIn(d).sort(function(a,b){ if(a===d.win) return -1; if(b===d.win) return 1; var A=d.tm[a], B=d.tm[b]; if(!!A.out!==!!B.out) return A.out?1:-1; return (B.step||0)-(A.step||0); });
+  var cl='<div class="mpg-cl">', i, t, T, f;
+  for(i=0;i<ts.length;i++){ t=ts[i]; T=d.tm[t]; f=T.fail||{};
+    cl+='<div class="mpg-cr">'+(i+1)+'. '+mpgChip(t)+' <b>'+(T.step||0)+'</b> núm.'+(T.out && f.want?' · <span class="mpg-x">eliminado: pulsó el '+f.v+' y tocaba el '+f.want+(d.pl[f.s]?' ('+d.pl[f.s].ini+')':'')+'</span>':'')+'</div>'; }
+  cl+='</div>';
+  $('mpEndT').textContent=tit; $('mpEndS').innerHTML=sub+cl;
+  /* desglose del equipo propio (o del ganador si el entrenador solo dirige): numeros y busqueda media de cada jugador */
+  var tt=me?me.t:(d.win||ts[0]), ms=mpgMembers(d,tt), H=(d.tm[tt]&&d.tm[tt].hits)||{}, agg={}, n, rows='';
+  ms.forEach(function(s){ agg[s]={c:0,loc:0}; });
+  for(n in H){ if(agg[H[n].s]){ agg[H[n].s].c++; agg[H[n].s].loc+=H[n].loc||0; } }
+  ms.forEach(function(s){ var a=agg[s]; rows+='<tr><td>'+(d.pl[s].ini||'?')+(s===MP.sid?' *':'')+'</td><td>'+a.c+'</td><td>'+(a.c?(a.loc/a.c/1000).toFixed(2)+' s':'--')+'</td></tr>'; });
+  $('mpEndTab').innerHTML=tt?('<tr><th>'+MPG_T[tt].n+'</th><th>Núm.</th><th>Búsqueda media</th></tr>'+rows):'';
+  /* paso de turno (red) de todos los equipos */
+  var cam=[];
+  mpgTeamsIn(d).forEach(function(x){ var hh=d.tm[x].hits||{}, prevAt=d.tPlay, k; for(k=1;k<=(d.tm[x].step||0);k++){ if(hh[k] && hh[k].at && prevAt){ cam.push((hh[k].at-prevAt)-(hh[k].loc||0)); prevAt=hh[k].at; } } });
+  var cm=cam.length?cam.reduce(function(a,b){ return a+b; },0)/cam.length:0;
+  $('mpEndNet').textContent=cam.length?('Paso de turno (red): '+Math.round(cm)+' ms de media · máx. '+Math.round(Math.max.apply(null,cam))+' ms'):'';
+  $('mpAgain').style.display=coach?'':'none';
+  mpShow('end');
+}
 
 function goHome(){ xClear(); X.on=false; X.state=''; if(S.countIv){clearInterval(S.countIv);S.countIv=0;} if(S.coverTo){clearTimeout(S.coverTo);S.coverTo=0;} if(S.blankTo){clearTimeout(S.blankTo);S.blankTo=0;} $('sqCount').textContent=''; S.running=false; S.lock=true; schStopLoop(); show('home'); }
 
