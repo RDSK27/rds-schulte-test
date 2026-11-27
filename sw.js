@@ -1,5 +1,5 @@
 /* RDS Schulte Perception - Service Worker */
-var CACHE = 'schulte-v3';
+var CACHE = 'schulte-v4';
 var ASSETS = [
   './',
   './index.html',

@@ -241,6 +241,43 @@ if('serviceWorker' in navigator){
   .sch-xt{flex:none;display:flex;align-items:center;justify-content:center;gap:10px;height:38px;background:#111;border-radius:6px;color:#bdbdbd;font:900 12px Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;}
   .sch-xt b{color:#fff;font-size:26px;letter-spacing:0;}
   .x2-kb.sch-pen{opacity:.35;}
+  /* Multi (prototipo 2026-11-27) */
+  #mp{background:#fff;}
+  body.mp-active header{display:none;}
+  .mp-entry{margin-top:10px;background:none;border:1px dashed #b03020;border-radius:4px;color:#ddd;font:800 11px Arial,sans-serif;letter-spacing:.12em;padding:6px 12px;text-transform:uppercase;cursor:pointer;}
+  .mp-v{display:none;flex:1;min-height:0;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:16px;box-sizing:border-box;overflow:auto;}
+  .mp-h{font:900 20px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#111;text-align:center;}
+  .mp-p{font:600 14px Arial,sans-serif;color:#555;text-align:center;max-width:320px;line-height:1.35;}
+  .mp-seg{width:100%;max-width:320px;}
+  .mp-btn{width:100%;max-width:320px;background:#111;color:#fff;border:none;border-top:4px solid #b03020;padding:15px 10px;font:900 14px Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;}
+  .mp-btn.red{background:#b03020;border-top-color:#111;}
+  .mp-btn.lite{background:#fff;color:#111;border:2px solid #111;}
+  .mp-btn:disabled{opacity:.4;}
+  .mp-err{font:700 13px Arial,sans-serif;color:#b03020;min-height:1em;text-align:center;max-width:320px;}
+  #mpCode{width:190px;font:900 40px Arial,sans-serif;text-align:center;letter-spacing:.2em;padding:8px;border:3px solid #111;border-radius:6px;box-sizing:border-box;margin-top:14px;}
+  .mp-code{font:900 64px Arial,sans-serif;letter-spacing:.15em;color:#111;background:#f4f4f2;border:3px solid #111;border-radius:10px;padding:4px 22px;}
+  .mp-li{font:800 16px Arial,sans-serif;padding:7px 0;border-bottom:1px solid #ddd;width:260px;text-align:center;}
+  .mp-li i{font-weight:600;color:#888;}
+  #mpV_play{padding:0;justify-content:flex-start;}
+  .mp-play{flex:1;min-height:0;width:100%;display:flex;flex-direction:column;gap:8px;padding:12px 18px 18px;box-sizing:border-box;position:relative;}
+  .mp-top{display:flex;justify-content:space-between;align-items:center;gap:8px;font:900 15px Arial,sans-serif;color:#111;}
+  #mpStop{background:#111;color:#fff;border:none;border-radius:50%;width:34px;height:34px;font-size:16px;cursor:pointer;}
+  .mp-gw{flex:1;min-height:0;display:flex;flex-direction:column;justify-content:center;align-items:stretch;gap:10px;touch-action:none;}   /* banda Busca + rejilla, juntas y centradas */
+  #mpGrid{margin:0 auto;transition:opacity .15s;}   /* centrada: el movil puede estar lejos */
+  .mp-off #mpGrid{opacity:.3;}
+  .mp-off .sch-target{background:#8a8a8a;border-top-color:#aaa;}
+  .mp-on #mpGrid{border-color:#b03020;box-shadow:0 0 0 4px #b03020;}
+  .mp-play.mp-on{box-shadow:inset 0 0 0 10px #b03020;}   /* estacion activa: marco rojo en toda la pantalla, visible de lejos */
+  .mp-dir .mp-gw,.mp-dir .sch-target{display:none;}
+  #mpDirBig{display:none;}
+  .mp-dir #mpDirBig{display:flex;flex:1;flex-direction:column;align-items:center;justify-content:center;gap:6px;font-family:Arial,sans-serif;color:#111;}
+  #mpDirBig b{font-size:120px;font-weight:900;line-height:1;}
+  #mpDirBig span{font-size:18px;font-weight:800;}
+  #mpDirBig em{font-size:18px;font-weight:800;color:#b03020;font-style:normal;text-align:center;}
+  #mpCd{position:absolute;inset:0;display:none;align-items:center;justify-content:center;font:900 150px Arial,sans-serif;color:#b03020;background:rgba(255,255,255,.55);z-index:5;pointer-events:none;}
+  .mp-tab{border-collapse:collapse;font:700 14px Arial,sans-serif;color:#111;}
+  .mp-tab th,.mp-tab td{padding:6px 10px;border-bottom:1px solid #ddd;text-align:center;}
+  .mp-tab th{font-size:12px;color:#777;text-transform:uppercase;letter-spacing:.06em;}
   .sq-count{position:absolute;left:0;right:0;top:50%;margin-top:-70px;text-align:center;color:var(--rojo);font-weight:900;font-size:130px;line-height:1;-webkit-text-stroke:4px #fff;paint-order:stroke fill;pointer-events:none;z-index:5;}   /* rojo con borde blanco: se ve sobre blanco y sobre negro */
   .segment button[data-soon],.rank-tab[data-soon]{opacity:.38;cursor:default;}
   .segment.off,.rank-tabs.off{opacity:.35;pointer-events:none;}   /* Limite: 10/25/50 no aplica (el tamano 3x3/4x4 si) */
@@ -381,7 +418,8 @@ if('serviceWorker' in navigator){
           <button class="start-btn rank-btn" ontouchend="event.stopPropagation();" onclick="showRanking()" aria-label="Ranking"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="#333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 21h8M12 13.5v7.5M7 4h10v5a5 5 0 0 1-10 0V4z"/><path d="M7 4H4v2a3 3 0 0 0 3 3M17 4h3v2a3 3 0 0 1-3 3"/></svg></button>
         </div>
       </div>
-  <div class="app-ver" style="margin-top:6px;padding-top:0;">v3</div>
+  <button id="mpEntry" class="mp-entry" type="button" style="display:none" onclick="mpEnter()">Multi (prueba)</button>
+  <div class="app-ver" style="margin-top:6px;padding-top:0;">v4</div>
   <div id="user-name-bar" style="margin-top:8px;">
     <div style="display:flex;width:200px;gap:0;margin:0 auto;">
       <input id="user-ini-input" type="text" maxlength="3" placeholder="INI"
@@ -473,6 +511,49 @@ if('serviceWorker' in navigator){
     </div>
   </section>
 
+  <section id="mp" class="screen">
+    <div class="mp-v" id="mpV_menu">
+      <div class="mp-h">Multi &middot; varios m&oacute;viles</div>
+      <div class="mp-p">Prototipo: un deportista y varios m&oacute;viles (estaciones). Todos necesitan conexi&oacute;n.</div>
+      <div class="segment mp-seg" id="mpCoachRole">
+        <button class="sel" data-v="est">Mi m&oacute;vil es estaci&oacute;n</button>
+        <button data-v="dir">Solo dirijo</button>
+      </div>
+      <button class="mp-btn red" type="button" onclick="mpCreate()">Crear sala (entrenador)</button>
+      <div class="mp-err" id="mpCreateErr"></div>
+      <input id="mpCode" type="text" inputmode="numeric" maxlength="4" placeholder="0000" autocomplete="off">
+      <button class="mp-btn" type="button" onclick="mpJoin()">Unirme como estaci&oacute;n</button>
+      <div class="mp-err" id="mpJoinErr"></div>
+      <div class="mp-err" id="mpMenuMsg"></div>
+      <button class="mp-btn lite" type="button" onclick="mpExit()">&#8592; Inicio</button>
+    </div>
+    <div class="mp-v" id="mpV_lobby">
+      <div class="mp-p">C&oacute;digo de la sala</div>
+      <div class="mp-code" id="mpLobbyCode"></div>
+      <div class="mp-h" id="mpLobbyHead"></div>
+      <div id="mpLobbyList"></div>
+      <div class="mp-p" id="mpLobbyInfo"></div>
+      <button class="mp-btn red" id="mpStart" type="button" onclick="mpStart()">Empezar</button>
+      <button class="mp-btn lite" type="button" onclick="mpExit()">Salir</button>
+    </div>
+    <div class="mp-v" id="mpV_play">
+      <div class="mp-play" id="mpPlay">
+        <div class="mp-top"><span id="mpWho"></span><span id="mpProg"></span><span id="mpTime">0.0 s</span><button id="mpStop" type="button" onclick="mpStopGame()" aria-label="Parar">&#10005;</button></div>
+        <div class="mp-gw"><div class="sch-target"><span>Busca</span><b id="mpT">--</b></div><div class="grid" id="mpGrid"></div></div>
+        <div id="mpDirBig"></div>
+        <div id="mpCd"></div>
+      </div>
+    </div>
+    <div class="mp-v" id="mpV_end">
+      <div class="mp-h" id="mpEndT"></div>
+      <div class="mp-p" id="mpEndS"></div>
+      <table class="mp-tab" id="mpEndTab"></table>
+      <div class="mp-p" id="mpEndNet"></div>
+      <button class="mp-btn red" id="mpAgain" type="button" onclick="mpStart()">Otra vez</button>
+      <button class="mp-btn lite" type="button" onclick="mpExit()">Salir</button>
+    </div>
+  </section>
+
   <section id="result" class="screen">
     <div class="result-body">
       <div class="res-msg" id="resMsg" style="display:none"></div>
@@ -559,7 +640,7 @@ if('serviceWorker' in navigator){
 <script>
 "use strict";
 function $(id){ return document.getElementById(id); }
-function show(id){ if(id!=='ranking' && typeof stopRankWatch==='function') stopRankWatch(); var s=document.querySelectorAll('.screen'); for(var i=0;i<s.length;i++) s[i].classList.remove('active'); $(id).classList.add('active'); document.body.classList.toggle('home-active', id==='home'); document.body.classList.toggle('x2-active', id==='x2'); }
+function show(id){ if(id!=='ranking' && typeof stopRankWatch==='function') stopRankWatch(); var s=document.querySelectorAll('.screen'); for(var i=0;i<s.length;i++) s[i].classList.remove('active'); $(id).classList.add('active'); document.body.classList.toggle('home-active', id==='home'); document.body.classList.toggle('x2-active', id==='x2'); document.body.classList.toggle('mp-active', id==='mp'); }
 function two(n){ return (n<10?'0':'')+n; }
 function fmtTime(ms){ var cs=Math.floor(ms/10), cc=cs%100, s=Math.floor(cs/100), sec=s%60, m=Math.floor(s/60); return m+':'+two(sec)+'.'+two(cc); }
 function fmtDate(ts){ if(!ts) return ''; var d=new Date(ts); return two(d.getDate())+'/'+two(d.getMonth()+1); }
@@ -1374,6 +1455,207 @@ function xStop(){
   $('x2Stop').addEventListener('click', xStop);
 })();
 
+/* ---------- MULTI (PROTOTIPO, 2026-11-27): un deportista con varios moviles ("estaciones") ----------
+   Decidido por Roberto: la sala la crea el ENTRENADOR (su movil puede ser estacion o solo dirigir; pone INI+deporte del deportista en
+   inicio). Las estaciones se unen con un codigo de 4 cifras. Normal + Secuencia + 5x5: cada estacion tiene una rejilla DIFERENTE y todas
+   se ven siempre; la activa resaltada (y suena), las demas atenuadas. El 1 se busca en una estacion, el 2 en otra al azar (nunca la
+   misma dos veces seguidas)... y cada numero encontrado desaparece en TODAS. Un fallo termina. Tiempo real (reloj del servidor:
+   desde el inicio hasta el ultimo acierto). Sin guardar en ranking (prototipo). Acceso oculto: index.html?multi (Firebase) o
+   ?multi=local (sin Firebase: varias pestanas del mismo navegador, para probar).
+   Sala = documento rooms_schulte/{codigo}: {kind,ini,sport,coach,coachEst,state:'lobby'|'count'|'play'|'end',st:{sid:{n}},nSt,
+   grids:{sid:[25]},step,active,prev,round,tPlay,hits:{n:{s,at,loc}},end:{r,s,v,want,at}}. '__TS__' = hora del servidor. */
+var MP={ on:false, code:'', sid:'', role:'', d:null, unsub:null, view:'', isAct:false, tAct:0, busy:false, cdTo:0, cdIv:0, tickIv:0, tPlayLocal:0, lastRound:-1, wl:null };
+var MP_N=25, MP_COLS=5;
+function mpTr(){ return /[?&]multi=local\b/.test(location.search) ? MPL : window.MPF; }
+function mpSid(){ var s=''; try{ s=sessionStorage.getItem('rds_sch_mpsid')||''; }catch(e){} if(!s){ s='s'+Math.random().toString(36).slice(2,8); try{ sessionStorage.setItem('rds_sch_mpsid',s); }catch(e){} } return s; }
+/* transporte local (pruebas): la sala vive en localStorage y las demas pestanas se enteran por el evento 'storage' */
+var MPL=(function(){
+  var subs={};
+  function key(c){ return 'rds_sch_mpL_'+c; }
+  function rd(c){ try{ return JSON.parse(localStorage.getItem(key(c))||'null'); }catch(e){ return null; } }
+  function fix(v){ if(v==='__TS__') return Date.now(); if(v && typeof v==='object' && !Array.isArray(v)){ var o={}, k; for(k in v) o[k]=fix(v[k]); return o; } return v; }
+  function emit(c){ var d=rd(c); (subs[c]||[]).forEach(function(f){ f(d); }); }
+  window.addEventListener('storage', function(e){ if(e.key && e.key.indexOf('rds_sch_mpL_')===0) emit(e.key.slice(12)); });
+  function apply(d,upd){ var k, p, o, i; for(k in upd){ p=k.split('.'); o=d; for(i=0;i<p.length-1;i++){ if(!o[p[i]]||typeof o[p[i]]!=='object') o[p[i]]={}; o=o[p[i]]; } if(upd[k]==='__DEL__') delete o[p[p.length-1]]; else o[p[p.length-1]]=fix(upd[k]); } }
+  return {
+    create:function(c,data){ return new Promise(function(ok,ko){ if(rd(c)) return ko(new Error('exists')); localStorage.setItem(key(c), JSON.stringify(fix(data))); emit(c); ok(); }); },
+    watch:function(c,f){ (subs[c]=subs[c]||[]).push(f); setTimeout(function(){ f(rd(c)); },0); return function(){ subs[c]=(subs[c]||[]).filter(function(g){ return g!==f; }); }; },
+    tx:function(c,fn){ return new Promise(function(ok,ko){ var d=rd(c), u; try{ u=fn(d); }catch(e){ return ko(e); } if(!u) return ok(false); apply(d,u); localStorage.setItem(key(c), JSON.stringify(d)); emit(c); ok(true); }); },
+    del:function(c){ localStorage.removeItem(key(c)); emit(c); return Promise.resolve(); }
+  };
+})();
+function mpShow(v){ MP.view=v; var vs=$('mp').querySelectorAll('.mp-v'), i; for(i=0;i<vs.length;i++) vs[i].style.display=(vs[i].id==='mpV_'+v)?'flex':'none'; if(v==='play') setTimeout(mpFit,0); }
+function mpMsg(id,t){ $(id).textContent=t||''; }
+function mpEnter(){
+  if(!mpTr()){ alert('Sin conexión con Firebase: el modo Multi necesita internet.'); return; }
+  MP.sid=mpSid(); show('mp'); mpShow('menu');
+  try{ if(navigator.wakeLock) navigator.wakeLock.request('screen').then(function(w){ MP.wl=w; }).catch(function(){}); }catch(e){}
+}
+function mpLeave(){
+  if(MP.unsub){ try{ MP.unsub(); }catch(e){} MP.unsub=null; }
+  mpClearTimers(); MP.on=false; MP.d=null; MP.code=''; MP.role=''; MP.isAct=false; MP.lastRound=-1;
+  try{ if(MP.wl) MP.wl.release(); }catch(e){} MP.wl=null;
+}
+function mpClearTimers(){ if(MP.cdTo){ clearTimeout(MP.cdTo); MP.cdTo=0; } if(MP.cdIv){ clearInterval(MP.cdIv); MP.cdIv=0; } if(MP.tickIv){ clearInterval(MP.tickIv); MP.tickIv=0; } }
+function mpExit(){   /* boton Salir: la estacion se quita de la sala si aun no ha empezado; el entrenador cierra la sala */
+  var c=MP.code, sid=MP.sid, coach=(MP.role==='coach'), tr=mpTr();
+  mpLeave(); goHome();
+  if(!c) return;
+  if(coach) tr.del(c).catch(function(){});
+  else tr.tx(c,function(d){ if(!d || d.state!=='lobby' || !d.st || !d.st[sid]) return null; var u={}; u['st.'+sid]='__DEL__'; return u; }).catch(function(){});
+}
+/* ---- crear sala (entrenador) ---- */
+function mpCreate(){
+  if(!rdsIniOk()){ goHome(); return; }   /* INI y deporte del deportista: se ponen en inicio */
+  var est=selVal('mpCoachRole')!=='dir', ini=($('user-ini-input').value||'').toUpperCase().replace(/[^A-Z]/g,'').slice(0,3), sport=($('user-sport-select')&&$('user-sport-select').value)||'';
+  var code=String(1000+Math.floor(Math.random()*9000)), st={};
+  if(est) st[MP.sid]={n:1};
+  mpMsg('mpCreateErr','Creando sala...');
+  mpTr().create(code,{kind:'ind', v:1, created:'__TS__', ini:ini, sport:sport, coach:MP.sid, coachEst:est, state:'lobby', st:st, nSt:est?1:0, grids:{}, step:0, active:'', prev:'', round:0, tPlay:0, hits:{}, end:{}})
+    .then(function(){ mpMsg('mpCreateErr',''); MP.role='coach'; mpAttach(code); })
+    .catch(function(e){ mpMsg('mpCreateErr', (e&&e.message==='exists')?'Ese código ya existe, prueba otra vez.':'No se pudo crear la sala ('+((e&&e.code)||(e&&e.message)||'error')+').'); });
+}
+/* ---- unirse (estacion) ---- */
+function mpJoin(){
+  var code=($('mpCode').value||'').replace(/\D/g,'');
+  if(code.length!==4){ mpMsg('mpJoinErr','Escribe el código de 4 cifras.'); return; }
+  try{ audioCtx(); }catch(e){}   /* desbloquea el sonido con este toque */
+  mpMsg('mpJoinErr','Uniendo...');
+  var sid=MP.sid;
+  mpTr().tx(code,function(d){
+    if(!d) throw new Error('nada');
+    if(d.st && d.st[sid]) return null;                       /* ya estaba (recarga) */
+    if(d.state!=='lobby') throw new Error('empezada');
+    var u={}; u['st.'+sid]={n:(d.nSt||0)+1}; u.nSt=(d.nSt||0)+1; return u;
+  }).then(function(){ mpMsg('mpJoinErr',''); MP.role='st'; mpAttach(code); })
+    .catch(function(e){ var m=e&&e.message; mpMsg('mpJoinErr', m==='nada'?'No existe ninguna sala con ese código.':(m==='empezada'?'Esa sala ya ha empezado.':'No se pudo entrar ('+((e&&e.code)||m||'error')+').')); });
+}
+function mpAttach(code){ MP.code=code; MP.on=true; MP.lastRound=-1; if(MP.unsub) MP.unsub(); MP.unsub=mpTr().watch(code, mpOnRoom); }
+function mpMyN(d){ return d && d.st && d.st[MP.sid] ? d.st[MP.sid].n : 0; }
+function mpStations(d){ return Object.keys((d&&d.st)||{}).sort(function(a,b){ return d.st[a].n-d.st[b].n; }); }
+function mpIsStation(d){ return !!(d && d.st && d.st[MP.sid]); }
+function mpOnRoom(d){
+  if(!MP.on) return;
+  MP.d=d;
+  if(!d){ mpLeave(); show('mp'); mpShow('menu'); mpMsg('mpMenuMsg','La sala se ha cerrado.'); return; }
+  if(MP.role==='st' && !mpIsStation(d)){ mpLeave(); show('mp'); mpShow('menu'); mpMsg('mpMenuMsg','Ya no estás en la sala.'); return; }
+  if(d.state==='lobby') return mpLobby(d);
+  if(d.state==='count'){ if(MP.lastRound!==d.round){ MP.lastRound=d.round; mpCountdown(d); } return mpRenderPlay(d); }
+  if(d.state==='play') return mpRenderPlay(d);
+  if(d.state==='end') return mpEnd(d);
+}
+function mpLobby(d){
+  mpClearTimers(); MP.isAct=false;
+  var ss=mpStations(d), coach=(MP.role==='coach'), h='', i;
+  $('mpLobbyCode').textContent=MP.code;
+  for(i=0;i<ss.length;i++) h+='<div class="mp-li">Estación '+d.st[ss[i]].n+(ss[i]===MP.sid?' <i>(este móvil)</i>':'')+'</div>';
+  if(!ss.length) h='<div class="mp-li"><i>Aún no hay estaciones</i></div>';
+  $('mpLobbyList').innerHTML=h;
+  $('mpLobbyHead').textContent=coach?('Deportista: '+(d.ini||'--')+(d.sport?' · '+d.sport:'')):('Eres la ESTACIÓN '+mpMyN(d));
+  $('mpLobbyInfo').textContent=coach?(ss.length<2?'Hacen falta al menos 2 estaciones':'Coloca los móviles y pulsa Empezar'):'Esperando a que el entrenador empiece';
+  $('mpStart').style.display=coach?'':'none'; $('mpStart').disabled=ss.length<2;
+  mpShow('lobby');
+}
+/* ---- empezar (entrenador): rejilla distinta para cada estacion; cuenta atras 3 s y despues 'play' con la hora del servidor ---- */
+function mpStart(){
+  if(MP.role!=='coach') return;
+  try{ audioCtx(); }catch(e){}
+  var code=MP.code, rnd;
+  mpTr().tx(code,function(d){
+    if(!d || (d.state!=='lobby' && d.state!=='end')) return null;
+    var ss=mpStations(d); if(ss.length<2) return null;
+    var g={}, i; for(i=0;i<ss.length;i++) g[ss[i]]=schDeal(MP_N);
+    rnd=(d.round||0)+1;
+    return {state:'count', grids:g, step:0, active:ss[Math.floor(Math.random()*ss.length)], prev:'', hits:{}, end:{}, round:rnd, tPlay:0};
+  }).then(function(ok){
+    if(!ok) return;
+    setTimeout(function(){ mpTr().tx(code,function(d){ if(!d || d.state!=='count' || d.round!==rnd) return null; return {state:'play', tPlay:'__TS__'}; }).catch(function(){}); }, 3000);
+  }).catch(function(e){ alert('No se pudo empezar: '+((e&&e.code)||(e&&e.message)||'error')); });
+}
+function mpCountdown(d){
+  mpClearTimers(); var n=3, el=$('mpCd');
+  el.style.display='flex'; el.textContent=n;
+  MP.cdIv=setInterval(function(){ n--; if(n<=0){ clearInterval(MP.cdIv); MP.cdIv=0; el.style.display='none'; return; } el.textContent=n; }, 1000);
+}
+function mpFit(){ var g=$('mpGrid'); if(g && MP.view==='play') schFit(g, g.parentNode, MP_COLS); }
+window.addEventListener('resize', mpFit);
+function mpSndOn(){ var c=audioCtx(); if(!c) return; var t=c.currentTime; tone('sine',988,0,t,0.09,0.22); tone('sine',1319,0,t+0.11,0.12,0.22); }
+function mpRenderPlay(d){
+  var st=mpIsStation(d), coach=(MP.role==='coach'), ss=mpStations(d), play=(d.state==='play');
+  mpShow('play');
+  $('mpPlay').classList.toggle('mp-dir', !st);
+  $('mpStop').style.display=coach?'':'none';
+  $('mpProg').textContent=d.step+' / '+MP_N;
+  $('mpWho').textContent=st?('Estación '+mpMyN(d)):('Activa: estación '+(d.st[d.active]?d.st[d.active].n:'--'));
+  if(play && !MP.tPlayLocal){ MP.tPlayLocal=performance.now(); }
+  if(!play) MP.tPlayLocal=0;
+  if(play && !MP.tickIv) MP.tickIv=setInterval(function(){ if(MP.tPlayLocal) $('mpTime').textContent=((performance.now()-MP.tPlayLocal)/1000).toFixed(1)+' s'; }, 100);
+  if(!play) $('mpTime').textContent='0.0 s';
+  if(!st){   /* entrenador que solo dirige: progreso y estacion activa */
+    $('mpPlay').classList.remove('mp-on','mp-off');
+    $('mpDirBig').innerHTML='<b>'+d.step+'</b><span>de '+MP_N+'</span><em>Busca el '+(d.step+1)+' en la estación '+(d.st[d.active]?d.st[d.active].n:'--')+'</em>';
+    return;
+  }
+  var g=$('mpGrid'); if(!g.children.length){ g.innerHTML=schCellsHTML(MP_N); mpFit(); setTimeout(mpFit,50); }
+  var vals=(d.grids&&d.grids[MP.sid])||[], c=g.children, i, v;
+  for(i=0;i<c.length;i++){ v=vals[i]; c[i].textContent=(v && v>d.step)?String(v):''; c[i].classList.toggle('gone', !!v && v<=d.step); }
+  var act=play && d.active===MP.sid;
+  $('mpPlay').classList.toggle('mp-on', act); $('mpPlay').classList.toggle('mp-off', !act);
+  $('mpT').textContent=act?String(d.step+1):'--';
+  if(act && !MP.isAct){ MP.isAct=true; MP.tAct=performance.now(); MP.busy=false; mpSndOn(); }
+  if(!act) MP.isAct=false;
+}
+function mpTap(e){
+  if(!MP.on || MP.view!=='play' || !MP.isAct || MP.busy) return;
+  var d=MP.d; if(!d || d.state!=='play' || d.active!==MP.sid) return;
+  if(e.cancelable) e.preventDefault();
+  var g=$('mpGrid'), vals=d.grids[MP.sid], want=d.step+1;
+  var i=schHit(g, MP_COLS, e.clientX, e.clientY, false, function(k){ return vals[k]===want; });
+  if(i<0) return;
+  var v=vals[i]; if(v<=d.step) return;                         /* casilla ya vacia */
+  var loc=Math.round(performance.now()-MP.tAct), sid=MP.sid, code=MP.code;
+  MP.busy=true;
+  if(v===want){
+    sndSymbol(); schFlash(g.children[i]);
+    mpTr().tx(code,function(r){
+      if(!r || r.state!=='play' || r.active!==sid || r.step!==want-1) return null;
+      var u={step:want, prev:sid}; u['hits.'+want]={s:sid, at:'__TS__', loc:loc};
+      if(want>=MP_N){ u.state='end'; u.end={r:'done', at:'__TS__'}; }
+      else { var o=mpStations(r).filter(function(x){ return x!==sid; }); u.active=o[Math.floor(Math.random()*o.length)]; }
+      return u;
+    }).catch(function(){ MP.busy=false; });
+  } else {
+    sndFail();
+    mpTr().tx(code,function(r){ if(!r || r.state!=='play') return null; return {state:'end', end:{r:'wrong', s:sid, v:v, want:want, at:'__TS__'}}; }).catch(function(){ MP.busy=false; });
+  }
+}
+function mpStopGame(){ var code=MP.code; mpTr().tx(code,function(r){ if(!r || (r.state!=='play' && r.state!=='count')) return null; return {state:'end', end:{r:'stop', at:'__TS__'}}; }).catch(function(){}); }
+function mpEnd(d){
+  mpClearTimers(); MP.isAct=false; MP.tPlayLocal=0;
+  var e=d.end||{}, coach=(MP.role==='coach'), tit, sub='';
+  var tot=(e.at && d.tPlay)?(e.at-d.tPlay):0;
+  if(e.r==='done'){ tit='¡Completado!'; sub=(tot/1000).toFixed(2)+' s'; }
+  else if(e.r==='wrong'){ tit='Fallo'; sub='Estación '+(d.st[e.s]?d.st[e.s].n:'?')+': pulsaste el '+e.v+' y tocaba el '+e.want; }
+  else { tit='Partida parada'; }
+  if(e.r!=='done' && d.step) sub+=(sub?'<br>':'')+d.step+' números en '+(tot/1000).toFixed(2)+' s';
+  $('mpEndT').textContent=tit; $('mpEndS').innerHTML=sub;
+  /* desglose por estacion: numeros, busqueda media (reloj del movil) y cambio medio (lo que tarda en pasar el turno: red + pantalla) */
+  var ss=mpStations(d), agg={}, n, h, prevAt=d.tPlay, rows='', cambios=[];
+  ss.forEach(function(s){ agg[s]={c:0,loc:0}; });
+  for(n=1;n<=d.step;n++){ h=d.hits&&d.hits[n]; if(!h) continue; if(agg[h.s]){ agg[h.s].c++; agg[h.s].loc+=h.loc||0; } if(h.at && prevAt) cambios.push((h.at-prevAt)-(h.loc||0)); prevAt=h.at; }
+  ss.forEach(function(s){ var a=agg[s]; rows+='<tr><td>Estación '+d.st[s].n+(s===MP.sid?' *':'')+'</td><td>'+a.c+'</td><td>'+(a.c?(a.loc/a.c/1000).toFixed(2)+' s':'--')+'</td></tr>'; });
+  var cm=cambios.length?cambios.reduce(function(x,y){ return x+y; },0)/cambios.length:0;
+  $('mpEndTab').innerHTML='<tr><th>Estación</th><th>Núm.</th><th>Búsqueda media</th></tr>'+rows;
+  $('mpEndNet').textContent=cambios.length?('Paso de turno (red): '+Math.round(cm)+' ms de media · máx. '+Math.round(Math.max.apply(null,cambios))+' ms'):'';
+  $('mpAgain').style.display=coach?'':'none';
+  mpShow('end');
+}
+(function(){
+  $('mpGrid').parentNode.addEventListener('pointerdown', mpTap, {passive:false});
+  seg('mpCoachRole');
+  if(/[?&]multi\b/.test(location.search)) $('mpEntry').style.display='';
+})();
+
 function goHome(){ xClear(); X.on=false; X.state=''; if(S.countIv){clearInterval(S.countIv);S.countIv=0;} if(S.coverTo){clearTimeout(S.coverTo);S.coverTo=0;} if(S.blankTo){clearTimeout(S.blankTo);S.blankTo=0;} $('sqCount').textContent=''; S.running=false; S.lock=true; schStopLoop(); show('home'); }
 
 seg('segModo'); seg('segEstimulo'); seg('segEnsayos');
@@ -1550,6 +1832,19 @@ try{
   db=getFirestore(app);
 }catch(e){ db=null; }
 window.fbReady=!!db;
+/* Multi (prototipo 2026-11-27): salas en rooms_schulte/{codigo}. Necesita en las reglas de Firestore permiso de
+   read/create/update/delete para rooms_.* (las de scores_/rank_ no cambian). '__TS__' = hora del servidor; '__DEL__' = borrar campo. */
+import { doc, runTransaction, serverTimestamp, deleteField, deleteDoc } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-firestore.js";
+function mpConv(v){ if(v && typeof v.toMillis==='function') return v.toMillis(); if(Array.isArray(v)) return v.map(mpConv); if(v && typeof v==='object'){ const o={}; for(const k in v) o[k]=mpConv(v[k]); return o; } return v; }
+function mpPrep(v){ if(v==='__TS__') return serverTimestamp(); if(v==='__DEL__') return deleteField(); if(v && typeof v==='object' && !Array.isArray(v)){ const o={}; for(const k in v) o[k]=mpPrep(v[k]); return o; } return v; }
+const mpRef=c=>doc(db,'rooms_schulte',String(c));
+window.MPF = db ? {
+  create:(c,data)=>runTransaction(db, async t=>{ const s=await t.get(mpRef(c)); if(s.exists()) throw new Error('exists'); t.set(mpRef(c), mpPrep(data)); }),
+  watch:(c,f)=>onSnapshot(mpRef(c), s=>f(s.exists()?mpConv(s.data({serverTimestamps:'estimate'})):null), e=>{ try{ console.warn('multi watch', e&&e.code); }catch(_){} }),
+  tx:(c,fn)=>runTransaction(db, async t=>{ const s=await t.get(mpRef(c)); const d=s.exists()?mpConv(s.data()):null; const u=fn(d); if(!u) return false; t.update(mpRef(c), mpPrep(u)); return true; }),
+  del:c=>deleteDoc(mpRef(c))
+} : null;
+
 
 /* Cola de reintento offline (2026-09-28, propia, en localStorage):
    ya no hay persistencia de Firestore (ver nota arriba), asi que si
