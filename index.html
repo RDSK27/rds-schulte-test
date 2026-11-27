@@ -241,117 +241,6 @@ if('serviceWorker' in navigator){
   .sch-xt{flex:none;display:flex;align-items:center;justify-content:center;gap:10px;height:38px;background:#111;border-radius:6px;color:#bdbdbd;font:900 12px Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;}
   .sch-xt b{color:#fff;font-size:26px;letter-spacing:0;}
   .x2-kb.sch-pen{opacity:.35;}
-  /* Multi (prototipo 2026-11-27) */
-  #mp{background:#fff;}
-  body.mp-active header{display:none;}
-  /* v5: tres botones redondos (START, MULTI, Ranking) mas pequenos para que quepan en el panel negro; v6: MULTI en negro (antes amarillo) */
-  #home .home-btn-row{gap:12px;}
-  #home .home-btn-row #btn-start,#home .home-btn-row .start-btn{width:60px;height:60px;}
-  #home .home-btn-row #btn-multi{background:radial-gradient(circle at 35% 30%, #5a5a5a 0%, #222222 45%, #000000 100%);color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;font-weight:900;font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;padding:0;}
-  #home .home-btn-row #btn-multi:active{box-shadow:inset 0 3px 7px rgba(0,0,0,0.6);}
-  .mp-entry{margin-top:10px;background:none;border:1px dashed #b03020;border-radius:4px;color:#ddd;font:800 11px Arial,sans-serif;letter-spacing:.12em;padding:6px 12px;text-transform:uppercase;cursor:pointer;}
-  .mp-v{display:none;flex:1;min-height:0;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:16px;box-sizing:border-box;overflow:auto;}
-  .mp-h{font:900 20px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#111;text-align:center;}
-  .mp-p{font:600 14px Arial,sans-serif;color:#555;text-align:center;max-width:320px;line-height:1.35;}
-  .mp-seg{width:100%;max-width:320px;}
-  .mp-btn{width:100%;max-width:320px;background:#111;color:#fff;border:none;border-top:4px solid #b03020;padding:15px 10px;font:900 14px Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;}
-  .mp-btn.red{background:#b03020;border-top-color:#111;}
-  .mp-btn.lite{background:#fff;color:#111;border:2px solid #111;}
-  .mp-btn:disabled{opacity:.4;}
-  .mp-err{font:700 13px Arial,sans-serif;color:#b03020;min-height:1em;text-align:center;max-width:320px;}
-  .mp-code{font:900 64px Arial,sans-serif;letter-spacing:.15em;color:#111;background:#f4f4f2;border:3px solid #111;border-radius:10px;padding:4px 22px;}
-  .mp-li{font:800 16px Arial,sans-serif;padding:7px 0;border-bottom:1px solid #ddd;width:260px;text-align:center;}
-  .mp-li i{font-weight:600;color:#888;}
-  #mpV_play{padding:0;justify-content:flex-start;}
-  .mp-play{flex:1;min-height:0;width:100%;display:flex;flex-direction:column;gap:8px;padding:12px 18px 18px;box-sizing:border-box;position:relative;}
-  .mp-top{display:flex;justify-content:space-between;align-items:center;gap:8px;font:900 15px Arial,sans-serif;color:#111;}
-  #mpStop{background:#111;color:#fff;border:none;border-radius:50%;width:34px;height:34px;font-size:16px;cursor:pointer;}
-  .mp-gw{flex:1;min-height:0;display:flex;flex-direction:column;justify-content:center;align-items:stretch;gap:10px;touch-action:none;}   /* banda Busca + rejilla, juntas y centradas */
-  #mpGrid{margin:0 auto;transition:opacity .15s;}   /* centrada: el movil puede estar lejos */
-  .mp-off #mpGrid{opacity:.3;}
-  .mp-off .sch-target{background:#8a8a8a;border-top-color:#aaa;}
-  .mp-on #mpGrid{border-color:var(--mpc,#b03020);box-shadow:0 0 0 4px var(--mpc,#b03020);}
-  .mp-on .sch-target{border-top-color:var(--mpc,#b03020);}
-  .mp-play.mp-on{box-shadow:inset 0 0 0 10px var(--mpc,#b03020);}   /* estacion activa: marco rojo en toda la pantalla, visible de lejos */
-  .mp-dir .mp-gw,.mp-dir .sch-target{display:none;}
-  #mpDirBig{display:none;}
-  .mp-dir #mpDirBig{display:flex;flex:1;flex-direction:column;align-items:center;justify-content:center;gap:6px;font-family:Arial,sans-serif;color:#111;}
-  #mpDirBig b{font-size:120px;font-weight:900;line-height:1;}
-  #mpDirBig span{font-size:18px;font-weight:800;}
-  #mpDirBig em{font-size:18px;font-weight:800;color:#b03020;font-style:normal;text-align:center;}
-  #mpCd{position:absolute;inset:0;display:none;align-items:center;justify-content:center;font:900 150px Arial,sans-serif;color:#b03020;background:rgba(255,255,255,.55);z-index:5;pointer-events:none;}
-  .mp-tab{border-collapse:collapse;font:700 14px Arial,sans-serif;color:#111;}
-  .mp-tab th,.mp-tab td{padding:6px 10px;border-bottom:1px solid #ddd;text-align:center;}
-  .mp-tab th{font-size:12px;color:#777;text-transform:uppercase;letter-spacing:.06em;}
-  /* Multi grupos (prototipo 2026-11-27): equipos Rojo/Azul/Verde/Blanco */
-  .mpg-team{width:100%;max-width:340px;border:2px solid #111;border-radius:8px;overflow:hidden;}
-  .mpg-th{display:flex;justify-content:space-between;align-items:center;padding:6px 12px;font:900 15px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;}
-  .mpg-th b{font-size:28px;letter-spacing:.14em;}
-  .mpg-ms{display:flex;flex-wrap:wrap;gap:6px;padding:8px;background:#fff;min-height:22px;}
-  .mpg-m{font:900 15px Arial,sans-serif;border:2px solid #111;border-radius:4px;padding:5px 9px;background:#f4f4f2;color:#111;}
-  .mpg-none{font:600 13px Arial,sans-serif;color:#888;}
-  #mpLobbyList{display:flex;flex-direction:column;align-items:center;gap:8px;width:100%;}
-  .mpg-chip{display:inline-block;border:2px solid #111;border-radius:4px;padding:1px 6px;font:900 12px Arial,sans-serif;letter-spacing:.05em;white-space:nowrap;}
-  .mpg-race{width:100%;max-width:340px;display:flex;flex-direction:column;gap:16px;}
-  .mpg-row{display:flex;align-items:center;gap:8px;}
-  .mpg-row.out{opacity:.45;}
-  .mpg-row .mpg-chip{min-width:62px;text-align:center;font-size:14px;}
-  .mpg-bar{flex:1;height:26px;border:2px solid #111;border-radius:4px;background:#eee;overflow:hidden;}
-  .mpg-bar i{display:block;height:100%;}
-  .mpg-n{font:900 24px Arial,sans-serif;min-width:1.8em;text-align:right;color:#111;}
-  .mpg-cl{display:flex;flex-direction:column;gap:6px;margin-top:10px;text-align:left;}
-  .mpg-cr{font:700 14px Arial,sans-serif;color:#111;}
-  .mpg-x{color:#b03020;}
-  #mpProg .mpg-chip{font-size:11px;padding:0 4px;}
-  /* v8 (maqueta aprobada 27-nov): pantallas Multi con cabecera, emblema, tarjetas negras y botones redondos */
-  #mp .mp-pg{padding:0;justify-content:flex-start;gap:0;background:linear-gradient(160deg,#f4f5f6 0%,#dfe1e4 45%,#c2c5c9 100%);}
-  .mp-hdr{flex:none;width:100%;height:52px;background:#000;border-bottom:4px solid #b03020;display:flex;align-items:center;justify-content:space-between;padding:0 12px;box-sizing:border-box;}
-  .mp-hdr span{font:900 11px Arial,sans-serif;letter-spacing:.14em;color:#888;text-transform:uppercase;}
-  .mp-bk{background:none;border:0;color:#ccc;font:900 12px Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;padding:10px 4px;cursor:pointer;}
-  .mp-pb{flex:1;min-height:0;width:100%;max-width:420px;display:flex;flex-direction:column;align-items:center;gap:14px;padding:18px 16px 22px;box-sizing:border-box;overflow:auto;}
-  .mp-emb{flex:none;width:112px;height:112px;border-radius:50%;padding:5px;box-sizing:border-box;background:conic-gradient(#fff,#9a9a9a,#e8e8e8,#5a5a5a,#fff,#8a8a8a,#dcdcdc,#666,#fff);box-shadow:0 6px 14px rgba(0,0,0,.45);}
-  .mp-emb>div{width:100%;height:100%;border-radius:50%;background:radial-gradient(circle at 35% 30%,#4a4a4a 0%,#1a1a1a 55%,#000 100%);display:flex;align-items:center;justify-content:center;}
-  .mp-ttl{font:900 32px Arial,sans-serif;letter-spacing:.1em;color:#111;text-transform:uppercase;line-height:1;text-align:center;}
-  .mp-ttl small{display:block;font:800 12px Arial,sans-serif;letter-spacing:.14em;color:#b03020;margin-top:8px;}
-  .mp-ttl2{font-size:26px;margin-top:8px;}
-  .mp-big2{width:100%;display:flex;flex-direction:column;gap:12px;}
-  .mp-bigb{display:flex;align-items:center;gap:14px;width:100%;background:#000;border:0;border-radius:12px;border-top:5px solid #b03020;padding:16px 14px;color:#fff;text-align:left;cursor:pointer;box-shadow:0 6px 14px rgba(0,0,0,.35);}
-  .mp-bigb.alt{border-top-color:#fff;}
-  .mp-bigb:active{transform:translateY(2px);}
-  .mp-ic{width:56px;height:56px;flex:none;border-radius:50%;background:#1b1b1b;border:2px solid #444;display:flex;align-items:center;justify-content:center;}
-  .mp-bt b{display:block;font:900 18px Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase;}
-  .mp-bt em{display:block;font:700 12px Arial,sans-serif;font-style:normal;color:#bbb;margin-top:4px;line-height:1.3;}
-  .mp-note{margin-top:auto;font:600 12px Arial,sans-serif;color:#444;text-align:center;line-height:1.35;}
-  .mp-card{width:100%;background:#000;border:3px solid #b03020;border-radius:12px;padding:12px;box-sizing:border-box;display:flex;flex-direction:column;gap:8px;}
-  .mp-lbl{font:900 11px Arial,sans-serif;letter-spacing:.16em;color:#bdbdbd;text-transform:uppercase;}
-  #mp .mp-tiles{border:0;background:none;gap:10px;}
-  #mp .mp-tiles button{height:auto;flex-direction:column;gap:2px;padding:10px 6px;border:2px solid #333;border-radius:8px;background:#1b1b1b;text-shadow:none;}
-  #mp .mp-tiles button.sel{background:#b03020;border-color:#e0533a;}
-  #mp .mp-tiles button svg{margin-bottom:4px;}
-  #mp .mp-tiles b{font:900 16px Arial,sans-serif;letter-spacing:.04em;}
-  #mp .mp-tiles span{font:800 10px Arial,sans-serif;letter-spacing:.06em;opacity:.85;line-height:1.25;}
-  .mp-chips{display:flex;gap:4px;justify-content:center;margin:4px 0 8px;font-style:normal;}
-  .mp-chips i{width:11px;height:22px;border-radius:3px;border:1.5px solid #000;display:block;}
-  #mp .mp-seg2 button{height:40px;font-size:13px;}
-  .mp-teams{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-top:2px;}
-  .mp-teams span{font:900 11px Arial,sans-serif;letter-spacing:.06em;padding:4px 8px;border-radius:4px;border:2px solid #000;text-transform:uppercase;}
-  .mp-hint{font:700 12px Arial,sans-serif;color:#bbb;text-align:center;line-height:1.35;}
-  .mp-ath{display:flex;gap:8px;}
-  .mp-ath input,.mp-ath select{height:46px;border-radius:8px;background:#fff;border:3px solid #111;box-sizing:border-box;color:#111;}
-  .mp-ath input{width:110px;font:900 22px Arial,sans-serif;letter-spacing:.2em;text-align:center;text-transform:uppercase;}
-  .mp-ath select{flex:1;min-width:0;font:900 13px Arial,sans-serif;padding:0 8px;}
-  #mpV_join .mp-ath input{width:150px;font-size:26px;}
-  .mp-rbrow{display:flex;justify-content:center;margin-top:auto;padding-top:6px;}
-  .mp-rb{width:84px;height:84px;border-radius:50%;padding:4px;box-sizing:border-box;background:conic-gradient(#fff,#9a9a9a,#e8e8e8,#5a5a5a,#fff,#8a8a8a,#dcdcdc,#666,#fff);box-shadow:0 5px 12px rgba(0,0,0,.55);}
-  .mp-rb:active{transform:translateY(3px);}
-  .mp-rb button{width:100%;height:100%;border-radius:50%;border:0;cursor:pointer;color:#fff;font:900 12px -apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase;box-shadow:inset 0 2px 4px rgba(255,255,255,.28),inset 0 -3px 6px rgba(0,0,0,.5);}
-  .mp-rb button.red{background:radial-gradient(circle at 35% 30%,#e84030 0%,#b03020 45%,#7a1a10 100%);}
-  .mp-rb button.blk{background:radial-gradient(circle at 35% 30%,#5a5a5a 0%,#222 45%,#000 100%);}
-  .mp-otp{position:relative;display:flex;gap:8px;justify-content:center;cursor:text;}
-  .mp-otp input{position:absolute;inset:0;width:100%;height:100%;opacity:0;font-size:16px;border:0;}
-  .mp-otp span{width:54px;height:66px;border-radius:8px;background:#fff;border:3px solid #111;display:flex;align-items:center;justify-content:center;font:900 36px Arial,sans-serif;color:#111;box-sizing:border-box;}
-  .mp-otp span.cur{border-color:#b03020;box-shadow:0 0 0 3px rgba(176,48,32,.25);}
-  .mp-mode{font:800 12px Arial,sans-serif;letter-spacing:.1em;color:#b03020;text-transform:uppercase;text-align:center;}
   .sq-count{position:absolute;left:0;right:0;top:50%;margin-top:-70px;text-align:center;color:var(--rojo);font-weight:900;font-size:130px;line-height:1;-webkit-text-stroke:4px #fff;paint-order:stroke fill;pointer-events:none;z-index:5;}   /* rojo con borde blanco: se ve sobre blanco y sobre negro */
   .segment button[data-soon],.rank-tab[data-soon]{opacity:.38;cursor:default;}
   .segment.off,.rank-tabs.off{opacity:.35;pointer-events:none;}   /* Limite: 10/25/50 no aplica (el tamano 3x3/4x4 si) */
@@ -495,7 +384,7 @@ if('serviceWorker' in navigator){
           <button class="start-btn rank-btn" ontouchend="event.stopPropagation();" onclick="showRanking()" aria-label="Ranking"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="#333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 21h8M12 13.5v7.5M7 4h10v5a5 5 0 0 1-10 0V4z"/><path d="M7 4H4v2a3 3 0 0 0 3 3M17 4h3v2a3 3 0 0 1-3 3"/></svg></button>
         </div>
       </div>
-  <div class="app-ver" style="margin-top:6px;padding-top:0;">v9</div>
+  <div class="app-ver" style="margin-top:6px;padding-top:0;">v10</div>
   <div id="user-name-bar" style="margin-top:8px;">
     <div style="display:flex;width:200px;gap:0;margin:0 auto;">
       <input id="user-ini-input" type="text" maxlength="3" placeholder="INI"
@@ -584,94 +473,6 @@ if('serviceWorker' in navigator){
         <div class="x2-flash"></div>
         <div class="x2-panel"></div>
       </div>
-    </div>
-  </section>
-
-  <section id="mp" class="screen">
-    <!-- v8 (maqueta aprobada 27-nov): entrada Multi = Crear sala | Unirme; crear y unirme en pantallas propias -->
-    <div class="mp-v mp-pg" id="mpV_menu">
-      <div class="mp-hdr"><button type="button" class="mp-bk" onclick="mpExit()">&#8592; Inicio</button><span>Schulte Perception</span></div>
-      <div class="mp-pb">
-        <div class="mp-emb"><div><svg width="78" height="60" viewBox="0 0 78 60" fill="none" aria-hidden="true"><rect x="3" y="12" width="20" height="36" rx="4" stroke="#fff" stroke-width="2.5"/><rect x="29" y="4" width="20" height="40" rx="4" stroke="#e0533a" stroke-width="3"/><rect x="55" y="12" width="20" height="36" rx="4" stroke="#fff" stroke-width="2.5"/><path d="M23 30h6M49 30h6" stroke="#bbb" stroke-width="2" stroke-dasharray="2 2"/></svg></div></div>
-        <div class="mp-ttl">Multi<small>Varios m&oacute;viles &middot; un ejercicio</small></div>
-        <div class="mp-big2">
-          <button type="button" class="mp-bigb" onclick="mpGoCreate()"><span class="mp-ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="7" r="3.5"/><path d="M5 21c0-4 3-6.5 7-6.5s7 2.5 7 6.5"/><path d="M19 3l2 2-2 2" stroke="#e0533a"/></svg></span><span class="mp-bt"><b>Crear sala</b><em>Soy el entrenador: elijo el ejercicio y doy los c&oacute;digos</em></span></button>
-          <button type="button" class="mp-bigb alt" onclick="mpGoJoin()"><span class="mp-ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2"/><path d="M10 18h4"/><path d="M2 12h6M5 9l3 3-3 3" stroke="#e0533a"/></svg></span><span class="mp-bt"><b>Unirme</b><em>Tengo un c&oacute;digo de sala o de equipo</em></span></button>
-        </div>
-        <div class="mp-err" id="mpMenuMsg"></div>
-        <div class="mp-note">Todos los m&oacute;viles necesitan conexi&oacute;n (datos o la misma wifi).</div>
-      </div>
-    </div>
-    <div class="mp-v mp-pg" id="mpV_create">
-      <div class="mp-hdr"><button type="button" class="mp-bk" onclick="mpShow('menu')">&#8592; Multi</button><span>Crear sala</span></div>
-      <div class="mp-pb">
-        <div class="mp-card">
-          <div class="mp-lbl">Modalidad</div>
-          <div class="segment mp-tiles" id="mpKind">
-            <button class="sel" data-v="ind"><svg width="44" height="34" viewBox="0 0 44 34" fill="none" aria-hidden="true"><rect x="2" y="8" width="11" height="20" rx="2" stroke="#fff" stroke-width="2"/><rect x="16.5" y="3" width="11" height="22" rx="2" stroke="#fff" stroke-width="2.5"/><rect x="31" y="8" width="11" height="20" rx="2" stroke="#fff" stroke-width="2"/></svg><b>Individual</b><span>1 deportista &middot; varias estaciones</span></button>
-            <button data-v="grp"><i class="mp-chips"><i style="background:#b03020"></i><i style="background:#1f5fbf"></i><i style="background:#1e8a3c"></i><i style="background:#f4f4f2"></i></i><b>Grupos</b><span>Equipos en carrera</span></button>
-          </div>
-          <div id="mpNTBox" style="display:none">
-            <div class="mp-lbl">Equipos</div>
-            <div class="segment mp-seg2" id="mpNT"><button class="sel" data-v="2">2</button><button data-v="3">3</button><button data-v="4">4</button></div>
-            <div class="mp-teams" id="mpTeams"></div>
-          </div>
-          <div class="mp-lbl">Juego &middot; 5x5</div>
-          <div class="segment mp-seg2" id="mpMo"><button class="sel" data-v="normal">Normal</button><button data-v="extremo">Extremo</button></div>
-          <div class="segment mp-seg2" id="mpOrd"><button class="sel" data-v="sec">Secuencia</button><button data-v="ran">Random</button></div>
-          <div class="mp-hint" id="mpRules"></div>
-        </div>
-        <div class="mp-card">
-          <div class="mp-lbl">Mi m&oacute;vil</div>
-          <div class="segment mp-seg2" id="mpCoachRole"><button class="sel" data-v="est">Participa</button><button data-v="dir">Solo dirijo</button></div>
-          <div id="mpAthBox">
-            <div class="mp-lbl" id="mpAthLbl">Deportista</div>
-            <div class="mp-ath"><input id="mpAthIni" type="text" maxlength="3" placeholder="INI" autocomplete="off" oninput="this.value=this.value.toUpperCase().replace(/[^A-Z]/g,'')"><select id="mpAthSport"></select></div>
-          </div>
-        </div>
-        <div class="mp-err" id="mpCreateErr"></div>
-        <div class="mp-rbrow"><div class="mp-rb"><button type="button" class="red" onclick="mpCreate()">Crear</button></div></div>
-      </div>
-    </div>
-    <div class="mp-v mp-pg" id="mpV_join">
-      <div class="mp-hdr"><button type="button" class="mp-bk" onclick="mpShow('menu')">&#8592; Multi</button><span>Unirme</span></div>
-      <div class="mp-pb">
-        <div class="mp-ttl mp-ttl2">C&oacute;digo<small>Te lo da el entrenador o tu capit&aacute;n</small></div>
-        <label class="mp-otp"><input id="mpCode" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="4" autocomplete="off" aria-label="C&oacute;digo de 4 cifras"><span></span><span></span><span></span><span></span></label>
-        <div class="mp-card">
-          <div class="mp-lbl">Tus iniciales</div>
-          <div class="mp-ath" style="justify-content:center"><input id="mpIni" type="text" maxlength="3" placeholder="INI" autocomplete="off" oninput="this.value=this.value.toUpperCase().replace(/[^A-Z]/g,'')"></div>
-          <div class="mp-hint">Solo hacen falta si juegas en un equipo.</div>
-        </div>
-        <div class="mp-err" id="mpJoinErr"></div>
-        <div class="mp-rbrow"><div class="mp-rb"><button type="button" class="blk" onclick="mpJoin()">Entrar</button></div></div>
-      </div>
-    </div>
-    <div class="mp-v" id="mpV_lobby">
-      <div class="mp-p" id="mpLobbyCodeLbl">C&oacute;digo de la sala</div>
-      <div class="mp-code" id="mpLobbyCode"></div>
-      <div class="mp-h" id="mpLobbyHead"></div>
-      <div class="mp-mode" id="mpLobbyMode"></div>
-      <div id="mpLobbyList"></div>
-      <div class="mp-p" id="mpLobbyInfo"></div>
-      <button class="mp-btn red" id="mpStart" type="button" onclick="mpStart()">Empezar</button>
-      <button class="mp-btn lite" type="button" onclick="mpExit()">Salir</button>
-    </div>
-    <div class="mp-v" id="mpV_play">
-      <div class="mp-play" id="mpPlay">
-        <div class="mp-top"><span id="mpWho"></span><span id="mpProg"></span><span id="mpTime">0.0 s</span><button id="mpStop" type="button" onclick="mpStopGame()" aria-label="Parar">&#10005;</button></div>
-        <div class="mp-gw"><div class="sch-target"><span id="mpBandLbl">Busca</span><b id="mpT">--</b></div><div class="grid" id="mpGrid"></div></div>
-        <div id="mpDirBig"></div>
-        <div id="mpCd"></div>
-      </div>
-    </div>
-    <div class="mp-v" id="mpV_end">
-      <div class="mp-h" id="mpEndT"></div>
-      <div class="mp-p" id="mpEndS"></div>
-      <table class="mp-tab" id="mpEndTab"></table>
-      <div class="mp-p" id="mpEndNet"></div>
-      <button class="mp-btn red" id="mpAgain" type="button" onclick="mpStart()">Otra vez</button>
-      <button class="mp-btn lite" type="button" onclick="mpExit()">Salir</button>
     </div>
   </section>
 
@@ -1642,435 +1443,6 @@ function xStop(){
   $('x2Stop').addEventListener('click', xStop);
 })();
 
-/* ---------- MULTI (PROTOTIPO, 2026-11-27): un deportista con varios moviles ("estaciones") ----------
-   Decidido por Roberto: la sala la crea el ENTRENADOR (su movil puede ser estacion o solo dirigir; pone INI+deporte del deportista en
-   inicio). Las estaciones se unen con un codigo de 4 cifras. Normal + Secuencia + 5x5: cada estacion tiene una rejilla DIFERENTE y todas
-   se ven siempre; la activa resaltada (y suena), las demas atenuadas. El 1 se busca en una estacion, el 2 en otra al azar (nunca la
-   misma dos veces seguidas)... y cada numero encontrado desaparece en TODAS. Un fallo termina. Tiempo real (reloj del servidor:
-   desde el inicio hasta el ultimo acierto). Sin guardar en ranking (prototipo). Acceso oculto: index.html?multi (Firebase) o
-   ?multi=local (sin Firebase: varias pestanas del mismo navegador, para probar).
-   Sala = documento rooms_schulte/{codigo}: {kind,ini,sport,coach,coachEst,state:'lobby'|'count'|'play'|'end',st:{sid:{n}},nSt,
-   grids:{sid:[25]},step,active,prev,round,tPlay,hits:{n:{s,at,loc}},end:{r,s,v,want,at}}. '__TS__' = hora del servidor. */
-var MP={ on:false, code:'', sid:'', role:'', d:null, unsub:null, view:'', isAct:false, tAct:0, busy:false, cdTo:0, cdIv:0, tickIv:0, tPlayLocal:0, lastRound:-1, wl:null };
-var MP_N=25, MP_COLS=5;
-function mpTr(){ return /[?&]multi=local\b/.test(location.search) ? MPL : window.MPF; }
-function mpSid(){ var s=''; try{ s=sessionStorage.getItem('rds_sch_mpsid')||''; }catch(e){} if(!s){ s='s'+Math.random().toString(36).slice(2,8); try{ sessionStorage.setItem('rds_sch_mpsid',s); }catch(e){} } return s; }
-/* transporte local (pruebas): la sala vive en localStorage y las demas pestanas se enteran por el evento 'storage' */
-var MPL=(function(){
-  var subs={};
-  function key(c){ return 'rds_sch_mpL_'+c; }
-  function rd(c){ try{ return JSON.parse(localStorage.getItem(key(c))||'null'); }catch(e){ return null; } }
-  function fix(v){ if(v==='__TS__') return Date.now(); if(v && typeof v==='object' && !Array.isArray(v)){ var o={}, k; for(k in v) o[k]=fix(v[k]); return o; } return v; }
-  function emit(c){ var d=rd(c); (subs[c]||[]).forEach(function(f){ f(d); }); }
-  window.addEventListener('storage', function(e){ if(e.key && e.key.indexOf('rds_sch_mpL_')===0) emit(e.key.slice(12)); });
-  function apply(d,upd){ var k, p, o, i; for(k in upd){ p=k.split('.'); o=d; for(i=0;i<p.length-1;i++){ if(!o[p[i]]||typeof o[p[i]]!=='object') o[p[i]]={}; o=o[p[i]]; } if(upd[k]==='__DEL__') delete o[p[p.length-1]]; else o[p[p.length-1]]=fix(upd[k]); } }
-  return {
-    create:function(c,data){ return new Promise(function(ok,ko){ if(rd(c)) return ko(new Error('exists')); localStorage.setItem(key(c), JSON.stringify(fix(data))); emit(c); ok(); }); },
-    watch:function(c,f){ (subs[c]=subs[c]||[]).push(f); setTimeout(function(){ f(rd(c)); },0); return function(){ subs[c]=(subs[c]||[]).filter(function(g){ return g!==f; }); }; },
-    tx:function(c,fn){ return new Promise(function(ok,ko){ var d=rd(c), u; try{ u=fn(d); }catch(e){ return ko(e); } if(!u) return ok(false); apply(d,u); localStorage.setItem(key(c), JSON.stringify(d)); emit(c); ok(true); }); },
-    del:function(c){ localStorage.removeItem(key(c)); emit(c); return Promise.resolve(); }
-  };
-})();
-function mpShow(v){ MP.view=v; var vs=$('mp').querySelectorAll('.mp-v'), i; for(i=0;i<vs.length;i++) vs[i].style.display=(vs[i].id==='mpV_'+v)?'flex':'none'; if(v==='play') setTimeout(mpFit,0); }
-function mpMsg(id,t){ $(id).textContent=t||''; }
-function mpEnter(){
-  if(!mpTr()){ alert('Sin conexión con Firebase: el modo Multi necesita internet.'); return; }
-  MP.sid=mpSid(); show('mp'); mpShow('menu'); mpMsg('mpMenuMsg','');
-  var hi=($('user-ini-input').value||'').toUpperCase().replace(/[^A-Z]/g,'').slice(0,3);
-  if(!$('mpIni').value) $('mpIni').value=hi;
-  if(!$('mpAthIni').value) $('mpAthIni').value=hi;
-  var hs=$('user-sport-select'), as=$('mpAthSport');
-  if(hs && !as.options.length){ as.innerHTML=hs.innerHTML; }
-  if(hs && hs.value) as.value=hs.value;
-  try{ if(navigator.wakeLock) navigator.wakeLock.request('screen').then(function(w){ MP.wl=w; }).catch(function(){}); }catch(e){}
-}
-/* v8: pantallas Crear sala y Unirme */
-function mpGoCreate(){ mpMsg('mpCreateErr',''); mpShow('create'); mpMenuUI(); }
-function mpGoJoin(){ mpMsg('mpJoinErr',''); mpShow('join'); mpOtpDraw(); try{ $('mpCode').focus(); }catch(e){} }
-function mpOtpDraw(){ var v=($('mpCode').value||'').replace(/\D/g,'').slice(0,4), sp=document.querySelectorAll('.mp-otp span'), i; for(i=0;i<sp.length;i++){ sp[i].textContent=v.charAt(i)||''; sp[i].classList.toggle('cur', i===Math.min(v.length,3) && document.activeElement===$('mpCode')); } }
-/* modo de juego de la sala (salas antiguas sin mo/ord: individual Normal+Secuencia, grupos Extremo+Random) */
-function mpMo(d){ return (d && d.mo) || (d && d.kind==='grp' ? 'extremo' : 'normal'); }
-function mpOrd(d){ return (d && d.ord) || (d && d.kind==='grp' ? 'ran' : 'sec'); }
-function mpOrderNew(ord){ var a=[], i; if(ord==='ran') return schDeal(MP_N); for(i=1;i<=MP_N;i++) a.push(i); return a; }
-function mpOrderOf(d){ if(d && d.order && d.order.length) return d.order; var a=[], i; for(i=1;i<=MP_N;i++) a.push(i); return a; }
-function mpModeTxt(d){ return '5x5 · '+(mpMo(d)==='extremo'?'Extremo':'Normal')+' · '+(mpOrd(d)==='ran'?'Random':'Secuencia'); }
-function mpLeave(){
-  if(MP.unsub){ try{ MP.unsub(); }catch(e){} MP.unsub=null; }
-  mpClearTimers(); MP.on=false; MP.d=null; MP.code=''; MP.role=''; MP.isAct=false; MP.lastRound=-1;
-  try{ if(MP.wl) MP.wl.release(); }catch(e){} MP.wl=null;
-}
-function mpClearTimers(){ if(MP.cdTo){ clearTimeout(MP.cdTo); MP.cdTo=0; } if(MP.cdIv){ clearInterval(MP.cdIv); MP.cdIv=0; } if(MP.tickIv){ clearInterval(MP.tickIv); MP.tickIv=0; } }
-function mpExit(){   /* boton Salir: la estacion se quita de la sala si aun no ha empezado; el entrenador cierra la sala */
-  var c=MP.code, sid=MP.sid, coach=(MP.role==='coach'), tr=mpTr();
-  mpLeave(); goHome();
-  if(!c) return;
-  if(coach) tr.del(c).catch(function(){});
-  else tr.tx(c,function(d){ if(!d || d.state!=='lobby') return null; var u={}; if(d.kind==='grp'){ if(!d.pl || !d.pl[sid]) return null; u['pl.'+sid]='__DEL__'; } else { if(!d.st || !d.st[sid]) return null; u['st.'+sid]='__DEL__'; } return u; }).catch(function(){});
-}
-/* ---- crear sala (entrenador) ---- */
-function mpCreate(){
-  if(selVal('mpKind')==='grp') return mpgCreate();
-  var est=selVal('mpCoachRole')!=='dir', ini=($('mpAthIni').value||'').toUpperCase().replace(/[^A-Z]/g,'').slice(0,3), sport=$('mpAthSport').value||'';
-  if(!ini){ mpMsg('mpCreateErr','Escribe las iniciales del deportista.'); try{ $('mpAthIni').focus(); }catch(e){} return; }   /* v8: INI y deporte se ponen aqui */
-  var code=String(1000+Math.floor(Math.random()*9000)), st={};
-  if(est) st[MP.sid]={n:1};
-  mpMsg('mpCreateErr','Creando sala...');
-  mpTr().create(code,{kind:'ind', v:1, created:'__TS__', ini:ini, sport:sport, mo:selVal('mpMo')||'normal', ord:selVal('mpOrd')||'sec', order:[], coach:MP.sid, coachEst:est, state:'lobby', st:st, nSt:est?1:0, grids:{}, step:0, active:'', prev:'', round:0, tPlay:0, hits:{}, end:{}})
-    .then(function(){ mpMsg('mpCreateErr',''); MP.role='coach'; mpAttach(code); })
-    .catch(function(e){ mpMsg('mpCreateErr', (e&&e.message==='exists')?'Ese código ya existe, prueba otra vez.':'No se pudo crear la sala ('+((e&&e.code)||(e&&e.message)||'error')+').'); });
-}
-/* ---- unirse (estacion) ---- */
-function mpJoin(){
-  var code=($('mpCode').value||'').replace(/\D/g,'');
-  if(code.length!==4){ mpMsg('mpJoinErr','Escribe el código de 4 cifras.'); return; }
-  try{ audioCtx(); }catch(e){}   /* desbloquea el sonido con este toque */
-  mpMsg('mpJoinErr','Uniendo...');
-  var sid=MP.sid;
-  mpTr().tx(code,function(d){
-    if(!d) throw new Error('nada');
-    if(d.st && d.st[sid]) return null;                       /* ya estaba (recarga) */
-    if(d.state!=='lobby') throw new Error('empezada');
-    var u={}; u['st.'+sid]={n:(d.nSt||0)+1}; u.nSt=(d.nSt||0)+1; return u;
-  }).then(function(){ mpMsg('mpJoinErr',''); MP.role='st'; mpAttach(code); })
-    .catch(function(e){ var m=e&&e.message; if(m==='nada') return mpgJoin(code); mpMsg('mpJoinErr', m==='nada'?'No existe ninguna sala con ese código.':(m==='empezada'?'Esa sala ya ha empezado.':'No se pudo entrar ('+((e&&e.code)||m||'error')+').')); });
-}
-function mpAttach(code){ MP.code=code; MP.on=true; MP.lastRound=-1; if(MP.unsub) MP.unsub(); MP.unsub=mpTr().watch(code, mpOnRoom); }
-function mpMyN(d){ return d && d.st && d.st[MP.sid] ? d.st[MP.sid].n : 0; }
-function mpStations(d){ return Object.keys((d&&d.st)||{}).sort(function(a,b){ return d.st[a].n-d.st[b].n; }); }
-function mpIsStation(d){ return !!(d && d.st && d.st[MP.sid]); }
-function mpOnRoom(d){
-  if(!MP.on) return;
-  MP.d=d;
-  if(!d){ mpLeave(); show('mp'); mpShow('menu'); mpMsg('mpMenuMsg','La sala se ha cerrado.'); return; }
-  if(d.kind==='grp') return mpgOnRoom(d);
-  if(MP.role==='st' && !mpIsStation(d)){ mpLeave(); show('mp'); mpShow('menu'); mpMsg('mpMenuMsg','Ya no estás en la sala.'); return; }
-  if(d.state==='lobby') return mpLobby(d);
-  if(d.state==='count'){ if(MP.lastRound!==d.round){ MP.lastRound=d.round; mpCountdown(d); } return mpRenderPlay(d); }
-  if(d.state==='play') return mpRenderPlay(d);
-  if(d.state==='end') return mpEnd(d);
-}
-function mpLobby(d){
-  mpClearTimers(); MP.isAct=false;
-  var ss=mpStations(d), coach=(MP.role==='coach'), h='', i;
-  $('mpLobbyCode').textContent=MP.code; $('mpLobbyCode').style.display=''; $('mpLobbyCodeLbl').style.display='';
-  for(i=0;i<ss.length;i++) h+='<div class="mp-li">Estación '+d.st[ss[i]].n+(ss[i]===MP.sid?' <i>(este móvil)</i>':'')+'</div>';
-  if(!ss.length) h='<div class="mp-li"><i>Aún no hay estaciones</i></div>';
-  $('mpLobbyList').innerHTML=h;
-  $('mpLobbyHead').textContent=coach?('Deportista: '+(d.ini||'--')+(d.sport?' · '+d.sport:'')):('Eres la ESTACIÓN '+mpMyN(d));
-  $('mpLobbyMode').textContent='Individual · '+mpModeTxt(d);
-  $('mpLobbyInfo').textContent=coach?(ss.length<2?'Hacen falta al menos 2 estaciones':'Coloca los móviles y pulsa Empezar'):'Esperando a que el entrenador empiece';
-  $('mpStart').style.display=coach?'':'none'; $('mpStart').disabled=ss.length<2;
-  mpShow('lobby');
-}
-/* ---- empezar (entrenador): rejilla distinta para cada estacion; cuenta atras 3 s y despues 'play' con la hora del servidor ---- */
-function mpStart(){
-  if(MP.role!=='coach') return;
-  if(MP.d && MP.d.kind==='grp') return mpgStart();
-  try{ audioCtx(); }catch(e){}
-  var code=MP.code, rnd;
-  mpTr().tx(code,function(d){
-    if(!d || (d.state!=='lobby' && d.state!=='end')) return null;
-    var ss=mpStations(d); if(ss.length<2) return null;
-    var g={}, i; for(i=0;i<ss.length;i++) g[ss[i]]=schDeal(MP_N);
-    rnd=(d.round||0)+1;
-    return {state:'count', grids:g, order:mpOrderNew(mpOrd(d)), step:0, active:ss[Math.floor(Math.random()*ss.length)], prev:'', hits:{}, end:{}, round:rnd, tPlay:0};
-  }).then(function(ok){
-    if(!ok) return;
-    setTimeout(function(){ mpTr().tx(code,function(d){ if(!d || d.state!=='count' || d.round!==rnd) return null; return {state:'play', tPlay:'__TS__'}; }).catch(function(){}); }, 3000);
-  }).catch(function(e){ alert('No se pudo empezar: '+((e&&e.code)||(e&&e.message)||'error')); });
-}
-function mpCountdown(d){
-  mpClearTimers(); var n=3, el=$('mpCd');
-  el.style.display='flex'; el.textContent=n;
-  MP.cdIv=setInterval(function(){ n--; if(n<=0){ clearInterval(MP.cdIv); MP.cdIv=0; el.style.display='none'; return; } el.textContent=n; }, 1000);
-}
-function mpFit(){ var g=$('mpGrid'); if(g && MP.view==='play') schFit(g, g.parentNode, MP_COLS); }
-window.addEventListener('resize', mpFit);
-function mpSndOn(){ var c=audioCtx(); if(!c) return; var t=c.currentTime; tone('sine',988,0,t,0.09,0.22); tone('sine',1319,0,t+0.11,0.12,0.22); }
-function mpRenderPlay(d){
-  var st=mpIsStation(d), coach=(MP.role==='coach'), ss=mpStations(d), play=(d.state==='play');
-  mpShow('play'); $('mpPlay').style.removeProperty('--mpc'); $('mpBandLbl').textContent='Busca';
-  $('mpPlay').classList.toggle('mp-dir', !st);
-  $('mpStop').style.display=coach?'':'none';
-  $('mpProg').textContent=d.step+' / '+MP_N;
-  $('mpWho').textContent=st?('Estación '+mpMyN(d)):('Activa: estación '+(d.st[d.active]?d.st[d.active].n:'--'));
-  if(play && !MP.tPlayLocal){ MP.tPlayLocal=performance.now(); }
-  if(!play) MP.tPlayLocal=0;
-  if(play && !MP.tickIv) MP.tickIv=setInterval(function(){ if(MP.tPlayLocal) $('mpTime').textContent=((performance.now()-MP.tPlayLocal)/1000).toFixed(1)+' s'; }, 100);
-  if(!play) $('mpTime').textContent='0.0 s';
-  if(!st){   /* entrenador que solo dirige: progreso y estacion activa */
-    $('mpPlay').classList.remove('mp-on','mp-off');
-    $('mpDirBig').innerHTML='<b>'+d.step+'</b><span>de '+MP_N+'</span><em>Busca el '+(mpOrderOf(d)[d.step]||'--')+' en la estación '+(d.st[d.active]?d.st[d.active].n:'--')+'</em>';
-    return;
-  }
-  var g=$('mpGrid'); if(!g.children.length){ g.innerHTML=schCellsHTML(MP_N); mpFit(); setTimeout(mpFit,50); }
-  var vals=(d.grids&&d.grids[MP.sid])||[], c=g.children, i, v, ord=mpOrderOf(d), fnd={}, nor=(mpMo(d)==='normal');
-  for(i=0;i<d.step;i++) fnd[ord[i]]=1;
-  for(i=0;i<c.length;i++){ v=vals[i]; var gone=nor && !!fnd[v]; c[i].textContent=(v && !gone)?String(v):''; c[i].classList.toggle('gone', gone); }
-  var act=play && d.active===MP.sid;
-  $('mpPlay').classList.toggle('mp-on', act); $('mpPlay').classList.toggle('mp-off', !act);
-  $('mpT').textContent=act?String(ord[d.step]):'--';
-  if(act && !MP.isAct){ MP.isAct=true; MP.tAct=performance.now(); MP.busy=false; mpSndOn(); }
-  if(!act) MP.isAct=false;
-}
-function mpTap(e){
-  if(MP.d && MP.d.kind==='grp') return mpgTap(e);
-  if(!MP.on || MP.view!=='play' || !MP.isAct || MP.busy) return;
-  var d=MP.d; if(!d || d.state!=='play' || d.active!==MP.sid) return;
-  if(e.cancelable) e.preventDefault();
-  var g=$('mpGrid'), vals=d.grids[MP.sid], ord=mpOrderOf(d), want=ord[d.step], step0=d.step, fnd={}, k;
-  for(k=0;k<d.step;k++) fnd[ord[k]]=1;
-  var i=schHit(g, MP_COLS, e.clientX, e.clientY, false, function(k){ return vals[k]===want; });
-  if(i<0) return;
-  var v=vals[i]; if(mpMo(d)==='normal' && fnd[v]) return;      /* casilla ya vacia (Normal) */
-  var loc=Math.round(performance.now()-MP.tAct), sid=MP.sid, code=MP.code;
-  MP.busy=true;
-  if(v===want){
-    sndSymbol(); schFlash(g.children[i]);
-    mpTr().tx(code,function(r){
-      if(!r || r.state!=='play' || r.active!==sid || r.step!==step0) return null;
-      var u={step:step0+1, prev:sid}; u['hits.'+(step0+1)]={s:sid, at:'__TS__', loc:loc};
-      if(step0+1>=MP_N){ u.state='end'; u.end={r:'done', at:'__TS__'}; }
-      else { var o=mpStations(r).filter(function(x){ return x!==sid; }); u.active=o[Math.floor(Math.random()*o.length)]; }
-      return u;
-    }).catch(function(){ MP.busy=false; });
-  } else {
-    sndFail();
-    mpTr().tx(code,function(r){ if(!r || r.state!=='play') return null; return {state:'end', end:{r:'wrong', s:sid, v:v, want:want, at:'__TS__'}}; }).catch(function(){ MP.busy=false; });
-  }
-}
-function mpStopGame(){ var code=MP.code; mpTr().tx(code,function(r){ if(!r || (r.state!=='play' && r.state!=='count')) return null; return {state:'end', end:{r:'stop', at:'__TS__'}}; }).catch(function(){}); }
-function mpEnd(d){
-  mpClearTimers(); MP.isAct=false; MP.tPlayLocal=0;
-  var e=d.end||{}, coach=(MP.role==='coach'), tit, sub='';
-  var tot=(e.at && d.tPlay)?(e.at-d.tPlay):0;
-  if(e.r==='done'){ tit='¡Completado!'; sub=(tot/1000).toFixed(2)+' s'; }
-  else if(e.r==='wrong'){ tit='Fallo'; sub='Estación '+(d.st[e.s]?d.st[e.s].n:'?')+': pulsaste el '+e.v+' y tocaba el '+e.want; }
-  else { tit='Partida parada'; }
-  if(e.r!=='done' && d.step) sub+=(sub?'<br>':'')+d.step+' números en '+(tot/1000).toFixed(2)+' s';
-  $('mpEndT').textContent=tit; $('mpEndS').innerHTML=sub;
-  /* desglose por estacion: numeros, busqueda media (reloj del movil) y cambio medio (lo que tarda en pasar el turno: red + pantalla) */
-  var ss=mpStations(d), agg={}, n, h, prevAt=d.tPlay, rows='', cambios=[];
-  ss.forEach(function(s){ agg[s]={c:0,loc:0}; });
-  for(n=1;n<=d.step;n++){ h=d.hits&&d.hits[n]; if(!h) continue; if(agg[h.s]){ agg[h.s].c++; agg[h.s].loc+=h.loc||0; } if(h.at && prevAt) cambios.push((h.at-prevAt)-(h.loc||0)); prevAt=h.at; }
-  ss.forEach(function(s){ var a=agg[s]; rows+='<tr><td>Estación '+d.st[s].n+(s===MP.sid?' *':'')+'</td><td>'+a.c+'</td><td>'+(a.c?(a.loc/a.c/1000).toFixed(2)+' s':'--')+'</td></tr>'; });
-  var cm=cambios.length?cambios.reduce(function(x,y){ return x+y; },0)/cambios.length:0;
-  $('mpEndTab').innerHTML='<tr><th>Estación</th><th>Núm.</th><th>Búsqueda media</th></tr>'+rows;
-  $('mpEndNet').textContent=cambios.length?('Paso de turno (red): '+Math.round(cm)+' ms de media · máx. '+Math.round(Math.max.apply(null,cambios))+' ms'):'';
-  $('mpAgain').style.display=coach?'':'none';
-  mpShow('end');
-}
-(function(){
-  $('mpGrid').parentNode.addEventListener('pointerdown', mpTap, {passive:false});
-  seg('mpCoachRole'); seg('mpKind'); seg('mpNT'); seg('mpMo'); seg('mpOrd');
-  /* v8: al cambiar de modalidad se ponen sus modos por defecto (Individual: Normal+Secuencia; Grupos: Extremo+Random) */
-  $('mpKind').addEventListener('click', function(){ setTimeout(function(){ var g=selVal('mpKind')==='grp'; setSeg('mpMo', g?'extremo':'normal'); setSeg('mpOrd', g?'ran':'sec'); mpMenuUI(); },0); });
-  ['mpNT','mpMo','mpOrd','mpCoachRole'].forEach(function(id){ $(id).addEventListener('click', function(){ setTimeout(mpMenuUI,0); }); });
-  $('mpCode').addEventListener('input', function(){ this.value=this.value.replace(/\D/g,'').slice(0,4); mpOtpDraw(); if(this.value.length===4){ try{ $('mpIni').focus(); }catch(e){} } });
-  $('mpCode').addEventListener('focus', mpOtpDraw); $('mpCode').addEventListener('blur', mpOtpDraw);
-})();
-
-/* ---------- MULTI GRUPOS (PROTOTIPO, 2026-11-27): equipos, cada jugador con su movil ----------
-   Decidido por Roberto: la sala la crea el ENTRENADOR (juega en un equipo o solo dirige), 2-4 equipos ROJO/AZUL/VERDE/BLANCO (como las
-   facciones de las cuadrigas romanas), de distinto tamano si hace falta. UN CODIGO POR EQUIPO: sala g+3 cifras y el equipo es la 4.a cifra
-   (sala g482 -> Rojo 4821, Azul 4822...); el capitan lo pasa a los suyos; el entrenador puede cambiar a alguien de equipo tocando su nombre.
-   Ejercicio: 5x5, Extremo (los numeros no desaparecen), Random. Misma colocacion y misma lista de numeros para todos los equipos. Los
-   numeros SOLO se ven en el movil del jugador al que le toca; el siguiente es un companero al azar (nunca el mismo dos veces seguidas,
-   salvo equipo de 1). Carrera en TIEMPO REAL: gana el primero en encontrar los 25. Numero equivocado = equipo ELIMINADO; si solo queda
-   un equipo en juego, gana. Clasificacion: ganador, luego por numeros encontrados.
-   Sala rooms_schulte/g{base}: {kind:'grp',coach,nT,state,pl:{sid:{t,ini}},grid:[25],order:[25],round,tPlay,
-   tm:{t:{step,active,prev,out,empty,fin,hits:{n:{s,at,loc}},fail:{s,v,want,at}}},win,end:{r:'done'|'last'|'stop',at}} */
-var MPG_T=[null,{n:'Rojo',c:'#b03020',f:'#b03020',t:'#fff'},{n:'Azul',c:'#1f5fbf',f:'#1f5fbf',t:'#fff'},{n:'Verde',c:'#1e8a3c',f:'#1e8a3c',t:'#fff'},{n:'Blanco',c:'#f4f4f2',f:'#111',t:'#111'}];
-function mpMenuUI(){   /* pantalla Crear sala: equipos solo en Grupos; texto de reglas; quien pone iniciales */
-  var g=selVal('mpKind')==='grp', nT=parseInt(selVal('mpNT'),10)||2, dir=selVal('mpCoachRole')==='dir', ext=selVal('mpMo')==='extremo', ran=selVal('mpOrd')==='ran', h='', t;
-  $('mpNTBox').style.display=g?'':'none';
-  for(t=1;t<=4;t++) h+='<span style="background:'+MPG_T[t].c+';color:'+MPG_T[t].t+';'+(t>nT?'opacity:.28':'')+'">'+MPG_T[t].n+'</span>';
-  $('mpTeams').innerHTML=h;
-  $('mpRules').textContent=(g?'Los números solo se ven en el móvil al que le toca; el siguiente es un compañero al azar. Fallo = equipo eliminado. ':'Cada estación tiene su rejilla; el número salta de un móvil a otro al azar. Un fallo termina. ')
-    +(ext?'Extremo: los números encontrados se quedan. ':'Normal: los números encontrados desaparecen. ')+(ran?'Random: se piden en orden aleatorio.':'Secuencia: 1, 2, 3...');
-  $('mpAthBox').style.display=(g && dir)?'none':'';
-  $('mpAthLbl').textContent=g?'Tus iniciales':'Deportista';
-  $('mpAthSport').style.display=g?'none':'';
-  var cr=document.querySelector('#mpCoachRole [data-v="est"]'); if(cr) cr.textContent=g?'Juego (Rojo)':'Participa';
-}
-function mpgChip(t,txt){ var T=MPG_T[t]; return '<span class="mpg-chip" style="background:'+T.c+';color:'+T.t+'">'+(txt||T.n)+'</span>'; }
-function mpgMembers(d,t){ var p=(d&&d.pl)||{}; return Object.keys(p).filter(function(s){ return p[s].t===t; }).sort(function(a,b){ return (p[a].ini||'').localeCompare(p[b].ini||''); }); }
-function mpgTeamsIn(d){ var r=[], t; for(t=1;t<=(d.nT||2);t++) if(mpgMembers(d,t).length) r.push(t); return r; }
-function mpgCreate(){
-  var nT=parseInt(selVal('mpNT'),10)||2, play=selVal('mpCoachRole')!=='dir';
-  var ini=($('mpAthIni').value||'').toUpperCase().replace(/[^A-Z]/g,'').slice(0,3);
-  if(play && !ini){ mpMsg('mpCreateErr','Escribe tus iniciales para jugar.'); try{ $('mpAthIni').focus(); }catch(e){} return; }
-  var base=String(100+Math.floor(Math.random()*900)), code='g'+base, pl={}, tm={}, t;
-  if(play) pl[MP.sid]={t:1, ini:ini||'ENT'};
-  for(t=1;t<=nT;t++) tm[t]={step:0};
-  mpMsg('mpCreateErr','Creando sala...');
-  mpTr().create(code,{kind:'grp', v:1, created:'__TS__', coach:MP.sid, nT:nT, mo:selVal('mpMo')||'extremo', ord:selVal('mpOrd')||'ran', state:'lobby', pl:pl, grid:[], order:[], round:0, tPlay:0, tm:tm, win:0, end:{}})
-    .then(function(){ mpMsg('mpCreateErr',''); MP.role='coach'; mpAttach(code); })
-    .catch(function(e){ mpMsg('mpCreateErr', (e&&e.message==='exists')?'Ese código ya existe, prueba otra vez.':'No se pudo crear la sala ('+((e&&e.code)||(e&&e.message)||'error')+').'); });
-}
-function mpgJoin(code){
-  var base=code.slice(0,3), t=parseInt(code.charAt(3),10), sid=MP.sid, ini=($('mpIni').value||'').toUpperCase().replace(/[^A-Z]/g,'').slice(0,3);
-  if(!ini){ mpMsg('mpJoinErr','Escribe tus iniciales (INI) para jugar en un equipo.'); try{ $('mpIni').focus(); }catch(e){} return; }
-  mpTr().tx('g'+base,function(d){
-    if(!d || d.kind!=='grp' || !(t>=1 && t<=d.nT)) throw new Error('nada');
-    if(d.pl && d.pl[sid]) return null;                       /* ya estaba (recarga) */
-    if(d.state!=='lobby') throw new Error('empezada');
-    var u={}; u['pl.'+sid]={t:t, ini:ini}; return u;
-  }).then(function(){ mpMsg('mpJoinErr',''); MP.role='pl'; mpAttach('g'+base); })
-    .catch(function(e){ var m=e&&e.message; mpMsg('mpJoinErr', m==='nada'?'No existe ninguna sala con ese código.':(m==='empezada'?'Esa sala ya ha empezado.':'No se pudo entrar ('+((e&&e.code)||m||'error')+').')); });
-}
-function mpgOnRoom(d){
-  if(MP.role==='pl' && !(d.pl && d.pl[MP.sid])){ mpLeave(); show('mp'); mpShow('menu'); mpMsg('mpMenuMsg','Ya no estás en la sala.'); return; }
-  if(d.state==='lobby') return mpgLobby(d);
-  if(d.state==='count'){ if(MP.lastRound!==d.round){ MP.lastRound=d.round; mpCountdown(d); } return mpgRender(d); }
-  if(d.state==='play') return mpgRender(d);
-  if(d.state==='end') return mpgEnd(d);
-}
-function mpgLobby(d){
-  mpClearTimers(); MP.isAct=false;
-  var coach=(MP.role==='coach'), me=d.pl&&d.pl[MP.sid], base=MP.code.slice(1), h='', t, ms, i, ne=mpgTeamsIn(d);
-  $('mpLobbyCode').style.display='none'; $('mpLobbyCodeLbl').style.display='none';
-  if(coach){
-    for(t=1;t<=d.nT;t++){
-      ms=mpgMembers(d,t);
-      h+='<div class="mpg-team"><div class="mpg-th" style="background:'+MPG_T[t].c+';color:'+MPG_T[t].t+'"><span>'+MPG_T[t].n+'</span><b>'+base+t+'</b></div><div class="mpg-ms">';
-      for(i=0;i<ms.length;i++) h+='<button type="button" class="mpg-m" data-sid="'+ms[i]+'">'+(d.pl[ms[i]].ini||'?')+(ms[i]===MP.sid?' *':'')+'</button>';
-      if(!ms.length) h+='<i class="mpg-none">Sin jugadores</i>';
-      h+='</div></div>';
-    }
-    $('mpLobbyHead').textContent='Entrenador';
-    $('mpLobbyInfo').textContent=ne.length<2?'Hacen falta al menos 2 equipos con jugadores':'Toca un nombre para cambiarlo de equipo';
-  } else {
-    ms=mpgMembers(d,me.t);
-    h='<div class="mpg-team"><div class="mpg-th" style="background:'+MPG_T[me.t].c+';color:'+MPG_T[me.t].t+'"><span>Equipo '+MPG_T[me.t].n+'</span><b>'+base+me.t+'</b></div><div class="mpg-ms">';
-    for(i=0;i<ms.length;i++) h+='<span class="mpg-m">'+(d.pl[ms[i]].ini||'?')+(ms[i]===MP.sid?' *':'')+'</span>';
-    h+='</div></div>';
-    $('mpLobbyHead').textContent='Eres '+(me.ini||'?');
-    $('mpLobbyInfo').textContent='Esperando a que el entrenador empiece';
-  }
-  $('mpLobbyList').innerHTML=h; $('mpLobbyMode').textContent='Grupos · '+mpModeTxt(d);
-  $('mpStart').style.display=coach?'':'none'; $('mpStart').disabled=ne.length<2;
-  mpShow('lobby');
-}
-/* el entrenador toca un nombre en la sala de espera: pasa al equipo siguiente */
-$('mpLobbyList').addEventListener('click', function(e){
-  var b=e.target.closest ? e.target.closest('button.mpg-m') : null; if(!b || MP.role!=='coach' || !MP.d || MP.d.kind!=='grp') return;
-  var sid=b.getAttribute('data-sid');
-  mpTr().tx(MP.code,function(d){ if(!d || d.state!=='lobby' || !d.pl || !d.pl[sid]) return null; var u={}; u['pl.'+sid+'.t']=(d.pl[sid].t % d.nT)+1; return u; }).catch(function(){});
-});
-function mpgStart(){
-  var code=MP.code, rnd;
-  mpTr().tx(code,function(d){
-    if(!d || (d.state!=='lobby' && d.state!=='end')) return null;
-    if(mpgTeamsIn(d).length<2) return null;
-    var tm={}, t, m;
-    for(t=1;t<=d.nT;t++){ m=mpgMembers(d,t); tm[t]=m.length?{step:0, active:m[Math.floor(Math.random()*m.length)], prev:'', out:false, fin:0, hits:{}, fail:{}}:{step:0, empty:true, out:true}; }
-    rnd=(d.round||0)+1;
-    return {state:'count', grid:schDeal(MP_N), order:mpOrderNew(mpOrd(d)), tm:tm, round:rnd, tPlay:0, win:0, end:{}};
-  }).then(function(ok){
-    if(!ok) return;
-    setTimeout(function(){ mpTr().tx(code,function(d){ if(!d || d.state!=='count' || d.round!==rnd) return null; return {state:'play', tPlay:'__TS__'}; }).catch(function(){}); }, 3000);
-  }).catch(function(e){ alert('No se pudo empezar: '+((e&&e.code)||(e&&e.message)||'error')); });
-}
-function mpgRaceHTML(d){
-  var h='<div class="mpg-race">', ts=mpgTeamsIn(d), i, t, T;
-  for(i=0;i<ts.length;i++){ t=ts[i]; T=d.tm[t]||{};
-    h+='<div class="mpg-row'+(T.out?' out':'')+'">'+mpgChip(t)+'<div class="mpg-bar"><i style="width:'+Math.round(100*(T.step||0)/MP_N)+'%;background:'+MPG_T[t].f+'"></i></div><span class="mpg-n">'+(T.out?'&#10005;':(T.step||0))+'</span></div>'; }
-  return h+'</div>';
-}
-function mpgRender(d){
-  var me=d.pl&&d.pl[MP.sid], coach=(MP.role==='coach'), play=(d.state==='play');
-  mpShow('play');
-  $('mpStop').style.display=coach?'':'none';
-  if(play && !MP.tPlayLocal){ MP.tPlayLocal=performance.now(); }
-  if(!play) MP.tPlayLocal=0;
-  if(play && !MP.tickIv) MP.tickIv=setInterval(function(){ if(MP.tPlayLocal) $('mpTime').textContent=((performance.now()-MP.tPlayLocal)/1000).toFixed(1)+' s'; }, 100);
-  if(!play) $('mpTime').textContent='0.0 s';
-  var ts=mpgTeamsIn(d), mini='', i;
-  for(i=0;i<ts.length;i++) mini+=mpgChip(ts[i], MPG_T[ts[i]].n.charAt(0)+' '+(d.tm[ts[i]].out?'&#10005;':d.tm[ts[i]].step))+' ';
-  $('mpProg').innerHTML=mini;
-  if(!me){   /* entrenador que solo dirige: la carrera */
-    $('mpPlay').classList.add('mp-dir'); $('mpPlay').classList.remove('mp-on','mp-off'); $('mpPlay').style.removeProperty('--mpc');
-    $('mpWho').textContent='Carrera'; $('mpDirBig').innerHTML=mpgRaceHTML(d);
-    return;
-  }
-  $('mpPlay').classList.remove('mp-dir');
-  var t=me.t, T=d.tm[t]||{}, g=$('mpGrid');
-  $('mpPlay').style.setProperty('--mpc', MPG_T[t].f);
-  $('mpWho').innerHTML=mpgChip(t, MPG_T[t].n+' · '+(me.ini||'?'));
-  if(!g.children.length){ g.innerHTML=schCellsHTML(MP_N); mpFit(); setTimeout(mpFit,50); }
-  var act=play && !T.out && T.active===MP.sid, c=g.children, k;
-  var fnd={}, nor=(mpMo(d)==='normal'); for(k=0;k<(T.step||0);k++) fnd[d.order[k]]=1;
-  for(k=0;k<c.length;k++){ var gone=nor && !!fnd[d.grid[k]]; c[k].textContent=(act && !gone)?String(d.grid[k]):''; c[k].classList.toggle('gone', act && gone); }   /* los numeros solo se ven en tu turno; en Normal los encontrados por tu equipo desaparecen */
-  $('mpPlay').classList.toggle('mp-on', act); $('mpPlay').classList.toggle('mp-off', !act);
-  $('mpBandLbl').textContent=T.out?'Eliminados':'Busca';
-  $('mpT').textContent=act?String(d.order[T.step]):(T.out?'':'--');
-  var key=d.round+':'+T.step;
-  if(act && MP.actKey!==key){ MP.actKey=key; MP.isAct=true; MP.tAct=performance.now(); MP.busy=false; mpSndOn(); }
-  if(!act) MP.isAct=false;
-}
-function mpgTap(e){
-  if(!MP.on || MP.view!=='play' || !MP.isAct || MP.busy) return;
-  var d=MP.d, sid=MP.sid, me=d&&d.pl&&d.pl[sid]; if(!me || d.state!=='play') return;
-  var t=me.t, T=d.tm[t]; if(!T || T.out || T.active!==sid) return;
-  if(e.cancelable) e.preventDefault();
-  var g=$('mpGrid'), want=d.order[T.step], step0=T.step;
-  var i=schHit(g, MP_COLS, e.clientX, e.clientY, false, function(k){ return d.grid[k]===want; });
-  if(i<0) return;
-  var v=d.grid[i], loc=Math.round(performance.now()-MP.tAct), code=MP.code, p='tm.'+t+'.';
-  if(mpMo(d)==='normal' && d.order.slice(0,step0).indexOf(v)>=0) return;   /* casilla ya vacia (Normal) */
-  MP.busy=true;
-  if(v===want){
-    sndSymbol(); schFlash(g.children[i]);
-    mpTr().tx(code,function(r){
-      var R=r&&r.tm&&r.tm[t]; if(!R || r.state!=='play' || R.out || R.active!==sid || R.step!==step0) return null;
-      var u={}; u[p+'step']=step0+1; u[p+'prev']=sid; u[p+'hits.'+(step0+1)]={s:sid, at:'__TS__', loc:loc};
-      if(step0+1>=MP_N){ u[p+'fin']='__TS__'; u.state='end'; u.win=t; u.end={r:'done', at:'__TS__'}; }
-      else { var m=mpgMembers(r,t), o=m.filter(function(x){ return x!==sid; }); if(!o.length) o=m; u[p+'active']=o[Math.floor(Math.random()*o.length)]; }
-      return u;
-    }).catch(function(){ MP.busy=false; });
-  } else {
-    sndFail();
-    mpTr().tx(code,function(r){
-      var R=r&&r.tm&&r.tm[t]; if(!R || r.state!=='play' || R.out) return null;
-      var u={}; u[p+'out']=true; u[p+'fail']={s:sid, v:v, want:want, at:'__TS__'};
-      var alive=mpgTeamsIn(r).filter(function(x){ return x!==t && !r.tm[x].out; });
-      if(alive.length<=1){ u.state='end'; u.win=alive.length?alive[0]:0; u.end={r:'last', at:'__TS__'}; }
-      return u;
-    }).catch(function(){ MP.busy=false; });
-  }
-}
-function mpgEnd(d){
-  mpClearTimers(); MP.isAct=false; MP.tPlayLocal=0;
-  var e=d.end||{}, me=d.pl&&d.pl[MP.sid], coach=(MP.role==='coach'), W=d.win?MPG_T[d.win]:null, tit, sub='';
-  if(e.r==='stop') tit='Partida parada';
-  else if(me && d.win===me.t) tit='¡Habéis ganado!';
-  else tit=W?('Gana el equipo '+W.n):'Sin ganador';
-  var tot=(e.at && d.tPlay)?(e.at-d.tPlay):0;
-  if(e.r==='done') sub=MPG_T[d.win].n+': los 25 números en '+(tot/1000).toFixed(2)+' s';
-  else if(e.r==='last') sub=(W?MPG_T[d.win].n+' sigue en juego; ':'')+'los demás equipos han fallado ('+(tot/1000).toFixed(2)+' s)';
-  /* clasificacion: ganador, despues los que siguen en juego y los eliminados, por numeros encontrados */
-  var ts=mpgTeamsIn(d).sort(function(a,b){ if(a===d.win) return -1; if(b===d.win) return 1; var A=d.tm[a], B=d.tm[b]; if(!!A.out!==!!B.out) return A.out?1:-1; return (B.step||0)-(A.step||0); });
-  var cl='<div class="mpg-cl">', i, t, T, f;
-  for(i=0;i<ts.length;i++){ t=ts[i]; T=d.tm[t]; f=T.fail||{};
-    cl+='<div class="mpg-cr">'+(i+1)+'. '+mpgChip(t)+' <b>'+(T.step||0)+'</b> núm.'+(T.out && f.want?' · <span class="mpg-x">eliminado: pulsó el '+f.v+' y tocaba el '+f.want+(d.pl[f.s]?' ('+d.pl[f.s].ini+')':'')+'</span>':'')+'</div>'; }
-  cl+='</div>';
-  $('mpEndT').textContent=tit; $('mpEndS').innerHTML=sub+cl;
-  /* desglose del equipo propio (o del ganador si el entrenador solo dirige): numeros y busqueda media de cada jugador */
-  var tt=me?me.t:(d.win||ts[0]), ms=mpgMembers(d,tt), H=(d.tm[tt]&&d.tm[tt].hits)||{}, agg={}, n, rows='';
-  ms.forEach(function(s){ agg[s]={c:0,loc:0}; });
-  for(n in H){ if(agg[H[n].s]){ agg[H[n].s].c++; agg[H[n].s].loc+=H[n].loc||0; } }
-  ms.forEach(function(s){ var a=agg[s]; rows+='<tr><td>'+(d.pl[s].ini||'?')+(s===MP.sid?' *':'')+'</td><td>'+a.c+'</td><td>'+(a.c?(a.loc/a.c/1000).toFixed(2)+' s':'--')+'</td></tr>'; });
-  $('mpEndTab').innerHTML=tt?('<tr><th>'+MPG_T[tt].n+'</th><th>Núm.</th><th>Búsqueda media</th></tr>'+rows):'';
-  /* paso de turno (red) de todos los equipos */
-  var cam=[];
-  mpgTeamsIn(d).forEach(function(x){ var hh=d.tm[x].hits||{}, prevAt=d.tPlay, k; for(k=1;k<=(d.tm[x].step||0);k++){ if(hh[k] && hh[k].at && prevAt){ cam.push((hh[k].at-prevAt)-(hh[k].loc||0)); prevAt=hh[k].at; } } });
-  var cm=cam.length?cam.reduce(function(a,b){ return a+b; },0)/cam.length:0;
-  $('mpEndNet').textContent=cam.length?('Paso de turno (red): '+Math.round(cm)+' ms de media · máx. '+Math.round(Math.max.apply(null,cam))+' ms'):'';
-  $('mpAgain').style.display=coach?'':'none';
-  mpShow('end');
-}
-
 function goHome(){ xClear(); X.on=false; X.state=''; if(S.countIv){clearInterval(S.countIv);S.countIv=0;} if(S.coverTo){clearTimeout(S.coverTo);S.coverTo=0;} if(S.blankTo){clearTimeout(S.blankTo);S.blankTo=0;} $('sqCount').textContent=''; S.running=false; S.lock=true; schStopLoop(); show('home'); }
 
 seg('segModo'); seg('segEstimulo'); seg('segEnsayos');
@@ -2247,19 +1619,6 @@ try{
   db=getFirestore(app);
 }catch(e){ db=null; }
 window.fbReady=!!db;
-/* Multi (prototipo 2026-11-27): salas en rooms_schulte/{codigo}. Necesita en las reglas de Firestore permiso de
-   read/create/update/delete para rooms_.* (las de scores_/rank_ no cambian). '__TS__' = hora del servidor; '__DEL__' = borrar campo. */
-import { doc, runTransaction, serverTimestamp, deleteField, deleteDoc } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-firestore.js";
-function mpConv(v){ if(v && typeof v.toMillis==='function') return v.toMillis(); if(Array.isArray(v)) return v.map(mpConv); if(v && typeof v==='object'){ const o={}; for(const k in v) o[k]=mpConv(v[k]); return o; } return v; }
-function mpPrep(v){ if(v==='__TS__') return serverTimestamp(); if(v==='__DEL__') return deleteField(); if(v && typeof v==='object' && !Array.isArray(v)){ const o={}; for(const k in v) o[k]=mpPrep(v[k]); return o; } return v; }
-const mpRef=c=>doc(db,'rooms_schulte',String(c));
-window.MPF = db ? {
-  create:(c,data)=>runTransaction(db, async t=>{ const s=await t.get(mpRef(c)); if(s.exists()) throw new Error('exists'); t.set(mpRef(c), mpPrep(data)); }),
-  watch:(c,f)=>onSnapshot(mpRef(c), s=>f(s.exists()?mpConv(s.data({serverTimestamps:'estimate'})):null), e=>{ try{ console.warn('multi watch', e&&e.code); }catch(_){} }),
-  tx:(c,fn)=>runTransaction(db, async t=>{ const s=await t.get(mpRef(c)); const d=s.exists()?mpConv(s.data()):null; const u=fn(d); if(!u) return false; t.update(mpRef(c), mpPrep(u)); return true; }),
-  del:c=>deleteDoc(mpRef(c))
-} : null;
-
 
 /* Cola de reintento offline (2026-09-28, propia, en localStorage):
    ya no hay persistencia de Firestore (ver nota arriba), asi que si
@@ -2443,5 +1802,604 @@ window.fbLoad=async function(mode,stim,total){
 <div id="transition-overlay">
   <div id="transition-text">Ejercicio finalizado</div>
 </div>
+<!-- RDS MULTI (nucleo + adaptador; generado por _parches-inc/multi-aplicar.js) -->
+<script>
+/* ================= RDS MULTI · NUCLEO COMUN (v1, 2026-11-27) =================
+   Modo MULTI de la suite (varios moviles en un mismo ejercicio), comun a todas las apps. Bloque AUTONOMO: no depende del HTML,
+   las pantallas ni el Firebase de la app. Crea su propia capa a pantalla completa (#mpx), sus estilos y su conexion a Firestore
+   (import dinamico del SDK y app Firebase propia 'rds-multi' con la configuracion de la suite). Cada app solo define window.MPA (el
+   ADAPTADOR: que se ve y que es acierto/fallo en un turno) y llama a mpEnter() desde su boton MULTI.
+   Decidido por Roberto (24-27 nov): la sala la crea el ENTRENADOR. Dos modalidades:
+   - INDIVIDUAL: un deportista y varios moviles ("estaciones"); el turno salta de una estacion a otra al azar (nunca la misma dos veces
+     seguidas). Un fallo TERMINA. Resultado = MEDIA de los tiempos de reaccion de cada movil (el tiempo total real es informativo).
+   - GRUPOS: 2-4 equipos ROJO/AZUL/VERDE/BLANCO, un codigo por equipo (sala g+3 cifras, equipo = 4.a cifra), el turno salta a un
+     companero al azar. Carrera en TIEMPO REAL (reloj del servidor). Fallo = equipo ELIMINADO; si solo queda uno, gana.
+   No se guardan resultados. Pruebas sin Firebase: index.html?multi=local (varias pestanas; salas en localStorage).
+   ADAPTADOR window.MPA = {
+     id:'reaction', name:'Reaction',                       // id -> coleccion rooms_<id>
+     opts(kind) -> [{k, label, items:[[valor,texto],...], def}]   // filas de juego en Crear sala (kind 'ind' | 'grp')
+     total(cfg) -> numero de turnos                        // cfg = {k: valor} elegido
+     modeTxt(cfg) -> 'Normal · 15'   rules(cfg,kind) -> texto de reglas (opcional)
+     newSet(cfg, kind, ids) -> datos de la partida (iguales para todos los equipos; ids = estaciones en Individual)
+     idle(stage, ctx)                                      // pinta el movil que espera
+     active(stage, ctx, done) -> funcion de limpieza       // turno de este movil; done({ok:true, rt:ms|null}) o done({ok:false, msg})
+   }   ctx = {kind, cfg, set, step (0..total-1), total, sid, n (estacion), team, mine} */
+(function(){
+'use strict';
+var FB_CFG={apiKey:'AIzaSyBbEgbWddPt_rhPM24bL_Nacp7TAlh1biM',authDomain:'rds-reaction-test.firebaseapp.com',projectId:'rds-reaction-test',storageBucket:'rds-reaction-test.firebasestorage.app',messagingSenderId:'490684952529',appId:'1:490684952529:web:bb53a9813bd58ecdb3baf0'};
+var FB_V='12.14.0';
+var TEAMS=[null,{n:'Rojo',c:'#b03020',f:'#b03020',t:'#fff'},{n:'Azul',c:'#1f5fbf',f:'#1f5fbf',t:'#fff'},{n:'Verde',c:'#1e8a3c',f:'#1e8a3c',t:'#fff'},{n:'Blanco',c:'#f4f4f2',f:'#111',t:'#111'}];
+var M={ built:false, on:false, code:'', sid:'', role:'', d:null, unsub:null, view:'', kind:'ind', nT:2, role0:'est', cfg:{},
+        turnKey:'', clean:null, busy:false, idleKey:'', cdIv:0, tickIv:0, tLocal:0, lastRound:-1, wl:null, ac:null };
+function q(id){ return document.getElementById(id); }
+function A(){ return window.MPA; }
+function local(){ return /[?&]multi=local\b/.test(location.search); }
+function col(){ return 'rooms_'+(A().id||'app'); }
+function esc(s){ return String(s==null?'':s).replace(/[&<>"]/g,function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+function sidGet(){ var s=''; try{ s=sessionStorage.getItem('rds_mp_sid')||''; }catch(e){} if(!s){ s='s'+Math.random().toString(36).slice(2,8); try{ sessionStorage.setItem('rds_mp_sid',s); }catch(e){} } return s; }
+/* ---------- transporte: Firestore (app Firebase propia) o local (pruebas) ---------- */
+var fbP=null;
+function fb(){
+  if(!fbP) fbP=Promise.all([import('https://www.gstatic.com/firebasejs/'+FB_V+'/firebase-app.js'), import('https://www.gstatic.com/firebasejs/'+FB_V+'/firebase-firestore.js')]).then(function(r){
+    var App=r[0], F=r[1], app; try{ app=App.getApp('rds-multi'); }catch(e){ app=App.initializeApp(FB_CFG,'rds-multi'); }
+    return {F:F, db:F.getFirestore(app)};
+  });
+  return fbP;
+}
+function conv(v){ if(v && typeof v.toMillis==='function') return v.toMillis(); if(Array.isArray(v)) return v.map(conv); if(v && typeof v==='object'){ var o={}, k; for(k in v) o[k]=conv(v[k]); return o; } return v; }
+function prep(F,v){ if(v==='__TS__') return F.serverTimestamp(); if(v==='__DEL__') return F.deleteField(); if(v && typeof v==='object' && !Array.isArray(v)){ var o={}, k; for(k in v) o[k]=prep(F,v[k]); return o; } return v; }
+var FBT={
+  create:function(c,data){ return fb().then(function(x){ var ref=x.F.doc(x.db,col(),c); return x.F.runTransaction(x.db,function(t){ return t.get(ref).then(function(s){ if(s.exists()) throw new Error('exists'); t.set(ref,prep(x.F,data)); }); }); }); },
+  watch:function(c,f){ var un=null, stop=false; fb().then(function(x){ if(stop) return; un=x.F.onSnapshot(x.F.doc(x.db,col(),c), function(s){ f(s.exists()?conv(s.data({serverTimestamps:'estimate'})):null); }, function(e){ try{ console.warn('multi',e&&e.code); }catch(_){} }); }); return function(){ stop=true; if(un) un(); }; },
+  tx:function(c,fn){ return fb().then(function(x){ var ref=x.F.doc(x.db,col(),c); return x.F.runTransaction(x.db,function(t){ return t.get(ref).then(function(s){ var u=fn(s.exists()?conv(s.data()):null); if(!u) return false; t.update(ref,prep(x.F,u)); return true; }); }); }); },
+  del:function(c){ return fb().then(function(x){ return x.F.deleteDoc(x.F.doc(x.db,col(),c)); }); }
+};
+var LOC=(function(){
+  var subs={};
+  function key(c){ return 'rds_mpL_'+col()+'_'+c; }
+  function rd(c){ try{ return JSON.parse(localStorage.getItem(key(c))||'null'); }catch(e){ return null; } }
+  function fix(v){ if(v==='__TS__') return Date.now(); if(v && typeof v==='object' && !Array.isArray(v)){ var o={}, k; for(k in v) o[k]=fix(v[k]); return o; } return v; }
+  function emit(c){ var d=rd(c); (subs[c]||[]).forEach(function(f){ f(d); }); }
+  window.addEventListener('storage', function(e){ var p='rds_mpL_'+col()+'_'; if(e.key && e.key.indexOf(p)===0) emit(e.key.slice(p.length)); });
+  function apply(d,u){ var k, p, o, i; for(k in u){ p=k.split('.'); o=d; for(i=0;i<p.length-1;i++){ if(!o[p[i]]||typeof o[p[i]]!=='object') o[p[i]]={}; o=o[p[i]]; } if(u[k]==='__DEL__') delete o[p[p.length-1]]; else o[p[p.length-1]]=fix(u[k]); } }
+  return {
+    create:function(c,data){ return new Promise(function(ok,ko){ if(rd(c)) return ko(new Error('exists')); localStorage.setItem(key(c),JSON.stringify(fix(data))); emit(c); ok(); }); },
+    watch:function(c,f){ (subs[c]=subs[c]||[]).push(f); setTimeout(function(){ f(rd(c)); },0); return function(){ subs[c]=(subs[c]||[]).filter(function(g){ return g!==f; }); }; },
+    tx:function(c,fn){ return new Promise(function(ok,ko){ var d=rd(c), u; try{ u=fn(d); }catch(e){ return ko(e); } if(!u) return ok(false); apply(d,u); localStorage.setItem(key(c),JSON.stringify(d)); emit(c); ok(true); }); },
+    del:function(c){ localStorage.removeItem(key(c)); emit(c); return Promise.resolve(); }
+  };
+})();
+function T(){ return local()?LOC:FBT; }
+/* boton MULTI del inicio: tres botones redondos a 60 px (START rojo, MULTI negro, Ranking blanco), convencion desde Schulte v6 */
+(function(){ if(document.getElementById('mpx-home-css')) return; var s=document.createElement('style'); s.id='mpx-home-css';
+  s.textContent='.home-btn-row{gap:12px;}.home-btn-row #btn-start,.home-btn-row .start-btn{width:60px;height:60px;}'
+   +'.home-btn-row #btn-multi{background:radial-gradient(circle at 35% 30%,#5a5a5a 0%,#222 45%,#000 100%);color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;font-weight:900;font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;padding:0;}'
+   +'.home-btn-row #btn-multi:active{box-shadow:inset 0 3px 7px rgba(0,0,0,0.6);}'
+   +'.home-btn-row:has(> :nth-child(4)){gap:8px;}.home-btn-row:has(> :nth-child(4)) #btn-start,.home-btn-row:has(> :nth-child(4)) .start-btn{width:52px;height:52px;}';   /* 4 botones (p. ej. Lights con Libre) */
+  document.head.appendChild(s); })();
+/* ---------- sonido propio ---------- */
+function ac(){ try{ if(!M.ac){ var C=window.AudioContext||window.webkitAudioContext; if(C) M.ac=new C(); } if(M.ac && M.ac.state==='suspended') M.ac.resume(); }catch(e){} return M.ac; }
+function tone(f,t0,dur,vol,type){ var c=ac(); if(!c) return; try{ var o=c.createOscillator(), g=c.createGain(); o.type=type||'sine'; o.frequency.value=f; g.gain.setValueAtTime(0.0001,c.currentTime+t0); g.gain.exponentialRampToValueAtTime(vol||0.2,c.currentTime+t0+0.01); g.gain.exponentialRampToValueAtTime(0.0001,c.currentTime+t0+dur); o.connect(g); g.connect(c.destination); o.start(c.currentTime+t0); o.stop(c.currentTime+t0+dur+0.02); }catch(e){} }
+function sndOn(){ tone(988,0,0.09,0.22); tone(1319,0.11,0.12,0.22); }
+function sndOk(){ tone(780,0,0.08,0.18); }
+function sndFail(){ tone(196,0,0.14,0.17,'square'); tone(146,0.13,0.2,0.17,'square'); }
+window.mpSnd={on:sndOn, ok:sndOk, fail:sndFail};
+/* ---------- capa, estilos y pantallas ---------- */
+var EMB_M='<svg width="78" height="60" viewBox="0 0 78 60" fill="none" aria-hidden="true"><rect x="3" y="12" width="20" height="36" rx="4" stroke="#fff" stroke-width="2.5"/><rect x="29" y="4" width="20" height="40" rx="4" stroke="#e0533a" stroke-width="3"/><rect x="55" y="12" width="20" height="36" rx="4" stroke="#fff" stroke-width="2.5"/><path d="M23 30h6M49 30h6" stroke="#bbb" stroke-width="2" stroke-dasharray="2 2"/></svg>';
+var ICO_IND='<svg width="44" height="34" viewBox="0 0 44 34" fill="none" aria-hidden="true"><rect x="2" y="8" width="11" height="20" rx="2" stroke="#fff" stroke-width="2"/><rect x="16.5" y="3" width="11" height="22" rx="2" stroke="#fff" stroke-width="2.5"/><rect x="31" y="8" width="11" height="20" rx="2" stroke="#fff" stroke-width="2"/></svg>';
+function css(){
+  var s=document.createElement('style'); s.id='mpx-css';
+  s.textContent=[
+  '#mpx{position:fixed;inset:0;z-index:8500;display:none;flex-direction:column;background:linear-gradient(160deg,#f4f5f6 0%,#dfe1e4 45%,#c2c5c9 100%);font-family:Arial,Helvetica,sans-serif;color:#111;-webkit-user-select:none;user-select:none;}',
+  '#mpx *{box-sizing:border-box;}',
+  '#mpx .mx-v{display:none;flex:1;min-height:0;flex-direction:column;}',
+  '#mpx .mx-hdr{flex:none;height:52px;background:#000;border-bottom:4px solid #b03020;display:flex;align-items:center;justify-content:space-between;padding:0 12px;}',
+  '#mpx .mx-hdr span{font:900 11px Arial,sans-serif;letter-spacing:.14em;color:#888;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:60%;}',
+  '#mpx .mx-bk{background:none;border:0;color:#ccc;font:900 12px Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;padding:10px 4px;cursor:pointer;}',
+  '#mpx .mx-pb{flex:1;min-height:0;width:100%;max-width:420px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:13px;padding:16px 16px 22px;overflow:auto;}',
+  '#mpx .mx-emb{flex:none;width:108px;height:108px;border-radius:50%;padding:5px;background:conic-gradient(#fff,#9a9a9a,#e8e8e8,#5a5a5a,#fff,#8a8a8a,#dcdcdc,#666,#fff);box-shadow:0 6px 14px rgba(0,0,0,.45);}',
+  '#mpx .mx-emb>div{width:100%;height:100%;border-radius:50%;background:radial-gradient(circle at 35% 30%,#4a4a4a 0%,#1a1a1a 55%,#000 100%);display:flex;align-items:center;justify-content:center;}',
+  '#mpx .mx-ttl{font:900 32px Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase;line-height:1;text-align:center;}',
+  '#mpx .mx-ttl small{display:block;font:800 12px Arial,sans-serif;letter-spacing:.14em;color:#b03020;margin-top:8px;}',
+  '#mpx .mx-big{display:flex;align-items:center;gap:14px;width:100%;background:#000;border:0;border-radius:12px;border-top:5px solid #b03020;padding:16px 14px;color:#fff;text-align:left;cursor:pointer;box-shadow:0 6px 14px rgba(0,0,0,.35);}',
+  '#mpx .mx-big.alt{border-top-color:#fff;}',
+  '#mpx .mx-ic{width:56px;height:56px;flex:none;border-radius:50%;background:#1b1b1b;border:2px solid #444;display:flex;align-items:center;justify-content:center;}',
+  '#mpx .mx-big b{display:block;font:900 18px Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase;}',
+  '#mpx .mx-big em{display:block;font:700 12px Arial,sans-serif;font-style:normal;color:#bbb;margin-top:4px;line-height:1.3;}',
+  '#mpx .mx-note{margin-top:auto;font:600 12px Arial,sans-serif;color:#444;text-align:center;line-height:1.35;}',
+  '#mpx .mx-card{width:100%;background:#000;border:3px solid #b03020;border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:8px;color:#fff;}',
+  '#mpx .mx-lbl{font:900 11px Arial,sans-serif;letter-spacing:.16em;color:#bdbdbd;text-transform:uppercase;}',
+  '#mpx .mx-seg{display:flex;border-top:4px solid #b03020;background:#111;}',
+  '#mpx .mx-seg button{flex:1;height:40px;border:0;border-right:3px solid #666;background:transparent;color:#fff;font:900 13px Arial,sans-serif;letter-spacing:1px;text-transform:uppercase;cursor:pointer;padding:0 4px;}',
+  '#mpx .mx-seg button:last-child{border-right:0;}',
+  '#mpx .mx-seg button.on{background:#b03020;}',
+  '#mpx .mx-tiles{display:flex;gap:10px;}',
+  '#mpx .mx-tiles button{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;padding:10px 6px;border:2px solid #333;border-radius:8px;background:#1b1b1b;color:#fff;cursor:pointer;}',
+  '#mpx .mx-tiles button.on{background:#b03020;border-color:#e0533a;}',
+  '#mpx .mx-tiles svg{margin-bottom:4px;}',
+  '#mpx .mx-tiles b{font:900 16px Arial,sans-serif;letter-spacing:.04em;text-transform:uppercase;}',
+  '#mpx .mx-tiles span{font:800 10px Arial,sans-serif;letter-spacing:.06em;text-transform:uppercase;opacity:.85;line-height:1.25;text-align:center;}',
+  '#mpx .mx-chips{display:flex;gap:4px;justify-content:center;margin:4px 0 8px;}',
+  '#mpx .mx-chips i{width:11px;height:22px;border-radius:3px;border:1.5px solid #000;display:block;}',
+  '#mpx .mx-teams{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;}',
+  '#mpx .mx-teams span,#mpx .mx-chip{display:inline-block;font:900 11px Arial,sans-serif;letter-spacing:.06em;padding:3px 7px;border-radius:4px;border:2px solid #000;text-transform:uppercase;white-space:nowrap;}',
+  '#mpx .mx-hint{font:700 12px Arial,sans-serif;color:#bbb;text-align:center;line-height:1.35;}',
+  '#mpx .mx-ath{display:flex;gap:8px;}',
+  '#mpx .mx-ath input,#mpx .mx-ath select{height:46px;border-radius:8px;background:#fff;border:3px solid #111;color:#111;}',
+  '#mpx .mx-ath input{width:110px;font:900 22px Arial,sans-serif;letter-spacing:.2em;text-align:center;text-transform:uppercase;-webkit-user-select:text;user-select:text;}',
+  '#mpx .mx-ath select{flex:1;min-width:0;font:900 13px Arial,sans-serif;padding:0 8px;}',
+  '#mpx .mx-err{font:700 13px Arial,sans-serif;color:#b03020;min-height:1em;text-align:center;}',
+  '#mpx .mx-rbrow{display:flex;justify-content:center;margin-top:auto;padding-top:6px;}',
+  '#mpx .mx-rb{width:84px;height:84px;border-radius:50%;padding:4px;background:conic-gradient(#fff,#9a9a9a,#e8e8e8,#5a5a5a,#fff,#8a8a8a,#dcdcdc,#666,#fff);box-shadow:0 5px 12px rgba(0,0,0,.55);}',
+  '#mpx .mx-rb:active{transform:translateY(3px);}',
+  '#mpx .mx-rb button{width:100%;height:100%;border-radius:50%;border:0;cursor:pointer;color:#fff;font:900 12px -apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase;box-shadow:inset 0 2px 4px rgba(255,255,255,.28),inset 0 -3px 6px rgba(0,0,0,.5);}',
+  '#mpx .mx-rb .red{background:radial-gradient(circle at 35% 30%,#e84030 0%,#b03020 45%,#7a1a10 100%);}',
+  '#mpx .mx-rb .blk{background:radial-gradient(circle at 35% 30%,#5a5a5a 0%,#222 45%,#000 100%);}',
+  '#mpx .mx-rb button:disabled{opacity:.35;}',
+  '#mpx .mx-otp{position:relative;display:flex;gap:8px;justify-content:center;cursor:text;}',
+  '#mpx .mx-otp input{position:absolute;inset:0;width:100%;height:100%;opacity:0;font-size:16px;border:0;}',
+  '#mpx .mx-otp span{width:54px;height:66px;border-radius:8px;background:#fff;border:3px solid #111;display:flex;align-items:center;justify-content:center;font:900 36px Arial,sans-serif;color:#111;}',
+  '#mpx .mx-otp span.cur{border-color:#b03020;box-shadow:0 0 0 3px rgba(176,48,32,.25);}',
+  '#mpx .mx-code{font:900 60px Arial,sans-serif;letter-spacing:.15em;color:#111;background:#f4f4f2;border:3px solid #111;border-radius:10px;padding:4px 20px;}',
+  '#mpx .mx-mode{font:800 12px Arial,sans-serif;letter-spacing:.1em;color:#b03020;text-transform:uppercase;text-align:center;}',
+  '#mpx .mx-h{font:900 20px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;text-align:center;}',
+  '#mpx .mx-p{font:600 14px Arial,sans-serif;color:#555;text-align:center;line-height:1.35;}',
+  '#mpx .mx-li{font:800 16px Arial,sans-serif;padding:7px 0;border-bottom:1px solid #bbb;width:260px;text-align:center;}',
+  '#mpx .mx-team{width:100%;border:2px solid #111;border-radius:8px;overflow:hidden;}',
+  '#mpx .mx-th{display:flex;justify-content:space-between;align-items:center;padding:6px 12px;font:900 15px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;}',
+  '#mpx .mx-th b{font-size:28px;letter-spacing:.14em;}',
+  '#mpx .mx-ms{display:flex;flex-wrap:wrap;gap:6px;padding:8px;background:#fff;min-height:22px;}',
+  '#mpx .mx-m{font:900 15px Arial,sans-serif;border:2px solid #111;border-radius:4px;padding:5px 9px;background:#f4f4f2;color:#111;}',
+  '#mpx .mx-none{font:600 13px Arial,sans-serif;color:#888;}',
+  '#mpx #mxV_play{background:#fff;}',
+  '#mpx .mx-play{flex:1;min-height:0;display:flex;flex-direction:column;gap:8px;padding:12px 16px 16px;position:relative;}',
+  '#mpx .mx-play.on{box-shadow:inset 0 0 0 10px var(--mxc,#b03020);}',
+  '#mpx .mx-top{flex:none;display:flex;justify-content:space-between;align-items:center;gap:8px;font:900 15px Arial,sans-serif;}',
+  '#mpx .mx-top .mx-chip{font-size:11px;padding:0 4px;}',
+  '#mpx #mxStop{background:#111;color:#fff;border:none;border-radius:50%;width:34px;height:34px;font-size:16px;cursor:pointer;flex:none;}',
+  '#mpx .mx-stage{flex:1;min-height:0;display:flex;flex-direction:column;position:relative;touch-action:none;}',
+  '#mpx .mx-dir{display:none;flex:1;flex-direction:column;align-items:center;justify-content:center;gap:6px;}',
+  '#mpx .mx-play.dir .mx-stage{display:none;}#mpx .mx-play.dir .mx-dir{display:flex;}',
+  '#mpx .mx-dir b{font:900 110px Arial,sans-serif;line-height:1;}',
+  '#mpx .mx-dir span{font:800 18px Arial,sans-serif;}',
+  '#mpx .mx-dir em{font:800 18px Arial,sans-serif;color:#b03020;font-style:normal;text-align:center;}',
+  '#mpx .mx-race{width:100%;max-width:340px;display:flex;flex-direction:column;gap:16px;}',
+  '#mpx .mx-row{display:flex;align-items:center;gap:8px;}#mpx .mx-row.out{opacity:.45;}',
+  '#mpx .mx-row .mx-chip{min-width:62px;text-align:center;font-size:14px;}',
+  '#mpx .mx-bar{flex:1;height:26px;border:2px solid #111;border-radius:4px;background:#eee;overflow:hidden;}#mpx .mx-bar i{display:block;height:100%;}',
+  '#mpx .mx-n{font:900 24px Arial,sans-serif;min-width:1.8em;text-align:right;}',
+  '#mpx #mxCd{position:absolute;inset:0;display:none;align-items:center;justify-content:center;font:900 150px Arial,sans-serif;color:#b03020;background:rgba(255,255,255,.6);z-index:5;pointer-events:none;}',
+  '#mpx .mx-tab{border-collapse:collapse;font:700 14px Arial,sans-serif;color:#111;}',
+  '#mpx .mx-tab th,#mpx .mx-tab td{padding:6px 10px;border-bottom:1px solid #bbb;text-align:center;}',
+  '#mpx .mx-tab th{font-size:12px;color:#666;text-transform:uppercase;letter-spacing:.06em;}',
+  '#mpx .mx-cl{display:flex;flex-direction:column;gap:6px;margin-top:10px;text-align:left;}',
+  '#mpx .mx-cr{font:700 14px Arial,sans-serif;}#mpx .mx-x{color:#b03020;}',
+  '#mpx .mx-big2{width:100%;display:flex;flex-direction:column;gap:12px;}'
+  ].join('');
+  document.head.appendChild(s);
+}
+function hdr(back,title){ return '<div class="mx-hdr"><button type="button" class="mx-bk" data-a="'+back+'">&#8592; '+(back==='exit'?'Inicio':'Multi')+'</button><span>'+esc(title)+'</span></div>'; }
+function build(){
+  if(M.built) return; M.built=true; css();
+  var el=document.createElement('div'); el.id='mpx';
+  el.innerHTML=
+   '<div class="mx-v" id="mxV_menu">'+hdr('exit',A().name||'')+'<div class="mx-pb">'
+    +'<div class="mx-emb"><div>'+EMB_M+'</div></div><div class="mx-ttl">Multi<small>Varios m&oacute;viles &middot; un ejercicio</small></div>'
+    +'<div class="mx-big2"><button type="button" class="mx-big" data-a="create"><span class="mx-ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="7" r="3.5"/><path d="M5 21c0-4 3-6.5 7-6.5s7 2.5 7 6.5"/><path d="M19 3l2 2-2 2" stroke="#e0533a"/></svg></span><span><b>Crear sala</b><em>Soy el entrenador: elijo el ejercicio y doy los c&oacute;digos</em></span></button>'
+    +'<button type="button" class="mx-big alt" data-a="join"><span class="mx-ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2"/><path d="M10 18h4"/><path d="M2 12h6M5 9l3 3-3 3" stroke="#e0533a"/></svg></span><span><b>Unirme</b><em>Tengo un c&oacute;digo de sala o de equipo</em></span></button></div>'
+    +'<div class="mx-err" id="mxMenuMsg"></div><div class="mx-note">Todos los m&oacute;viles necesitan conexi&oacute;n (datos o la misma wifi).</div></div></div>'
+   +'<div class="mx-v" id="mxV_create">'+hdr('menu','Crear sala')+'<div class="mx-pb" id="mxCreate"></div></div>'
+   +'<div class="mx-v" id="mxV_join">'+hdr('menu','Unirme')+'<div class="mx-pb">'
+    +'<div class="mx-ttl" style="font-size:26px;margin-top:8px">C&oacute;digo<small>Te lo da el entrenador o tu capit&aacute;n</small></div>'
+    +'<label class="mx-otp"><input id="mxCode" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="4" autocomplete="off" aria-label="C&oacute;digo"><span></span><span></span><span></span><span></span></label>'
+    +'<div class="mx-card"><div class="mx-lbl">Tus iniciales</div><div class="mx-ath" style="justify-content:center"><input id="mxIni" type="text" maxlength="3" placeholder="INI" autocomplete="off" style="width:150px;font-size:26px"></div><div class="mx-hint">Solo hacen falta si juegas en un equipo.</div></div>'
+    +'<div class="mx-err" id="mxJoinErr"></div><div class="mx-rbrow"><div class="mx-rb"><button type="button" class="blk" data-a="dojoin">Entrar</button></div></div></div></div>'
+   +'<div class="mx-v" id="mxV_lobby">'+hdr('leave','Sala')+'<div class="mx-pb">'
+    +'<div class="mx-p" id="mxLCodeL">C&oacute;digo de la sala</div><div class="mx-code" id="mxLCode"></div><div class="mx-h" id="mxLHead"></div><div class="mx-mode" id="mxLMode"></div>'
+    +'<div id="mxLList" style="display:flex;flex-direction:column;align-items:center;gap:8px;width:100%"></div><div class="mx-p" id="mxLInfo"></div>'
+    +'<div class="mx-rbrow"><div class="mx-rb" id="mxStartW"><button type="button" class="red" id="mxStart" data-a="start">Empezar</button></div></div></div></div>'
+   +'<div class="mx-v" id="mxV_play"><div class="mx-play" id="mxPlay"><div class="mx-top"><span id="mxWho"></span><span id="mxProg"></span><span id="mxTime">0.0 s</span><button type="button" id="mxStop" data-a="stop" aria-label="Parar">&#10005;</button></div>'
+    +'<div class="mx-stage" id="mxStage"></div><div class="mx-dir" id="mxDir"></div><div id="mxCd"></div></div></div>'
+   +'<div class="mx-v" id="mxV_end">'+hdr('leave','Resultado')+'<div class="mx-pb"><div class="mx-h" id="mxEndT" style="font-size:24px"></div><div class="mx-p" id="mxEndS"></div><table class="mx-tab" id="mxEndTab"></table><div class="mx-p" id="mxEndNet" style="font-size:12px"></div>'
+    +'<div class="mx-rbrow"><div class="mx-rb" id="mxAgainW"><button type="button" class="red" data-a="start">Otra vez</button></div></div></div></div>';
+  document.body.appendChild(el);
+  el.addEventListener('click', onClick);
+  var c=q('mxCode');
+  c.addEventListener('input', function(){ this.value=this.value.replace(/\D/g,'').slice(0,4); otp(); if(this.value.length===4){ try{ q('mxIni').focus(); }catch(e){} } });
+  c.addEventListener('focus',otp); c.addEventListener('blur',otp);
+  q('mxIni').addEventListener('input', function(){ this.value=this.value.toUpperCase().replace(/[^A-Z]/g,'').slice(0,3); });
+  window.addEventListener('resize', function(){ if(M.view==='play' && A().resize) try{ A().resize(q('mxStage')); }catch(e){} });
+}
+function otp(){ var v=(q('mxCode').value||'').slice(0,4), sp=document.querySelectorAll('#mpx .mx-otp span'), i; for(i=0;i<sp.length;i++){ sp[i].textContent=v.charAt(i)||''; sp[i].classList.toggle('cur', i===Math.min(v.length,3) && document.activeElement===q('mxCode')); } }
+function view(v){ M.view=v; var vs=document.querySelectorAll('#mpx .mx-v'), i; for(i=0;i<vs.length;i++) vs[i].style.display=(vs[i].id==='mxV_'+v)?'flex':'none'; }
+function msg(id,t){ var e=q(id); if(e) e.textContent=t||''; }
+function onClick(e){
+  ac();
+  var b=e.target.closest?e.target.closest('[data-a],[data-k]'):null; if(!b) return;
+  var k=b.getAttribute('data-k');
+  if(k){ var v=b.getAttribute('data-v'); if(k==='kind'){ M.kind=v; defaults(); } else if(k==='nT') M.nT=+v; else if(k==='role') M.role0=v; else M.cfg[k]=v; drawCreate(); return; }
+  var a=b.getAttribute('data-a');
+  if(a==='exit') return exit();
+  if(a==='menu'){ msg('mxMenuMsg',''); return view('menu'); }
+  if(a==='create'){ defaults(); drawCreate(); return view('create'); }
+  if(a==='join'){ msg('mxJoinErr',''); view('join'); otp(); try{ q('mxCode').focus(); }catch(_){} return; }
+  if(a==='docreate') return create();
+  if(a==='dojoin') return join();
+  if(a==='start') return start();
+  if(a==='stop') return stopGame();
+  if(a==='leave') return leave();
+  if(a==='move') return move(b.getAttribute('data-sid'));
+}
+/* ---------- entrar / salir ---------- */
+function homeIni(){ var e=q('user-ini-input')||q('user-name-input')||document.querySelector('input[placeholder="INI"]'); return ((e&&e.value)||'').toUpperCase().replace(/[^A-Z]/g,'').slice(0,3); }
+function homeSport(){ return q('user-sport-select')||document.querySelector('select[id*="sport"]'); }
+window.mpEnter=function(){
+  if(!A()){ alert('Multi no disponible en esta app.'); return; }
+  build(); M.sid=sidGet();
+  var ov=q('mpx'); ov.style.display='flex'; document.body.style.overflow='hidden';
+  msg('mxMenuMsg',''); view('menu');
+  var hi=homeIni(); if(!q('mxIni').value) q('mxIni').value=hi;
+  try{ if(navigator.wakeLock) navigator.wakeLock.request('screen').then(function(w){ M.wl=w; }).catch(function(){}); }catch(e){}
+};
+function exit(){ detach(); q('mpx').style.display='none'; document.body.style.overflow=''; try{ if(M.wl) M.wl.release(); }catch(e){} M.wl=null; if(A().onExit) try{ A().onExit(); }catch(e){} }
+function detach(){ if(M.unsub){ try{ M.unsub(); }catch(e){} M.unsub=null; } timers(); endTurn(); M.on=false; M.d=null; M.code=''; M.role=''; M.lastRound=-1; M.idleKey=''; }
+function timers(){ if(M.cdIv){ clearInterval(M.cdIv); M.cdIv=0; } if(M.tickIv){ clearInterval(M.tickIv); M.tickIv=0; } q('mxCd') && (q('mxCd').style.display='none'); }
+function leave(){   /* Salir: el entrenador cierra (borra) la sala; un jugador/estacion se quita si aun no ha empezado */
+  var c=M.code, sid=M.sid, coach=(M.role==='coach'), tr=T();
+  detach(); view('menu');
+  if(!c) return;
+  if(coach) tr.del(c).catch(function(){});
+  else tr.tx(c,function(d){ if(!d || d.state!=='lobby') return null; var u={}; if(d.kind==='grp'){ if(!d.pl||!d.pl[sid]) return null; u['pl.'+sid]='__DEL__'; } else { if(!d.st||!d.st[sid]) return null; u['st.'+sid]='__DEL__'; } return u; }).catch(function(){});
+}
+/* ---------- crear sala ---------- */
+function defaults(){ var o=A().opts(M.kind)||[], cfg={}; o.forEach(function(r){ cfg[r.k]=String(r.def!=null?r.def:r.items[0][0]); }); M.cfg=cfg; }
+function seg(k,items,cur){ return '<div class="mx-seg">'+items.map(function(it){ return '<button type="button" data-k="'+k+'" data-v="'+esc(it[0])+'" class="'+(String(cur)===String(it[0])?'on':'')+'">'+esc(it[1])+'</button>'; }).join('')+'</div>'; }
+function drawCreate(){
+  var g=M.kind==='grp', h='', t, o=A().opts(M.kind)||[];
+  var keepIni=q('mxAthIni')?q('mxAthIni').value:homeIni(), keepSp=q('mxAthSp')?q('mxAthSp').value:((homeSport()||{}).value||'');
+  h+='<div class="mx-card"><div class="mx-lbl">Modalidad</div><div class="mx-tiles">'
+    +'<button type="button" data-k="kind" data-v="ind" class="'+(g?'':'on')+'">'+ICO_IND+'<b>Individual</b><span>1 deportista &middot; varias estaciones</span></button>'
+    +'<button type="button" data-k="kind" data-v="grp" class="'+(g?'on':'')+'"><span class="mx-chips"><i style="background:#b03020"></i><i style="background:#1f5fbf"></i><i style="background:#1e8a3c"></i><i style="background:#f4f4f2"></i></span><b>Grupos</b><span>Equipos en carrera</span></button></div>';
+  if(g){ h+='<div class="mx-lbl">Equipos</div>'+seg('nT',[['2','2'],['3','3'],['4','4']],M.nT)+'<div class="mx-teams">'; for(t=1;t<=4;t++) h+='<span style="background:'+TEAMS[t].c+';color:'+TEAMS[t].t+';'+(t>M.nT?'opacity:.28':'')+'">'+TEAMS[t].n+'</span>'; h+='</div>'; }
+  o.forEach(function(r){ h+='<div class="mx-lbl">'+esc(r.label)+'</div>'+seg(r.k,r.items,M.cfg[r.k]); });
+  var rl=(A().rules?A().rules(M.cfg,M.kind):'')||'';
+  h+='<div class="mx-hint">'+(g?'Solo juega el m&oacute;vil al que le toca; el siguiente es un compa&ntilde;ero al azar. Fallo = equipo eliminado. Gana el primero en terminar. ':'El turno salta de un m&oacute;vil a otro al azar. Un fallo termina. Cuenta la media de tus tiempos. ')+esc(rl)+'</div></div>';
+  h+='<div class="mx-card"><div class="mx-lbl">Mi m&oacute;vil</div>'+seg('role',[['est',g?'Juego (Rojo)':'Participa'],['dir','Solo dirijo']],M.role0);
+  if(!(g && M.role0==='dir')){
+    h+='<div class="mx-lbl">'+(g?'Tus iniciales':'Deportista')+'</div><div class="mx-ath"><input id="mxAthIni" type="text" maxlength="3" placeholder="INI" autocomplete="off" value="'+esc(keepIni)+'">';
+    var hs=homeSport(); if(!g && hs) h+='<select id="mxAthSp">'+hs.innerHTML+'</select>';
+    h+='</div>';
+  }
+  h+='</div><div class="mx-err" id="mxCreateErr"></div><div class="mx-rbrow"><div class="mx-rb"><button type="button" class="red" data-a="docreate">Crear</button></div></div>';
+  q('mxCreate').innerHTML=h;
+  var ii=q('mxAthIni'); if(ii) ii.addEventListener('input', function(){ this.value=this.value.toUpperCase().replace(/[^A-Z]/g,'').slice(0,3); });
+  var sp=q('mxAthSp'); if(sp && keepSp) sp.value=keepSp;
+}
+function create(){
+  var g=M.kind==='grp', play=M.role0!=='dir', ini=((q('mxAthIni')||{}).value||'').toUpperCase().replace(/[^A-Z]/g,'').slice(0,3), sport=(q('mxAthSp')||{}).value||'';
+  if(!ini && (!g || play)){ msg('mxCreateErr', g?'Escribe tus iniciales para jugar.':'Escribe las iniciales del deportista.'); return; }
+  var base={kind:g?'grp':'ind', v:2, app:A().id, created:'__TS__', coach:M.sid, state:'lobby', round:0, tPlay:0, cfg:M.cfg, set:{}, end:{}}, code, k;
+  if(g){ code='g'+String(100+Math.floor(Math.random()*900)); base.nT=M.nT; base.pl={}; if(play) base.pl[M.sid]={t:1, ini:ini}; base.tm={}; for(k=1;k<=M.nT;k++) base.tm[k]={step:0}; base.win=0; }
+  else { code=String(1000+Math.floor(Math.random()*9000)); base.ini=ini; base.sport=sport; base.st={}; if(play) base.st[M.sid]={n:1}; base.nSt=play?1:0; base.step=0; base.active=''; base.prev=''; base.hits={}; }
+  msg('mxCreateErr','Creando sala...');
+  T().create(code,base).then(function(){ msg('mxCreateErr',''); M.role='coach'; attach(code); })
+    .catch(function(e){ msg('mxCreateErr',(e&&e.message==='exists')?'Ese código ya existe, prueba otra vez.':'No se pudo crear la sala ('+((e&&e.code)||(e&&e.message)||'error')+').'); });
+}
+/* ---------- unirse ---------- */
+function join(){
+  var code=(q('mxCode').value||'').replace(/\D/g,''), sid=M.sid;
+  if(code.length!==4){ msg('mxJoinErr','Escribe el código de 4 cifras.'); return; }
+  msg('mxJoinErr','Uniendo...');
+  T().tx(code,function(d){
+    if(!d) throw new Error('nada');
+    if(d.app && d.app!==A().id) throw new Error('otra');
+    if(d.st && d.st[sid]) return null;
+    if(d.state!=='lobby') throw new Error('empezada');
+    var u={}; u['st.'+sid]={n:(d.nSt||0)+1}; u.nSt=(d.nSt||0)+1; return u;
+  }).then(function(){ msg('mxJoinErr',''); M.role='st'; attach(code); })
+    .catch(function(e){ var m=e&&e.message; if(m==='nada') return joinGrp(code); joinErr(m,e); });
+}
+function joinErr(m,e){ msg('mxJoinErr', m==='nada'?'No existe ninguna sala con ese código.':(m==='empezada'?'Esa sala ya ha empezado.':(m==='otra'?'Ese código es de otra app.':'No se pudo entrar ('+((e&&e.code)||m||'error')+').'))); }
+function joinGrp(code){
+  var base=code.slice(0,3), t=parseInt(code.charAt(3),10), sid=M.sid, ini=(q('mxIni').value||'').toUpperCase().replace(/[^A-Z]/g,'').slice(0,3);
+  T().tx('g'+base,function(d){
+    if(!d || d.kind!=='grp' || !(t>=1 && t<=d.nT)) throw new Error('nada');
+    if(d.app && d.app!==A().id) throw new Error('otra');
+    if(d.pl && d.pl[sid]) return null;
+    if(!ini) throw new Error('ini');
+    if(d.state!=='lobby') throw new Error('empezada');
+    var u={}; u['pl.'+sid]={t:t, ini:ini}; return u;
+  }).then(function(){ msg('mxJoinErr',''); M.role='pl'; attach('g'+base); })
+    .catch(function(e){ var m=e&&e.message; if(m==='ini'){ msg('mxJoinErr','Escribe tus iniciales (INI) para jugar en un equipo.'); try{ q('mxIni').focus(); }catch(_){} return; } joinErr(m,e); });
+}
+function attach(code){ M.code=code; M.on=true; M.lastRound=-1; M.idleKey=''; if(M.unsub) M.unsub(); M.unsub=T().watch(code,onRoom); }
+/* ---------- ayudas ---------- */
+function stations(d){ return Object.keys((d&&d.st)||{}).sort(function(a,b){ return d.st[a].n-d.st[b].n; }); }
+function members(d,t){ var p=(d&&d.pl)||{}; return Object.keys(p).filter(function(s){ return p[s].t===t; }).sort(function(a,b){ return (p[a].ini||'').localeCompare(p[b].ini||''); }); }
+function teamsIn(d){ var r=[], t; for(t=1;t<=(d.nT||2);t++) if(members(d,t).length) r.push(t); return r; }
+function chip(t,txt){ var X=TEAMS[t]; return '<span class="mx-chip" style="background:'+X.c+';color:'+X.t+'">'+(txt||X.n)+'</span>'; }
+function total(d){ return A().total(d.cfg||{}); }
+function surpW(cfg){ var n=A().total(cfg||{}), w=[], i; for(i=0;i<n;i++) w.push(Math.round(SURP_MIN+Math.random()*(SURP_MAX-SURP_MIN))); return w; }
+/* SORPRESA (27-nov, Roberto: Reaction, Processing 1-3, Ball, Lights): nadie sabe a que movil le toca. Sin marco ni pitido; el movil activo
+   se ve igual que los demas (idle) durante una espera al azar SURP_MIN-SURP_MAX y entonces aparece el estimulo de golpe. */
+var SURP_MIN=1000, SURP_MAX=3000;
+function isPts(){ return A().metric==='pts'; }   /* resultado por PUNTOS (p. ej. 900): Individual = suma; Grupos = todos terminan y gana quien mas suma */
+function teamPts(d,t){ var H=(d.tm&&d.tm[t]&&d.tm[t].hits)||{}, k, s=0; for(k in H) s+=(H[k].pts||0); return s; }
+function modeTxt(d){ return (d.kind==='grp'?'Grupos':'Individual')+' · '+(A().modeTxt?A().modeTxt(d.cfg||{}):''); }
+/* ---------- la sala cambia ---------- */
+function onRoom(d){
+  if(!M.on) return;
+  M.d=d;
+  if(!d){ detach(); view('menu'); msg('mxMenuMsg','La sala se ha cerrado.'); return; }
+  if(M.role==='st' && !(d.st && d.st[M.sid])){ detach(); view('menu'); msg('mxMenuMsg','Ya no estás en la sala.'); return; }
+  if(M.role==='pl' && !(d.pl && d.pl[M.sid])){ detach(); view('menu'); msg('mxMenuMsg','Ya no estás en la sala.'); return; }
+  if(d.state==='lobby'){ endTurn(); return lobby(d); }
+  if(d.state==='count'){ if(M.lastRound!==d.round){ M.lastRound=d.round; endTurn(); M.idleKey=''; countdown(); } return play(d); }
+  if(d.state==='play') return play(d);
+  if(d.state==='end'){ endTurn(); return end(d); }
+}
+function lobby(d){
+  timers();
+  var coach=M.role==='coach', h='', i, t, ms, ok;
+  q('mxLMode').textContent=modeTxt(d);
+  if(d.kind==='grp'){
+    var base=M.code.slice(1), me=d.pl&&d.pl[M.sid], ne=teamsIn(d);
+    q('mxLCode').style.display='none'; q('mxLCodeL').style.display='none';
+    for(t=1;t<=d.nT;t++){
+      if(!coach && (!me || me.t!==t)) continue;
+      ms=members(d,t);
+      h+='<div class="mx-team"><div class="mx-th" style="background:'+TEAMS[t].c+';color:'+TEAMS[t].t+'"><span>'+(coach?'':'Equipo ')+TEAMS[t].n+'</span><b>'+base+t+'</b></div><div class="mx-ms">';
+      for(i=0;i<ms.length;i++) h+=(coach?'<button type="button" class="mx-m" data-a="move" data-sid="'+ms[i]+'">':'<span class="mx-m">')+esc(d.pl[ms[i]].ini||'?')+(ms[i]===M.sid?' *':'')+(coach?'</button>':'</span>');
+      if(!ms.length) h+='<i class="mx-none">Sin jugadores</i>';
+      h+='</div></div>';
+    }
+    q('mxLHead').textContent=coach?'Entrenador':('Eres '+((me&&me.ini)||'?'));
+    q('mxLInfo').textContent=coach?(ne.length<2?'Hacen falta al menos 2 equipos con jugadores':'Toca un nombre para cambiarlo de equipo'):'Esperando a que el entrenador empiece';
+    ok=ne.length>=2;
+  } else {
+    var ss=stations(d);
+    q('mxLCode').style.display=''; q('mxLCodeL').style.display=''; q('mxLCode').textContent=M.code;
+    for(i=0;i<ss.length;i++) h+='<div class="mx-li">Estación '+d.st[ss[i]].n+(ss[i]===M.sid?' <i style="color:#888;font-weight:600">(este móvil)</i>':'')+'</div>';
+    if(!ss.length) h='<div class="mx-li"><i>Aún no hay estaciones</i></div>';
+    q('mxLHead').textContent=coach?('Deportista: '+(d.ini||'--')+(d.sport?' · '+d.sport:'')):('Eres la estación '+((d.st[M.sid]||{}).n||'?'));
+    q('mxLInfo').textContent=coach?(ss.length<2?'Hacen falta al menos 2 estaciones':'Coloca los móviles y pulsa Empezar'):'Esperando a que el entrenador empiece';
+    ok=ss.length>=2;
+  }
+  q('mxLList').innerHTML=h;
+  q('mxStartW').style.display=coach?'':'none'; q('mxStart').disabled=!ok;
+  view('lobby');
+}
+function move(sid){
+  if(M.role!=='coach') return;
+  T().tx(M.code,function(d){ if(!d || d.state!=='lobby' || !d.pl || !d.pl[sid]) return null; var u={}; u['pl.'+sid+'.t']=(d.pl[sid].t % d.nT)+1; return u; }).catch(function(){});
+}
+/* ---------- empezar (entrenador): datos de la partida, cuenta atras 3 s y 'play' con la hora del servidor ---------- */
+function start(){
+  if(M.role!=='coach') return;
+  var code=M.code, rnd;
+  T().tx(code,function(d){
+    if(!d || (d.state!=='lobby' && d.state!=='end')) return null;
+    rnd=(d.round||0)+1;
+    if(d.kind==='grp'){
+      if(teamsIn(d).length<2) return null;
+      var tm={}, t, m;
+      for(t=1;t<=d.nT;t++){ m=members(d,t); tm[t]=m.length?{step:0, active:m[Math.floor(Math.random()*m.length)], prev:'', out:false, fin:0, hits:{}, fail:{}}:{step:0, empty:true, out:true}; }
+      var sg=A().newSet(d.cfg||{},'grp',[]); if(A().surprise) sg.__w=surpW(d.cfg);
+      return {state:'count', set:sg, tm:tm, round:rnd, tPlay:0, win:0, end:{}};
+    }
+    var ss=stations(d); if(ss.length<2) return null;
+    var si=A().newSet(d.cfg||{},'ind',ss); if(A().surprise) si.__w=surpW(d.cfg);
+    return {state:'count', set:si, step:0, active:ss[Math.floor(Math.random()*ss.length)], prev:'', hits:{}, end:{}, round:rnd, tPlay:0};
+  }).then(function(ok){
+    if(!ok) return;
+    setTimeout(function(){ T().tx(code,function(d){ if(!d || d.state!=='count' || d.round!==rnd) return null; return {state:'play', tPlay:'__TS__'}; }).catch(function(){}); }, 3000);
+  }).catch(function(e){ alert('No se pudo empezar: '+((e&&e.code)||(e&&e.message)||'error')); });
+}
+function countdown(){
+  if(M.cdIv){ clearInterval(M.cdIv); M.cdIv=0; }
+  var n=3, el=q('mxCd'); el.style.display='flex'; el.textContent=n;
+  M.cdIv=setInterval(function(){ n--; if(n<=0){ clearInterval(M.cdIv); M.cdIv=0; el.style.display='none'; return; } el.textContent=n; }, 1000);
+}
+function stopGame(){ T().tx(M.code,function(r){ if(!r || (r.state!=='play' && r.state!=='count')) return null; return {state:'end', end:{r:'stop', at:'__TS__'}}; }).catch(function(){}); }
+/* ---------- jugar ---------- */
+function endTurn(){ if(M.clean){ try{ M.clean(); }catch(e){} M.clean=null; } M.turnKey=''; M.busy=false; var p=q('mxPlay'); if(p) p.classList.remove('on'); }
+function myTurn(d){   /* {kind, step, team} si a este movil le toca ahora; null si no */
+  if(d.state!=='play') return null;
+  if(d.kind==='grp'){ var me=d.pl&&d.pl[M.sid]; if(!me) return null; var R=d.tm[me.t]||{}; return (!R.out && R.active===M.sid && R.step<total(d))?{step:R.step, team:me.t}:null; }
+  return (d.active===M.sid && d.step<total(d))?{step:d.step, team:0}:null;
+}
+function ctxOf(d,step,team){ return {kind:d.kind, cfg:d.cfg||{}, set:d.set||{}, step:step, total:total(d), sid:M.sid, n:(d.st&&d.st[M.sid])?d.st[M.sid].n:0, team:team||0, round:d.round}; }
+function play(d){
+  view('play');
+  var coach=M.role==='coach', P=q('mxPlay'), playing=d.state==='play', tot=total(d), i;
+  q('mxStop').style.display=coach?'':'none';
+  if(playing && !M.tLocal) M.tLocal=performance.now();
+  if(!playing) M.tLocal=0;
+  if(playing && !M.tickIv) M.tickIv=setInterval(function(){ if(M.tLocal) q('mxTime').textContent=((performance.now()-M.tLocal)/1000).toFixed(1)+' s'; }, 100);
+  if(!playing) q('mxTime').textContent='0.0 s';
+  var part, team=0;
+  if(d.kind==='grp'){
+    var me=d.pl&&d.pl[M.sid], ts=teamsIn(d), mini='';
+    for(i=0;i<ts.length;i++) mini+=chip(ts[i], TEAMS[ts[i]].n.charAt(0)+' '+(d.tm[ts[i]].out?'&#10005;':d.tm[ts[i]].step))+' ';
+    q('mxProg').innerHTML=mini; part=!!me;
+    if(me){ team=me.t; P.style.setProperty('--mxc',TEAMS[team].f); q('mxWho').innerHTML=chip(team, TEAMS[team].n+' · '+esc(me.ini||'?')); }
+    else { q('mxWho').textContent='Carrera'; q('mxDir').innerHTML=race(d); }
+  } else {
+    part=!!(d.st&&d.st[M.sid]); P.style.removeProperty('--mxc');
+    q('mxProg').textContent=d.step+' / '+tot;
+    q('mxWho').textContent=part?('Estación '+d.st[M.sid].n):('Activa: estación '+((d.st[d.active]||{}).n||'--'));
+    if(!part) q('mxDir').innerHTML='<b>'+d.step+'</b><span>de '+tot+'</span><em>'+(A().surprise?'En juego':'Turno de la estación '+((d.st[d.active]||{}).n||'--'))+'</em>';
+  }
+  P.classList.toggle('dir', !part);
+  if(!part){ endTurn(); return; }
+  var mt=myTurn(d), stage=q('mxStage');
+  if(mt){
+    var key=d.round+':'+(team||0)+':'+mt.step;
+    if(M.turnKey!==key){
+      endTurn(); M.turnKey=key; M.idleKey=''; if(!A().surprise){ P.classList.add('on'); sndOn(); }
+      var cx=ctxOf(d,mt.step,team), doneCalled=false;
+      var cb=function(res){ if(doneCalled || M.turnKey!==key) return; doneCalled=true; result(d, mt, team, res||{}); };
+      if(A().surprise){   /* se ve como los demas moviles y, tras la espera, el estimulo de golpe */
+        var ci=Object.assign({}, cx, {playing:true}); try{ A().idle(stage, ci); }catch(e){}
+        var inner=null, wt=(cx.set.__w && cx.set.__w[mt.step]!=null)?cx.set.__w[mt.step]:1500;
+        var tmo=setTimeout(function(){ if(M.turnKey===key) inner=A().active(stage, cx, cb); }, wt);
+        M.clean=function(){ clearTimeout(tmo); if(inner) inner(); };
+      } else M.clean=A().active(stage, cx, cb);
+    }
+    return;
+  }
+  if(M.turnKey) endTurn();
+  var R=d.kind==='grp'?(d.tm[team]||{}):null, step=R?R.step:d.step;
+  var ik=d.round+':'+d.state+':'+step+':'+(R&&R.out?'x':'')+':'+(d.kind==='grp'?R.active:d.active);
+  if(M.idleKey!==ik){ M.idleKey=ik; var c2=ctxOf(d,step,team); c2.out=!!(R&&R.out); c2.fin=!!(R && (R.step||0)>=total(d)); c2.playing=playing; try{ A().idle(stage,c2); }catch(e){ console.warn(e); } }
+}
+function result(d0, mt, team, res){
+  var sid=M.sid, code=M.code, step0=mt.step;
+  if(M.busy) return; M.busy=true;
+  if(res.ok){
+    T().tx(code,function(r){
+      if(!r || r.state!=='play') return null;
+      var tot=A().total(r.cfg||{}), u={}, p, o, m;
+      if(r.kind==='grp'){
+        var R=r.tm&&r.tm[team]; if(!R || R.out || R.active!==sid || R.step!==step0) return null;
+        p='tm.'+team+'.'; u[p+'step']=step0+1; u[p+'prev']=sid; u[p+'hits.'+(step0+1)]={s:sid, at:'__TS__', rt:(res.rt==null?null:Math.round(res.rt)), pts:(res.pts==null?null:res.pts)};
+        if(step0+1>=tot && isPts()){   /* por puntos: este equipo termina y espera; al terminar todos gana el que mas suma (empate: el que antes termino) */
+          u[p+'fin']='__TS__';
+          var rest=teamsIn(r).filter(function(x){ return x!==team && !r.tm[x].out && !r.tm[x].fin; });
+          if(!rest.length){ var best=0, bp=-1, bf=Infinity; teamsIn(r).forEach(function(x){ if(r.tm[x].out) return; var pp=teamPts(r,x)+(x===team?(res.pts||0):0), ff=(x===team)?Infinity:(r.tm[x].fin||Infinity); if(pp>bp || (pp===bp && ff<bf)){ bp=pp; bf=ff; best=x; } }); u.state='end'; u.win=best; u.end={r:'pts', at:'__TS__'}; }
+        }
+        else if(step0+1>=tot){ u[p+'fin']='__TS__'; u.state='end'; u.win=team; u.end={r:'done', at:'__TS__'}; }
+        else { m=members(r,team); o=m.filter(function(x){ return x!==sid; }); if(!o.length) o=m; u[p+'active']=o[Math.floor(Math.random()*o.length)]; }
+        return u;
+      }
+      if(r.active!==sid || r.step!==step0) return null;
+      u.step=step0+1; u.prev=sid; u['hits.'+(step0+1)]={s:sid, at:'__TS__', rt:(res.rt==null?null:Math.round(res.rt)), pts:(res.pts==null?null:res.pts)};
+      if(step0+1>=tot){ u.state='end'; u.end={r:'done', at:'__TS__'}; }
+      else { o=stations(r).filter(function(x){ return x!==sid; }); u.active=o[Math.floor(Math.random()*o.length)]; }
+      return u;
+    }).catch(function(){ M.busy=false; });
+  } else {
+    sndFail();
+    T().tx(code,function(r){
+      if(!r || r.state!=='play') return null;
+      var u={};
+      if(r.kind==='grp'){
+        var R=r.tm&&r.tm[team]; if(!R || R.out) return null;
+        var p='tm.'+team+'.'; u[p+'out']=true; u[p+'fail']={s:sid, msg:res.msg||'Fallo', at:'__TS__'};
+        var alive=teamsIn(r).filter(function(x){ return x!==team && !r.tm[x].out; });
+        if(alive.length<=1){ u.state='end'; u.win=alive.length?alive[0]:0; u.end={r:'last', at:'__TS__'}; }
+        return u;
+      }
+      return {state:'end', end:{r:'wrong', s:sid, msg:res.msg||'Fallo', at:'__TS__'}};
+    }).catch(function(){ M.busy=false; });
+  }
+}
+function race(d){
+  var h='<div class="mx-race">', ts=teamsIn(d), tot=total(d), i, t, R;
+  for(i=0;i<ts.length;i++){ t=ts[i]; R=d.tm[t]||{}; h+='<div class="mx-row'+(R.out?' out':'')+'">'+chip(t)+'<div class="mx-bar"><i style="width:'+Math.round(100*(R.step||0)/tot)+'%;background:'+TEAMS[t].f+'"></i></div><span class="mx-n">'+(R.out?'&#10005;':(isPts()?teamPts(d,t):(R.step||0)))+'</span></div>'; }
+  return h+'</div>';
+}
+/* ---------- fin ---------- */
+function fmt(ms){ return ms<10000 ? Math.round(ms)+' ms' : secs(ms); }   /* medias de reaccion en ms */
+function secs(ms){ return (ms/1000).toFixed(2).replace('.',',')+' s'; }
+function end(d){
+  timers(); M.tLocal=0;
+  var e=d.end||{}, coach=M.role==='coach', tit='', sub='', rows='', cam=[], H, n, prevAt;
+  var tot=(e.at && d.tPlay)?(e.at-d.tPlay):0;
+  if(d.kind==='grp'){
+    var me=d.pl&&d.pl[M.sid], W=d.win?TEAMS[d.win]:null;
+    if(e.r==='stop') tit='Partida parada'; else if(me && d.win===me.t) tit='¡Habéis ganado!'; else tit=W?('Gana el equipo '+W.n):'Sin ganador';
+    if(e.r==='done') sub=esc(W.n)+': '+total(d)+' en '+secs(tot);
+    else if(e.r==='pts' && W) sub=esc(W.n)+': '+teamPts(d,d.win)+' puntos';
+    else if(e.r==='last' && W) sub=esc(W.n)+' gana porque los demás equipos han fallado';
+    var ts=teamsIn(d).sort(function(a,b){ if(a===d.win) return -1; if(b===d.win) return 1; var X=d.tm[a], Y=d.tm[b]; if(!!X.out!==!!Y.out) return X.out?1:-1; return isPts()?(teamPts(d,b)-teamPts(d,a)):((Y.step||0)-(X.step||0)); });
+    var cl='<div class="mx-cl">', i, t, R, f;
+    for(i=0;i<ts.length;i++){ t=ts[i]; R=d.tm[t]; f=R.fail||{}; cl+='<div class="mx-cr">'+(i+1)+'. '+chip(t)+' <b>'+(isPts()?teamPts(d,t)+' pts':(R.step||0))+'</b>'+(R.out?' · <span class="mx-x">eliminado'+(f.msg?': '+esc(f.msg):'')+(d.pl[f.s]?' ('+esc(d.pl[f.s].ini)+')':'')+'</span>':'')+'</div>'; }
+    sub+=cl+'</div>';
+    var tt=me?me.t:(d.win||ts[0]), ms=members(d,tt), agg={};
+    H=(d.tm[tt]&&d.tm[tt].hits)||{};
+    ms.forEach(function(s){ agg[s]={c:0,rt:0,k:0,p:0}; });
+    for(n in H){ var a=agg[H[n].s]; if(a){ a.c++; a.p+=(H[n].pts||0); if(H[n].rt!=null){ a.rt+=H[n].rt; a.k++; } } }
+    ms.forEach(function(s){ var a=agg[s]; rows+='<tr><td>'+esc(d.pl[s].ini||'?')+(s===M.sid?' *':'')+'</td><td>'+a.c+'</td><td>'+(isPts()?a.p:(a.k?fmt(a.rt/a.k):'--'))+'</td></tr>'; });
+    q('mxEndTab').innerHTML=tt?('<tr><th>'+TEAMS[tt].n+'</th><th>Turnos</th><th>'+(isPts()?'Puntos':'Media')+'</th></tr>'+rows):'';
+    teamsIn(d).forEach(function(x){ var hh=d.tm[x].hits||{}, k; prevAt=d.tPlay; for(k=1;k<=(d.tm[x].step||0);k++){ if(hh[k] && hh[k].at && prevAt){ if(hh[k].rt!=null) cam.push((hh[k].at-prevAt)-hh[k].rt); prevAt=hh[k].at; } } });
+  } else {
+    H=d.hits||{}; var sum=0, k=0, ss=stations(d), ag={}, pt=0;
+    ss.forEach(function(s){ ag[s]={c:0,rt:0,k:0,p:0}; });
+    for(n=1;n<=d.step;n++){ var hh2=H[n]; if(!hh2) continue; pt+=(hh2.pts||0); if(hh2.rt!=null){ sum+=hh2.rt; k++; } if(ag[hh2.s]){ ag[hh2.s].c++; ag[hh2.s].p+=(hh2.pts||0); if(hh2.rt!=null){ ag[hh2.s].rt+=hh2.rt; ag[hh2.s].k++; } } }
+    if(e.r==='done') tit='¡Completado!'; else if(e.r==='wrong') tit='Fallo'; else tit='Partida parada';
+    sub=(isPts()?'<b style="font-size:22px;color:#111">'+pt+' puntos</b> de '+(total(d)*100)+'<br>':(k?'<b style="font-size:22px;color:#111">Media: '+fmt(sum/k)+'</b><br>':''))+'Tiempo total: '+secs(tot)+(e.r!=='done'?' · '+d.step+' de '+total(d):'');
+    if(e.r==='wrong') sub='<span class="mx-x">Estación '+((d.st[e.s]||{}).n||'?')+': '+esc(e.msg||'fallo')+'</span><br>'+sub;
+    ss.forEach(function(s){ var a=ag[s]; rows+='<tr><td>Estación '+d.st[s].n+(s===M.sid?' *':'')+'</td><td>'+a.c+'</td><td>'+(isPts()?a.p:(a.k?fmt(a.rt/a.k):'--'))+'</td></tr>'; });
+    q('mxEndTab').innerHTML='<tr><th>Estación</th><th>Turnos</th><th>'+(isPts()?'Puntos':'Media')+'</th></tr>'+rows;
+    prevAt=d.tPlay; for(n=1;n<=d.step;n++){ var h3=H[n]; if(h3 && h3.at && prevAt){ if(h3.rt!=null) cam.push((h3.at-prevAt)-h3.rt); prevAt=h3.at; } }
+  }
+  q('mxEndT').textContent=tit; q('mxEndS').innerHTML=sub;
+  var cm=cam.length?cam.reduce(function(a,b){ return a+b; },0)/cam.length:0;
+  q('mxEndNet').textContent=cam.length?('Paso de turno (red y espera): '+Math.round(cm)+' ms de media'):'';
+  q('mxAgainW').style.display=coach?'':'none';
+  view('end');
+}
+})();
+</script>
+<script>
+/* ================= MULTI · ADAPTADOR SCHULTE PERCEPTION (v1, 2026-11-27) =================
+   Sustituye al Multi propio de Schulte (schulte-multi*.txt, v4-v9) para que el menu sea el comun de la suite. Mismas reglas decididas
+   por Roberto: 5x5; Individual = cada estacion con su rejilla DIFERENTE, todas visibles (las que esperan, atenuadas), y los numeros
+   encontrados desaparecen en todas (Normal); Grupos = misma rejilla para todos, los numeros SOLO se ven en el movil al que le toca.
+   Normal = los encontrados desaparecen; Extremo = se quedan. Secuencia o Random (la misma lista para todos los equipos).
+   Por defecto: Individual Normal + Secuencia; Grupos Extremo + Random. Numero equivocado = fallo. Con marco y pitido (no es sorpresa). */
+(function(){
+var N=25, C=5;
+(function(){ var s=document.createElement('style'); s.textContent=
+  '.scm{flex:1;display:flex;flex-direction:column;justify-content:center;gap:10px;touch-action:none;}'
+ +'.scm .scm-gw{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;}'
+ +'.scm .grid{margin:0;}'
+ +'.scm.idle .grid{opacity:.3;}.scm.idle .sch-target{background:#8a8a8a;border-top-color:#aaa;}'
+ +'.scm .scm-t{font:800 13px Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#888;text-align:center;}';
+ document.head.appendChild(s); })();
+function found(ctx){ var o=ctx.set.order||[], f={}, i; for(i=0;i<ctx.step && i<o.length;i++) f[o[i]]=1; return f; }
+function vals(ctx){ return ctx.kind==='grp' ? (ctx.set.grid||[]) : ((ctx.set.gr||{})[ctx.sid]||[]); }
+function draw(stage,ctx,show,target,lab,idle){
+  var v=vals(ctx), f=(ctx.cfg.mo==='extremo')?{}:found(ctx), i, h='<div class="scm'+(idle?' idle':'')+'">'+(lab?'<div class="scm-t">'+lab+'</div>':'')
+    +'<div class="sch-target"><span>Busca</span><b>'+(target!=null?schLabel(target):'--')+'</b></div><div class="scm-gw"><div class="grid">';
+  for(i=0;i<N;i++){ var gone=!!f[v[i]]; h+='<div class="sch-cell'+(gone?' gone':'')+'" data-i="'+i+'">'+(show && v[i] && !gone?schLabel(v[i]):'')+'</div>'; }
+  stage.innerHTML=h+'</div></div></div>';
+  var r=stage.firstChild, g=r.querySelector('.grid'); schFit(g, g.parentNode, C); setTimeout(function(){ schFit(g, g.parentNode, C); },30);
+  return r;
+}
+window.MPA={
+  id:'schulte', name:'Schulte Perception',
+  opts:function(kind){ var g=kind==='grp'; return [ {k:'mo', label:'Juego · 5x5', items:[['normal','Normal'],['extremo','Extremo']], def:g?'extremo':'normal'}, {k:'ord', label:'Orden', items:[['sec','Secuencia'],['ran','Random']], def:g?'ran':'sec'} ]; },
+  total:function(){ return N; },
+  modeTxt:function(cfg){ return '5x5 · '+(cfg.mo==='extremo'?'Extremo':'Normal')+' · '+(cfg.ord==='ran'?'Random':'Secuencia'); },
+  rules:function(cfg,kind){ return (kind==='grp'?'Misma rejilla para todos; los números solo se ven en tu turno. ':'Cada estación tiene su rejilla y todas se ven. ')+(cfg.mo==='extremo'?'Extremo: los encontrados se quedan. ':'Normal: los encontrados desaparecen. ')+(cfg.ord==='ran'?'Random: orden aleatorio.':'Secuencia: 1, 2, 3...'); },
+  newSet:function(cfg,kind,ids){
+    var o={order:(cfg.ord==='ran')?schDeal(N):schDeal(N).sort(function(a,b){ return a-b; })};
+    if(kind==='grp') o.grid=schDeal(N); else { o.gr={}; (ids||[]).forEach(function(s){ o.gr[s]=schDeal(N); }); }
+    return o;
+  },
+  idle:function(stage,ctx){
+    var lab=ctx.out?'Equipo eliminado':(ctx.kind==='ind'?'Estación '+(ctx.n||''):'');
+    draw(stage, ctx, ctx.kind==='ind' && !!ctx.set && !!ctx.set.gr, null, lab, true);   /* Individual: tu rejilla atenuada; Grupos: vacia */
+  },
+  active:function(stage,ctx,done){
+    var v=vals(ctx), want=ctx.set.order[ctx.step], nor=ctx.cfg.mo!=='extremo', f=nor?found(ctx):{}, root=draw(stage,ctx,true,want,'',false), g=root.querySelector('.grid'), fin=false, t0=performance.now();
+    function down(e){
+      if(fin) return; if(e.cancelable) e.preventDefault();
+      var i=schHit(g, C, e.clientX, e.clientY, false, function(k){ return v[k]===want; }); if(i<0) return;
+      if(f[v[i]]) return;   /* casilla ya vacia (Normal) */
+      fin=true;
+      if(v[i]===want){ schFlash(g.children[i]); done({ok:true, rt:performance.now()-t0}); }
+      else done({ok:false, msg:'Has pulsado el '+schLabel(v[i])+' y tocaba el '+schLabel(want)});
+    }
+    root.addEventListener('pointerdown', down, {passive:false});
+    return function(){ fin=true; root.removeEventListener('pointerdown', down); };
+  },
+  resize:function(stage){ var g=stage.querySelector('.grid'); if(g) schFit(g, g.parentNode, C); }
+};
+})();
+</script>
+<!-- /RDS MULTI -->
 </body>
 </html>
