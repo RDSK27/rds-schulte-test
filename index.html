@@ -384,7 +384,7 @@ if('serviceWorker' in navigator){
           <button class="start-btn rank-btn" ontouchend="event.stopPropagation();" onclick="showRanking()" aria-label="Ranking"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="#333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 21h8M12 13.5v7.5M7 4h10v5a5 5 0 0 1-10 0V4z"/><path d="M7 4H4v2a3 3 0 0 0 3 3M17 4h3v2a3 3 0 0 1-3 3"/></svg></button>
         </div>
       </div>
-  <div class="app-ver" style="margin-top:6px;padding-top:0;">v10</div>
+  <div class="app-ver" style="margin-top:6px;padding-top:0;">v11</div>
   <div id="user-name-bar" style="margin-top:8px;">
     <div style="display:flex;width:200px;gap:0;margin:0 auto;">
       <input id="user-ini-input" type="text" maxlength="3" placeholder="INI"
@@ -1828,6 +1828,11 @@ window.fbLoad=async function(mode,stim,total){
 'use strict';
 var FB_CFG={apiKey:'AIzaSyBbEgbWddPt_rhPM24bL_Nacp7TAlh1biM',authDomain:'rds-reaction-test.firebaseapp.com',projectId:'rds-reaction-test',storageBucket:'rds-reaction-test.firebasestorage.app',messagingSenderId:'490684952529',appId:'1:490684952529:web:bb53a9813bd58ecdb3baf0'};
 var FB_V='12.14.0';
+/* 28-nov (Roberto): solo el ADMINISTRADOR crea salas. Codigo pedido una vez por movil (se recuerda en localStorage y vale para todas las apps
+   de la suite, mismo origen). En el codigo solo esta la huella SHA-256 de 'rds-multi-admin:<codigo>', no el codigo. */
+var ADMIN_H='4eaea4216501125378c0913db6567cc7764989f667f4ce59edfaee20d95ba617';
+function isAdmin(){ try{ return localStorage.getItem('rds_mp_admin')===ADMIN_H; }catch(e){ return false; } }
+function sha(t){ try{ return crypto.subtle.digest('SHA-256', new TextEncoder().encode(t)).then(function(b){ return Array.prototype.map.call(new Uint8Array(b), function(x){ return ('0'+x.toString(16)).slice(-2); }).join(''); }); }catch(e){ return Promise.reject(e); } }
 var TEAMS=[null,{n:'Rojo',c:'#b03020',f:'#b03020',t:'#fff'},{n:'Azul',c:'#1f5fbf',f:'#1f5fbf',t:'#fff'},{n:'Verde',c:'#1e8a3c',f:'#1e8a3c',t:'#fff'},{n:'Blanco',c:'#f4f4f2',f:'#111',t:'#111'}];
 var M={ built:false, on:false, code:'', sid:'', role:'', d:null, unsub:null, view:'', kind:'ind', nT:2, role0:'est', cfg:{},
         turnKey:'', clean:null, busy:false, idleKey:'', cdIv:0, tickIv:0, tLocal:0, lastRound:-1, wl:null, ac:null };
@@ -1974,7 +1979,23 @@ function css(){
   '#mpx .mx-tab th{font-size:12px;color:#666;text-transform:uppercase;letter-spacing:.06em;}',
   '#mpx .mx-cl{display:flex;flex-direction:column;gap:6px;margin-top:10px;text-align:left;}',
   '#mpx .mx-cr{font:700 14px Arial,sans-serif;}#mpx .mx-x{color:#b03020;}',
-  '#mpx .mx-big2{width:100%;display:flex;flex-direction:column;gap:12px;}'
+  '#mpx .mx-big2{width:100%;display:flex;flex-direction:column;gap:12px;}',
+  /* 28-nov (Roberto): la pantalla Crear sala del entrenador, mas compacta para que quepa entera sin desplazarse */
+  '#mxV_create .mx-pb{gap:7px;padding:8px 12px 10px;}',
+  '#mxV_create .mx-card{padding:8px 10px;gap:5px;border-width:2px;}',
+  '#mxV_create .mx-lbl{font-size:10px;}',
+  '#mxV_create .mx-tiles{gap:8px;}',
+  '#mxV_create .mx-tiles button{flex-direction:row;justify-content:center;gap:8px;padding:6px 6px;}',
+  '#mxV_create .mx-tiles svg{width:30px;height:24px;margin:0;}',
+  '#mxV_create .mx-tiles b{font-size:14px;}',
+  '#mxV_create .mx-tiles span{display:none;}#mxV_create .mx-tiles span.mx-chips{display:flex;margin:0;}#mxV_create .mx-chips i{width:8px;height:16px;}',
+  '#mxV_create .mx-seg{border-top-width:3px;}#mxV_create .mx-seg button{height:32px;font-size:12px;}',
+  '#mxV_create .mx-teams span{font-size:10px;padding:2px 5px;}',
+  '#mxV_create .mx-hint{font-size:11px;line-height:1.25;}',
+  '#mxV_create .mx-ath input,#mxV_create .mx-ath select{height:38px;}#mxV_create .mx-ath input{font-size:19px;}',
+  '#mxV_create .mx-rbrow{padding-top:2px;}#mxV_create .mx-rb{width:66px;height:66px;}',
+  '#mxV_create .mx-err{min-height:0;}',
+  '#mxV_create .mx-hdr{height:44px;}#mxV_create .mx-seg button{height:30px;}'
   ].join('');
   document.head.appendChild(s);
 }
@@ -1988,6 +2009,11 @@ function build(){
     +'<div class="mx-big2"><button type="button" class="mx-big" data-a="create"><span class="mx-ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="7" r="3.5"/><path d="M5 21c0-4 3-6.5 7-6.5s7 2.5 7 6.5"/><path d="M19 3l2 2-2 2" stroke="#e0533a"/></svg></span><span><b>Crear sala</b><em>Soy el entrenador: elijo el ejercicio y doy los c&oacute;digos</em></span></button>'
     +'<button type="button" class="mx-big alt" data-a="join"><span class="mx-ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2"/><path d="M10 18h4"/><path d="M2 12h6M5 9l3 3-3 3" stroke="#e0533a"/></svg></span><span><b>Unirme</b><em>Tengo un c&oacute;digo de sala o de equipo</em></span></button></div>'
     +'<div class="mx-err" id="mxMenuMsg"></div><div class="mx-note">Todos los m&oacute;viles necesitan conexi&oacute;n (datos o la misma wifi).</div></div></div>'
+   +'<div class="mx-v" id="mxV_admin">'+hdr('menu','Administrador')+'<div class="mx-pb">'
+    +'<div class="mx-ttl" style="font-size:24px;margin-top:8px">C&oacute;digo<small>Solo el administrador puede crear salas</small></div>'
+    +'<label class="mx-otp"><input id="mxAdm" type="password" inputmode="numeric" pattern="[0-9]*" maxlength="4" autocomplete="off" aria-label="C&oacute;digo de administrador"><span></span><span></span><span></span><span></span></label>'
+    +'<div class="mx-p" style="font-size:12px">Se pide una sola vez en este m&oacute;vil.</div>'
+    +'<div class="mx-err" id="mxAdmErr"></div><div class="mx-rbrow"><div class="mx-rb"><button type="button" class="blk" data-a="doadmin">Entrar</button></div></div></div></div>'
    +'<div class="mx-v" id="mxV_create">'+hdr('menu','Crear sala')+'<div class="mx-pb" id="mxCreate"></div></div>'
    +'<div class="mx-v" id="mxV_join">'+hdr('menu','Unirme')+'<div class="mx-pb">'
     +'<div class="mx-ttl" style="font-size:26px;margin-top:8px">C&oacute;digo<small>Te lo da el entrenador o tu capit&aacute;n</small></div>'
@@ -2007,10 +2033,11 @@ function build(){
   var c=q('mxCode');
   c.addEventListener('input', function(){ this.value=this.value.replace(/\D/g,'').slice(0,4); otp(); if(this.value.length===4){ try{ q('mxIni').focus(); }catch(e){} } });
   c.addEventListener('focus',otp); c.addEventListener('blur',otp);
+  var ad=q('mxAdm'); ad.addEventListener('input', function(){ this.value=this.value.replace(/\D/g,'').slice(0,4); otp(); msg('mxAdmErr',''); if(this.value.length===4) admin(); }); ad.addEventListener('focus',otp); ad.addEventListener('blur',otp);
   q('mxIni').addEventListener('input', function(){ this.value=this.value.toUpperCase().replace(/[^A-Z]/g,'').slice(0,3); });
   window.addEventListener('resize', function(){ if(M.view==='play' && A().resize) try{ A().resize(q('mxStage')); }catch(e){} });
 }
-function otp(){ var v=(q('mxCode').value||'').slice(0,4), sp=document.querySelectorAll('#mpx .mx-otp span'), i; for(i=0;i<sp.length;i++){ sp[i].textContent=v.charAt(i)||''; sp[i].classList.toggle('cur', i===Math.min(v.length,3) && document.activeElement===q('mxCode')); } }
+function otp(){ var ls=document.querySelectorAll('#mpx .mx-otp'), j, i; for(j=0;j<ls.length;j++){ var inp=ls[j].querySelector('input'), v=(inp.value||'').slice(0,4), sp=ls[j].querySelectorAll('span'), hid=(inp.type==='password'); for(i=0;i<sp.length;i++){ sp[i].textContent=v.charAt(i)?(hid?'\u25CF':v.charAt(i)):''; sp[i].classList.toggle('cur', i===Math.min(v.length,3) && document.activeElement===inp); } } }
 function view(v){ M.view=v; var vs=document.querySelectorAll('#mpx .mx-v'), i; for(i=0;i<vs.length;i++) vs[i].style.display=(vs[i].id==='mxV_'+v)?'flex':'none'; }
 function msg(id,t){ var e=q(id); if(e) e.textContent=t||''; }
 function onClick(e){
@@ -2021,7 +2048,8 @@ function onClick(e){
   var a=b.getAttribute('data-a');
   if(a==='exit') return exit();
   if(a==='menu'){ msg('mxMenuMsg',''); return view('menu'); }
-  if(a==='create'){ defaults(); drawCreate(); return view('create'); }
+  if(a==='create'){ if(!isAdmin()){ q('mxAdm').value=''; msg('mxAdmErr',''); view('admin'); otp(); try{ q('mxAdm').focus(); }catch(_){} return; } defaults(); drawCreate(); return view('create'); }
+  if(a==='doadmin') return admin();
   if(a==='join'){ msg('mxJoinErr',''); view('join'); otp(); try{ q('mxCode').focus(); }catch(_){} return; }
   if(a==='docreate') return create();
   if(a==='dojoin') return join();
@@ -2029,6 +2057,15 @@ function onClick(e){
   if(a==='stop') return stopGame();
   if(a==='leave') return leave();
   if(a==='move') return move(b.getAttribute('data-sid'));
+}
+function admin(){
+  var v=(q('mxAdm').value||'').replace(/\D/g,'');
+  if(v.length!==4){ msg('mxAdmErr','Escribe el c\u00f3digo de 4 cifras.'); return; }
+  sha('rds-multi-admin:'+v).then(function(h){
+    if(h!==ADMIN_H){ msg('mxAdmErr','C\u00f3digo incorrecto.'); q('mxAdm').value=''; otp(); return; }
+    try{ localStorage.setItem('rds_mp_admin',h); }catch(e){}
+    defaults(); drawCreate(); view('create');
+  }).catch(function(){ msg('mxAdmErr','Este navegador no puede comprobar el c\u00f3digo.'); });
 }
 /* ---------- entrar / salir ---------- */
 function homeIni(){ var e=q('user-ini-input')||q('user-name-input')||document.querySelector('input[placeholder="INI"]'); return ((e&&e.value)||'').toUpperCase().replace(/[^A-Z]/g,'').slice(0,3); }
@@ -2063,7 +2100,7 @@ function drawCreate(){
   if(g){ h+='<div class="mx-lbl">Equipos</div>'+seg('nT',[['2','2'],['3','3'],['4','4']],M.nT)+'<div class="mx-teams">'; for(t=1;t<=4;t++) h+='<span style="background:'+TEAMS[t].c+';color:'+TEAMS[t].t+';'+(t>M.nT?'opacity:.28':'')+'">'+TEAMS[t].n+'</span>'; h+='</div>'; }
   o.forEach(function(r){ h+='<div class="mx-lbl">'+esc(r.label)+'</div>'+seg(r.k,r.items,M.cfg[r.k]); });
   var rl=(A().rules?A().rules(M.cfg,M.kind):'')||'';
-  h+='<div class="mx-hint">'+(g?'Solo juega el m&oacute;vil al que le toca; el siguiente es un compa&ntilde;ero al azar. Fallo = equipo eliminado. Gana el primero en terminar. ':'El turno salta de un m&oacute;vil a otro al azar. Un fallo termina. Cuenta la media de tus tiempos. ')+esc(rl)+'</div></div>';
+  h+='<div class="mx-hint">'+(g?'Fallo = equipo eliminado. ':'Un fallo termina. ')+esc(rl)+'</div></div>';
   h+='<div class="mx-card"><div class="mx-lbl">Mi m&oacute;vil</div>'+seg('role',[['est',g?'Juego (Rojo)':'Participa'],['dir','Solo dirijo']],M.role0);
   if(!(g && M.role0==='dir')){
     h+='<div class="mx-lbl">'+(g?'Tus iniciales':'Deportista')+'</div><div class="mx-ath"><input id="mxAthIni" type="text" maxlength="3" placeholder="INI" autocomplete="off" value="'+esc(keepIni)+'">';
